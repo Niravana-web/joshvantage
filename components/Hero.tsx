@@ -47,7 +47,12 @@ export default function Hero() {
 
       {/* Nav */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-10">
-        <div className="w-24" />
+        <a
+          href="/"
+          className="text-xs font-bold tracking-[0.2em] text-white md:w-24"
+        >
+          JOSH VANTAGE
+        </a>
         <nav className="hidden gap-7 md:flex">
           {NAV.map((item) => (
             <a
@@ -77,7 +82,7 @@ export default function Hero() {
       </header>
 
       {/* Statement, top-right like TIWIS */}
-      <div className="hero-statement absolute right-6 top-[24vh] z-10 max-w-md md:right-14">
+      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-md">
         <p className="text-3xl font-semibold tracking-wide text-white md:text-4xl">
           BUILD. GROW. LEAD.
         </p>

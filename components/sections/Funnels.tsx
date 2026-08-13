@@ -49,7 +49,10 @@ export default function Funnels() {
   useEffect(() => {
     const el = pin.current;
     if (!el) return;
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia(el);
+
+    // Desktop: pinned, scroll-scrubbed sequence
+    mm.add("(min-width: 768px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
@@ -71,15 +74,29 @@ export default function Funnels() {
         "+=0.2",
       );
       tl.to({}, { duration: 0.8 }); // hold before unpin
-    }, el);
-    return () => ctx.revert();
+    });
+
+    // Mobile: normal flow, each card reveals as it enters the viewport
+    mm.add("(max-width: 767px)", () => {
+      gsap.utils.toArray<HTMLElement>(".funnel-card").forEach((card) => {
+        gsap.from(card, {
+          autoAlpha: 0,
+          y: 50,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: { trigger: card, start: "top 85%" },
+        });
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <section className="funnels-bg">
       <div
         ref={pin}
-        className="relative flex h-screen flex-col justify-center overflow-hidden px-6 md:px-12"
+        className="relative flex flex-col justify-center px-6 py-20 md:h-screen md:overflow-hidden md:py-0 md:px-12"
       >
         <div className="funnels-head mx-auto w-full max-w-6xl">
           <p className="eyebrow-mono text-[--brand-pale]">/YOUR JOURNEY</p>
