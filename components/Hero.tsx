@@ -47,11 +47,13 @@ export default function Hero() {
 
       {/* Nav */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-10">
-        <a
-          href="/"
-          className="text-xs font-bold tracking-[0.2em] text-white md:w-24"
-        >
-          JOSH VANTAGE
+        <a href="/" className="md:w-24">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Josh Vantage Consulting Group"
+            className="h-14 w-auto"
+          />
         </a>
         <nav className="hidden gap-7 md:flex">
           {NAV.map((item) => (
@@ -84,7 +86,7 @@ export default function Hero() {
       {/* Statement, top-right like TIWIS */}
       <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-md">
         <p className="text-3xl font-semibold tracking-wide text-white md:text-4xl">
-          BUILD. GROW. LEAD.
+          JOSH VANTAGE
         </p>
         <p className="mt-5 text-lg font-light leading-relaxed text-[var(--ice)]">
           Specialist support for people building care businesses, established
@@ -94,7 +96,7 @@ export default function Hero() {
       </div>
 
       {/* Giant cropped wordmark */}
-      <h1 className="hero-wordmark z-10">JOSH VANTAGE</h1>
+      <h1 className="hero-wordmark z-10">BUILD. GROW. LEAD.</h1>
     </section>
   );
 }

@@ -20,8 +20,13 @@ export default function FunnelHero({
         <div className="silk-blob b3" />
       </div>
       <header className="relative z-10 flex items-center justify-between px-6 py-5 md:px-10">
-        <a href="/" className="text-sm font-semibold tracking-widest text-white">
-          JOSH VANTAGE
+        <a href="/">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Josh Vantage Consulting Group"
+            className="h-14 w-auto"
+          />
         </a>
       </header>
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col items-start justify-center px-6 pb-24">
