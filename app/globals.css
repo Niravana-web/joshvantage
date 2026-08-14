@@ -63,6 +63,13 @@ body {
   overflow: hidden;
   background: linear-gradient(160deg, #0b153f 0%, #13226a 45%, #060d24 100%);
 }
+.silk-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .silk-blob {
   position: absolute;
   border-radius: 50%;
@@ -225,25 +232,46 @@ body {
 }
 
 /* ---- Funnel pathway cards ---- */
+/* continues the hero's silk: mirrored texture fading into brand navy,
+   so the hero -> journey boundary reads as one continuous surface */
 .funnels-bg {
-  background:
-    radial-gradient(ellipse 90vw 50vh at 50% -10%, rgba(178, 216, 240, 0.14), transparent 65%),
-    var(--brand-navy);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #060d24 0%, #0b153f 45%, #101d59 100%);
+}
+.funnels-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/hero-silk.webp") center / cover no-repeat;
+  transform: scaleY(-1);
+  opacity: 0.4;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+  pointer-events: none;
+}
+.funnels-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 .funnel-card {
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 26px 26px 30px;
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(9, 17, 48, 0.45);
   border: 1px solid rgba(178, 216, 240, 0.22);
   clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%);
+  box-shadow: 0 30px 60px -35px rgba(0, 0, 0, 0.8);
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.4s, border-color 0.4s;
 }
 .funnel-card:hover,
 .funnel-card:focus-visible {
   transform: translateY(-8px);
-  background: rgba(178, 216, 240, 0.09);
+  background: rgba(19, 34, 106, 0.55);
   border-color: rgba(178, 216, 240, 0.55);
 }
 .funnel-arrow {

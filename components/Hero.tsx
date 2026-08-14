@@ -39,6 +39,8 @@ export default function Hero() {
   return (
     <section ref={ref} className="relative h-screen">
       <div className="silk">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/hero-silk.webp" alt="" aria-hidden className="silk-img" />
         <div className="silk-blob b1" />
         <div className="silk-blob b2" />
         <div className="silk-blob b3" />
