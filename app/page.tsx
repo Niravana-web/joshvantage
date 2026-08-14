@@ -13,14 +13,18 @@ export default function Home() {
     <SmoothScroll>
       <main>
         <Splash />
-        {/* One silk stage: a sticky viewport-height background the hero and
-            journey sections both scroll over, so the texture and blob motion
-            continue seamlessly between them. */}
+        {/* One tall silk canvas that scrolls WITH the page: the hero sits on
+            the silk-rich top, then the same surface continues down through
+            Your Journey, the texture fading into brand navy. */}
         <div className="relative">
-          <div className="silk-stage" aria-hidden>
-            <div className="silk">
+          <div className="silk-span" aria-hidden>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/hero-silk.webp" alt="" className="silk-span-img" />
+            <div className="silk-mirror">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/hero-silk.webp" alt="" className="silk-img" />
+              <img src="/hero-silk.webp" alt="" />
+            </div>
+            <div className="silk-hero-layer">
               <div className="silk-blob b1" />
               <div className="silk-blob b2" />
               <div className="silk-blob b3" />
