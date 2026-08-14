@@ -3,10 +3,13 @@ import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 
 /*
- * JV Launch package comparison — single consistent table per the client's
- * final offer spec (JV_Launch_Packages_Deliverables_Addons.pdf).
- * Add-ons are deliberately separate from the core comparison, and the only
- * conversion action is the readiness assessment (no checkout).
+ * JV Launch package comparison — per the client's final offer spec
+ * (JV_Launch_Packages_Deliverables_Addons.pdf) and follow-up feedback:
+ * deliverables shared by all three packages sit in a compact checklist so
+ * the comparison table only shows what differs by level; only four add-ons
+ * are shown publicly and stay visually secondary; disclaimer wording is
+ * client-supplied verbatim. The only conversion action is the readiness
+ * assessment (no checkout).
  */
 
 const TIERS = [
@@ -30,19 +33,27 @@ const TIERS = [
   },
 ];
 
+/* Deliverables included at every level — pulled out of the table so the
+ * comparison only has to carry what actually differs. */
+const CORE_INCLUDED = [
+  "CQC Readiness & Registration Assessment",
+  "Service & Business Model Review",
+  "Registration Strategy Session & Personalised Registration Roadmap",
+  "CQC Application Preparation",
+  "Statement of Purpose Preparation",
+  "Bespoke Business Plan",
+  "12-Month Financial Viability Forecast",
+  "CQC Application Review & Quality Assurance",
+  "Application Submission Guidance",
+  "DBS & Registration Checks Guidance",
+];
+
 type Cell = true | null | string;
 
 const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] }[] }[] = [
   {
     label: "REGISTRATION",
     rows: [
-      { label: "CQC Readiness & Registration Assessment", cells: [true, true, true] },
-      { label: "Service & Business Model Review", cells: [true, true, true] },
-      { label: "Registration Strategy Session & Personalised Registration Roadmap", cells: [true, true, true] },
-      { label: "CQC Application Preparation", cells: [true, true, true] },
-      { label: "Statement of Purpose Preparation", cells: [true, true, true] },
-      { label: "Bespoke Business Plan", cells: [true, true, true] },
-      { label: "12-Month Financial Viability Forecast", cells: [true, true, true] },
       {
         label: "Policies & Procedures",
         cells: [
@@ -51,9 +62,6 @@ const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] 
           "Full operational policy suite",
         ],
       },
-      { label: "CQC Application Review & Quality Assurance", cells: [true, true, true] },
-      { label: "Application Submission Guidance", cells: [true, true, true] },
-      { label: "DBS & Registration Checks Guidance", cells: [true, true, true] },
       { label: "Pre-submission document revisions", cells: ["2 rounds", "3 rounds", "5 rounds"] },
     ],
   },
@@ -111,79 +119,46 @@ const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] 
   },
 ];
 
-const ADDONS = [
-  {
-    name: "Care Business Starter Branding Pack",
-    price: "£399",
-    scope:
-      "Basic professional care-business website, logo design and 2 digital marketing leaflets. Includes 1 revision round. Domain, hosting and paid third-party services are separate.",
-  },
-  {
-    name: "NI Interview Readiness Programme",
-    price: "£399",
-    scope:
-      "2 x 60-minute preparation sessions + 1 x 60-minute mock CQC interview + personalised feedback/action plan. 3 hours total live 1-to-1 support.",
-  },
-  {
-    name: "RM Interview Readiness Programme",
-    price: "£399",
-    scope:
-      "2 x 60-minute preparation sessions + 1 x 60-minute mock CQC interview + personalised feedback/action plan. 3 hours total live 1-to-1 support.",
-  },
-  {
-    name: "Additional NI/RM Preparation",
-    price: "£149",
-    scope: "One additional 60-minute 1-to-1 preparation session.",
-  },
-  {
-    name: "Additional Mock CQC Interview",
-    price: "£199",
-    scope: "One additional 60-minute structured mock interview including feedback.",
-  },
-  {
-    name: "Registered Manager Sourcing & Placement",
-    price: "£2,500 fixed success fee",
-    scope:
-      "Provider requirement assessment, candidate matching from the available RM talent network, initial suitability screening, candidate introduction and interview coordination. Triggered on the agreed successful-placement event. Candidate availability, employment outcome and CQC acceptance are not guaranteed.",
-  },
+/* Only these four add-ons are displayed publicly (client instruction).
+ * Everything else in the full add-on catalogue is quoted privately after
+ * the assessment and strategy call. */
+const ADDONS: { name: string; price: string; scope: string; note?: string }[] = [
   {
     name: "Non-Regulated Service Launch Pathway",
     price: "£999",
     scope:
-      "Standalone option for clients whose core package does not include it. Suitability/service-model review, definition of the proposed non-regulated offer, scope/boundary guidance, launch strategy session and personalised launch action plan. No guarantee of clients or revenue.",
+      "Available with any package — where appropriate, you may be able to structure a suitable non-regulated service while your CQC application progresses. Already included within the £4,999 and £6,999 packages.",
+    note: "Where appropriate, we help clients explore and structure a non-regulated service pathway while their CQC registration is progressing. Suitability depends on the proposed service and activities. We do not guarantee client acquisition, revenue, profitability or business success.",
   },
   {
-    name: "Additional Launch Consultancy",
-    price: "£199",
-    scope:
-      "One additional 60-minute 1-to-1 launch consultancy session. Document production outside the agreed scope is not included.",
+    name: "Care Business Starter Branding Pack",
+    price: "£399",
+    scope: "Website + logo + 2 digital leaflets.",
   },
   {
-    name: "Additional Bespoke Documentation",
-    price: "Quoted separately",
-    scope: "For substantial new documents or major changes outside the original package scope.",
+    name: "NI Interview Readiness Programme",
+    price: "£399",
+    scope: "2 preparation sessions + 1 mock CQC interview + feedback.",
   },
   {
-    name: "Extended CQC Support",
-    price: "Quoted separately",
-    scope:
-      "Additional support after the package's included post-submission support period has expired.",
-  },
-  {
-    name: "Sponsor Licence Solicitor Referral",
-    price: "Solicitor quotes separately",
-    scope:
-      "Introduction to a specialist solicitor partner where required. Legal services, Home Office fees and solicitor charges are separate from JV Launch packages.",
+    name: "RM Interview Readiness Programme",
+    price: "£399",
+    scope: "2 preparation sessions + 1 mock CQC interview + feedback.",
   },
 ];
+
+const INTERVIEW_ADDON_NOTE =
+  "Interview preparation and mentoring are designed to improve readiness and confidence. We do not guarantee CQC approval, Registered Manager status, interview outcomes or employment.";
+
+const PRICING_DISCLAIMER =
+  "Important: Josh Vantage Consulting Group provides consultancy, preparation and business support. CQC registration decisions are made solely by the Care Quality Commission. We do not guarantee registration, approval or specific regulatory outcomes.";
 
 const SCOPE_NOTES = [
   "Support periods begin from the agreed application submission date.",
   "Revisions and post-submission support apply only within the original agreed registration scope. Material changes to the service model, regulated activity, location structure or application may require a separate quote.",
   "Application Submission Guidance means Josh Vantage prepares/reviews the agreed work and guides the client through submission. The provider and relevant registered persons remain responsible for reviewing, confirming and submitting their application and declarations.",
   "Launch Readiness is advisory: Josh Vantage assesses, advises and creates the roadmap. It does not include configuring care-management software, recruiting the full workforce, running rotas, payroll, purchasing insurance or operating the client's business.",
-  "The Non-Regulated Service Launch Pathway is subject to suitability. It does not guarantee clients, revenue, profitability or business success.",
-  "Josh Vantage does not guarantee CQC registration, Registered Manager acceptance, clients, revenue, sponsor licence approval or employment outcomes. The exact client scope is confirmed after the assessment and strategy call, and must match the signed proposal and service agreement.",
+  "The exact client scope is confirmed after the assessment and strategy call, and must match the signed proposal and service agreement.",
 ];
 
 function cell(v: Cell) {
@@ -205,11 +180,27 @@ export default function LaunchPackages() {
           intro="Three levels of paid delivery sit behind JV Launch, built on the same deliverables at increasing depth. The assessment comes first — the right level is confirmed on your strategy call, never sold off the page."
         />
 
+        {/* Shared foundation — keeps the comparison table down to what differs */}
         <Reveal className="mt-12">
-          <p className="eyebrow-mono mb-3 text-[#8a8a83] md:hidden">
-            SWIPE TO COMPARE &#8594;
-          </p>
-          <div className="notch-card border border-black/5 bg-white">
+          <div className="notch-card border border-black/5 bg-white p-7 md:p-9">
+            <p className="eyebrow-mono text-[#8a8a83]">/INCLUDED IN EVERY PACKAGE</p>
+            <ul className="mt-5 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+              {CORE_INCLUDED.map((item) => (
+                <li key={item} className="flex gap-2.5 text-[14px] leading-snug text-[#33332f]">
+                  <span aria-hidden className="font-semibold text-[var(--brand-navy)]">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <Reveal className="mt-10">
+          <div className="flex items-end justify-between gap-6">
+            <p className="eyebrow-mono text-[#8a8a83]">/WHAT DIFFERS BY LEVEL</p>
+            <p className="eyebrow-mono text-[#8a8a83] md:hidden">SWIPE &#8594;</p>
+          </div>
+          <div className="notch-card mt-3 border border-black/5 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[680px] table-fixed border-collapse text-left">
                 <thead>
@@ -272,7 +263,12 @@ export default function LaunchPackages() {
             </div>
           </div>
 
-          <div className="mt-10 flex justify-center">
+          {/* Client-mandated wording — directly below the package/pricing section */}
+          <p className="mx-auto mt-8 max-w-3xl text-center text-[13px] leading-relaxed text-[#6b6b64]">
+            {PRICING_DISCLAIMER}
+          </p>
+
+          <div className="mt-8 flex justify-center">
             <a
               href="#assessment"
               className="flex h-13 items-center rounded-full bg-[var(--brand-navy)] px-9 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
@@ -282,7 +278,7 @@ export default function LaunchPackages() {
           </div>
         </Reveal>
 
-        {/* Optional add-ons — deliberately separate from the core comparison */}
+        {/* Optional add-ons — deliberately secondary to the core packages */}
         <Reveal className="mt-20">
           <div
             className="rule"
@@ -293,22 +289,34 @@ export default function LaunchPackages() {
           />
           <p className="eyebrow-mono mt-3">/OPTIONAL ADD-ONS</p>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4c4c47]">
-            Available alongside any package, priced separately. Add-ons are not
-            included in the three core packages.
+            Available alongside any package, priced separately. Whether an
+            add-on is appropriate is confirmed after your assessment and
+            strategy call.
           </p>
           <div className="mt-8 divide-y divide-black/5 border border-black/5 bg-white">
             {ADDONS.map((a) => (
-              <div key={a.name} className="flex flex-col gap-1.5 px-6 py-5 sm:flex-row sm:gap-8">
-                <div className="flex-1">
-                  <p className="text-[14.5px] font-medium">{a.name}</p>
-                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#4c4c47]">{a.scope}</p>
+              <div key={a.name} className="px-6 py-5">
+                <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-8">
+                  <div className="flex-1">
+                    <p className="text-[14.5px] font-medium">{a.name}</p>
+                    <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#4c4c47]">{a.scope}</p>
+                  </div>
+                  <p className="shrink-0 text-[14.5px] font-semibold text-[var(--brand-navy)] sm:w-44 sm:text-right">
+                    {a.price}
+                  </p>
                 </div>
-                <p className="shrink-0 text-[14.5px] font-semibold text-[var(--brand-navy)] sm:w-44 sm:text-right">
-                  {a.price}
-                </p>
+                {a.note && (
+                  <p className="mt-3 border-l-2 border-black/10 pl-4 text-[12px] leading-relaxed text-[#8a8a83]">
+                    {a.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
+          {/* Client-mandated wording — directly under the NI/RM interview add-ons */}
+          <p className="mt-4 text-[12px] leading-relaxed text-[#8a8a83]">
+            {INTERVIEW_ADDON_NOTE}
+          </p>
         </Reveal>
 
         {/* Scope boundaries */}

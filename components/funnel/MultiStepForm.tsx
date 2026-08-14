@@ -160,6 +160,15 @@ export default function MultiStepForm({
               <p className="mt-4 text-[13.5px] font-medium text-red-700">{error}</p>
             )}
 
+            {stepIdx === steps.length - 1 && (
+              <p className="mt-6 text-[12px] leading-relaxed text-[#8a8a83]">
+                The assessment is used to understand your circumstances and
+                determine whether our services may be suitable. Completing the
+                assessment does not guarantee acceptance as a client or any CQC
+                outcome.
+              </p>
+            )}
+
             <div className="mt-8 flex items-center justify-between">
               {stepIdx > 0 ? (
                 <button

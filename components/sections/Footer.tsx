@@ -62,9 +62,17 @@ export default function Footer() {
           </nav>
         ))}
       </div>
-      <p className="eyebrow-mono relative z-10 mx-auto mt-20 max-w-6xl border-t border-white/10 pt-6 text-[12px] text-white/40">
-        &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.
-      </p>
+      <div className="relative z-10 mx-auto mt-20 max-w-6xl border-t border-white/10 pt-6">
+        <p className="max-w-4xl text-[12px] leading-relaxed text-white/40">
+          Josh Vantage Consulting Group provides consultancy, training and
+          business support services. Regulatory, employment, commercial and
+          business outcomes depend on individual circumstances and decisions
+          made by relevant third parties. No specific outcome is guaranteed.
+        </p>
+        <p className="eyebrow-mono mt-5 text-[12px] text-white/40">
+          &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.
+        </p>
+      </div>
     </footer>
   );
 }

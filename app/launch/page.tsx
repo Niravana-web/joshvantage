@@ -4,6 +4,7 @@ import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
 import LaunchPackages from "@/components/funnel/LaunchPackages";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
+import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/sections/Footer";
@@ -130,6 +131,7 @@ export default function LaunchPage() {
         />
 
         <Footer />
+        <StickyAssessmentCta label="Take the free CQC assessment" />
       </main>
     </SmoothScroll>
   );
