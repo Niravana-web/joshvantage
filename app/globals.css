@@ -24,7 +24,8 @@ html,
 body {
   background: var(--navy-deepest);
   color: var(--white);
-  overflow-x: hidden;
+  /* clip, not hidden: hidden creates a scroll container that breaks position:sticky */
+  overflow-x: clip;
 }
 
 /* ---- Splash ---- */
@@ -54,6 +55,15 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* Sticky full-viewport stage carrying the silk while hero + journey scroll over it */
+.silk-stage {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100vh;
+  margin-bottom: -100vh;
 }
 
 /* ---- Hero silk background ---- */

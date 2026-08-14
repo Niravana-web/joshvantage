@@ -93,7 +93,7 @@ export default function Funnels() {
   }, []);
 
   return (
-    <section className="funnels-bg">
+    <section className="relative z-10">
       <div
         ref={pin}
         className="relative flex flex-col justify-center px-6 py-20 md:h-screen md:overflow-hidden md:py-0 md:px-12"

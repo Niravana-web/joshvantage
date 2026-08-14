@@ -13,13 +13,31 @@ export default function Home() {
     <SmoothScroll>
       <main>
         <Splash />
-        <Hero />
-        <Funnels />
-        <ValueAreas />
-        <Method />
-        <Faq />
-        <Insights />
-        <Footer />
+        {/* One silk stage: a sticky viewport-height background the hero and
+            journey sections both scroll over, so the texture and blob motion
+            continue seamlessly between them. */}
+        <div className="relative">
+          <div className="silk-stage" aria-hidden>
+            <div className="silk">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero-silk.webp" alt="" className="silk-img" />
+              <div className="silk-blob b1" />
+              <div className="silk-blob b2" />
+              <div className="silk-blob b3" />
+              <div className="silk-blob b4" />
+            </div>
+          </div>
+          <Hero />
+          <Funnels />
+        </div>
+        {/* z-10 so the sticky silk stage can never bleed over these sections */}
+        <div className="relative z-10">
+          <ValueAreas />
+          <Method />
+          <Faq />
+          <Insights />
+          <Footer />
+        </div>
       </main>
     </SmoothScroll>
   );

@@ -37,16 +37,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={ref} className="relative h-screen">
-      <div className="silk">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/hero-silk.webp" alt="" aria-hidden className="silk-img" />
-        <div className="silk-blob b1" />
-        <div className="silk-blob b2" />
-        <div className="silk-blob b3" />
-        <div className="silk-blob b4" />
-      </div>
-
+    <section ref={ref} className="relative z-10 h-screen">
       {/* Nav */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-10">
         <a href="/" className="md:w-24">
