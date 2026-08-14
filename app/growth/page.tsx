@@ -105,7 +105,7 @@ export default function GrowthPage() {
           ]}
         />
 
-        <MultiStepForm
+        <MultiStepForm funnel="growth"
           eyebrow="TENDER ASSESSMENT"
           title="Tender Assessment"
           intro="Complete the assessment to help us understand your tender opportunity and the support you may need."

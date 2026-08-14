@@ -142,7 +142,7 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        <MultiStepForm
+        <MultiStepForm funnel="academy"
           eyebrow="APPLICATION"
           title="Apply for the CQC Mastery Manager Programme"
           intro="This is an application, not an automatic enrolment. The purpose is to understand your experience, goals, current capability and whether the programme is appropriate."

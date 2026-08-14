@@ -19,6 +19,7 @@ export type FormStep = { title: string; fields: Field[] };
  */
 export default function MultiStepForm({
   id = "assessment",
+  funnel,
   eyebrow,
   title,
   intro,
@@ -27,6 +28,7 @@ export default function MultiStepForm({
   calendlyUrl,
 }: {
   id?: string;
+  funnel: "launch" | "growth" | "academy";
   eyebrow: string;
   title: string;
   intro: string;
@@ -38,6 +40,7 @@ export default function MultiStepForm({
   const [values, setValues] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const step = steps[stepIdx];
   const pct = Math.round(((stepIdx + 1) / steps.length) * 100);
@@ -47,7 +50,7 @@ export default function MultiStepForm({
     setError("");
   };
 
-  const next = () => {
+  const next = async () => {
     const missing = step.fields.find(
       (f) => f.required !== false && !values[f.name]?.trim(),
     );
@@ -55,8 +58,26 @@ export default function MultiStepForm({
       setError(`Please complete: ${missing.label}`);
       return;
     }
-    if (stepIdx < steps.length - 1) setStepIdx(stepIdx + 1);
-    else setDone(true);
+    if (stepIdx < steps.length - 1) {
+      setStepIdx(stepIdx + 1);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ funnel, answers: values }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setDone(true);
+    } catch {
+      setError(
+        "Something went wrong sending your details. Please try again in a moment.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputCls =
@@ -154,9 +175,14 @@ export default function MultiStepForm({
               <button
                 type="button"
                 onClick={next}
-                className="flex h-12 items-center rounded-full bg-[var(--brand-navy)] px-8 text-[14px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
+                disabled={submitting}
+                className="flex h-12 items-center rounded-full bg-[var(--brand-navy)] px-8 text-[14px] font-semibold text-white transition-colors hover:bg-[#1b2f8d] disabled:opacity-60"
               >
-                {stepIdx < steps.length - 1 ? "Continue" : "Submit"}
+                {submitting
+                  ? "Sending…"
+                  : stepIdx < steps.length - 1
+                    ? "Continue"
+                    : "Submit"}
               </button>
             </div>
             <p className="mt-6 text-[12px] leading-relaxed text-[#8a8a83]">
