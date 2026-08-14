@@ -2,7 +2,6 @@ import Splash from "@/components/Splash";
 import Hero from "@/components/Hero";
 import SmoothScroll from "@/components/SmoothScroll";
 import Funnels from "@/components/sections/Funnels";
-import Capabilities from "@/components/sections/Capabilities";
 import ValueAreas from "@/components/sections/ValueAreas";
 import Method from "@/components/sections/Method";
 import Faq from "@/components/sections/Faq";
@@ -16,7 +15,6 @@ export default function Home() {
         <Splash />
         <Hero />
         <Funnels />
-        <Capabilities />
         <ValueAreas />
         <Method />
         <Faq />

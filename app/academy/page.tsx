@@ -49,8 +49,8 @@ export default function AcademyPage() {
           eyebrow="JV TRAINING ACADEMY"
           title="Ready to Step Up as a Registered Manager?"
           sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness required to compete for Registered Manager opportunities."
-          cta="Apply for the CQC Mastery Manager Programme"
-          priceLine="PROGRAMME INVESTMENT: £5,000 · ADMISSION BY APPLICATION"
+          cta="Apply for the Registered Manager Leadership Programme"
+          priceLine="PROGRAMME INVESTMENT: £4,999 · ADMISSION BY APPLICATION"
         />
 
         {/* The problem */}
@@ -103,19 +103,26 @@ export default function AcademyPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow-mono text-[var(--brand-pale)]">/PROFESSIONAL OPPORTUNITY</p>
             <h2 className="mt-5 text-3xl font-semibold md:text-4xl">
-              Where the programme can lead
+              Josh Vantage Talent Network
             </h2>
             <p className="mt-6 text-[15.5px] leading-relaxed text-white/80">
-              Suitable high-performing participants may be considered for
-              relevant introductions or opportunities within the Josh Vantage
-              provider network where appropriate.
+              Participants may have the opportunity to separately express an
+              interest in joining the Josh Vantage Talent Network for
+              consideration for potentially suitable Registered Manager
+              opportunities.
+            </p>
+            <p className="mt-5 text-[15.5px] leading-relaxed text-white/80">
+              Details on how to express interest in the Talent Network are
+              provided separately to eligible participants. Joining the Talent
+              Network is optional and free of charge.
             </p>
             <p className="mt-5 text-[13px] leading-relaxed text-white/50">
-              Opportunities are not guaranteed and remain subject to
+              Participation in the Registered Manager Leadership Programme does
+              not guarantee employment, interviews, placement, Registered
+              Manager status, CQC registration, sponsorship, visa support or a
+              specific salary. Employment opportunities are subject to
               suitability, availability and the independent recruitment
-              decision of the provider. Josh Vantage does not guarantee
-              employment, a Registered Manager position, sponsorship, a visa,
-              CQC registration or a specific salary.
+              decision of the provider.
             </p>
           </div>
         </section>
@@ -128,25 +135,28 @@ export default function AcademyPage() {
               Programme investment
             </h2>
             <p className="mt-6 text-5xl font-semibold text-[var(--brand-navy)]">
-              £5,000
+              £4,999
             </p>
             <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[#4c4c47]">
-              The CQC Mastery Manager Programme is a serious professional
-              development investment. The fee covers training, mentoring,
-              preparation and professional development.
+              The Registered Manager Leadership Programme is a professional
+              development programme designed to strengthen regulatory
+              knowledge, leadership capability, operational understanding and
+              interview readiness.
             </p>
             <p className="mx-auto mt-4 max-w-xl text-[13px] text-[#8a8a83]">
-              It does not purchase employment, sponsorship, visa support or a
-              Registered Manager role.
+              The fee covers training, mentoring, preparation and professional
+              development. It does not purchase employment, sponsorship, visa
+              support or a Registered Manager role.
             </p>
           </div>
         </section>
 
         <MultiStepForm funnel="academy"
           eyebrow="APPLICATION"
-          title="Apply for the CQC Mastery Manager Programme"
+          title="Apply for the Registered Manager Leadership Programme"
           intro="This is an application, not an automatic enrolment. The purpose is to understand your experience, goals, current capability and whether the programme is appropriate."
           bookCta="Book Your 20-Minute Programme Assessment Call"
+          submitNote="Submitting an application does not guarantee admission to the programme or any employment, Registered Manager, CQC, sponsorship or other professional outcome."
           steps={[
             {
               title: "Your Background",
@@ -166,7 +176,7 @@ export default function AcademyPage() {
             {
               title: "Commitment",
               fields: [
-                { name: "invest", label: "Can you invest £5,000 if accepted?", type: "radio", options: ["Yes", "No"] },
+                { name: "invest", label: "Can you invest £4,999 if accepted?", type: "radio", options: ["Yes", "No"] },
               ],
             },
             {

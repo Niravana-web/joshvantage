@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: "What does support cost?",
-    a: "Launch packages run from £2,499 to £6,999 depending on depth of support. Tender support runs from £1,250 to £3,750. The Registered Manager Leadership Programme is a £5,000 investment, by application. The right level is confirmed after your assessment call.",
+    a: "Launch packages run from £2,499 to £6,999 depending on depth of support. Tender support runs from £1,250 to £3,750. The Registered Manager Leadership Programme is a £4,999 investment, by application. The right level is confirmed after your assessment call.",
   },
   {
     q: "Is the Registered Manager Programme a job placement?",

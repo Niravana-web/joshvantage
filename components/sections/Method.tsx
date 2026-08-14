@@ -10,7 +10,7 @@ const STEPS = [
   {
     num: "/01",
     title: "Assess",
-    desc: "Every journey starts with a short assessment — where you are, what stage you have reached, and what is standing in the way. No commitment, no generic contact form.",
+    desc: "Every journey starts with a short assessment to understand where you are, what stage you have reached and what support may be appropriate.",
   },
   {
     num: "/02",
