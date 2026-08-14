@@ -29,7 +29,7 @@ export default function Packages({
     <section className="bg-[#f7f7f5] px-6 py-24 text-[#181815] md:px-12">
       <div className="mx-auto max-w-6xl">
         <SectionHead eyebrow={eyebrow} title={title} intro={intro} />
-        <Reveal stagger={0.12} className="mt-14 grid items-start gap-5 md:grid-cols-3">
+        <Reveal stagger={0.12} className="mt-14 grid gap-5 md:grid-cols-3">
           {packages.map((pkg) => (
             <article
               key={pkg.name}
