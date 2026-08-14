@@ -99,7 +99,7 @@ export default function Funnels() {
         className="relative flex flex-col justify-center px-6 py-20 md:h-screen md:overflow-hidden md:py-0 md:px-12"
       >
         <div className="funnels-head mx-auto w-full max-w-6xl">
-          <p className="eyebrow-mono text-[--brand-pale]">/YOUR JOURNEY</p>
+          <p className="eyebrow-mono text-[var(--brand-pale)]">/YOUR JOURNEY</p>
           <h2 className="mt-4 max-w-2xl text-4xl font-semibold text-white md:text-5xl">
             Where are you on your care journey?
           </h2>
@@ -109,7 +109,7 @@ export default function Funnels() {
           {FUNNELS.map((f) => (
             <a key={f.name} href={f.href} className="funnel-card group">
               <div className="flex items-baseline justify-between">
-                <span className="eyebrow-mono text-[--brand-pale]">
+                <span className="eyebrow-mono text-[var(--brand-pale)]">
                   {f.step} {f.keyword}
                 </span>
                 <span aria-hidden className="funnel-arrow">&#8599;</span>
@@ -129,7 +129,7 @@ export default function Funnels() {
               <p className="mt-3 text-[14.5px] leading-relaxed text-white/70">
                 {f.desc}
               </p>
-              <ul className="mt-4 space-y-1.5 text-[13.5px] text-[--brand-pale]">
+              <ul className="mt-4 space-y-1.5 text-[13.5px] text-[var(--brand-pale)]">
                 {f.points.map((p) => (
                   <li key={p}>&#9642; {p}</li>
                 ))}

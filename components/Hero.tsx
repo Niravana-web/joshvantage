@@ -86,7 +86,7 @@ export default function Hero() {
         <p className="text-3xl font-semibold tracking-wide text-white md:text-4xl">
           BUILD. GROW. LEAD.
         </p>
-        <p className="mt-5 text-lg font-light leading-relaxed text-[--ice]">
+        <p className="mt-5 text-lg font-light leading-relaxed text-[var(--ice)]">
           Specialist support for people building care businesses, established
           care providers pursuing new contracts, and professionals preparing
           for Registered Manager leadership.
