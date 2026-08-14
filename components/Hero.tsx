@@ -81,7 +81,10 @@ export default function Hero() {
         <p className="text-3xl font-semibold tracking-wide text-white md:text-4xl">
           JOSH VANTAGE
         </p>
-        <p className="mt-5 text-lg font-light leading-relaxed text-[var(--ice)]">
+        <p className="eyebrow-mono mt-2 text-[var(--brand-pale)]">
+          CONSULTING GROUP
+        </p>
+        <p className="mt-5 text-lg font-normal leading-relaxed text-white [text-shadow:0_1px_18px_rgba(6,13,36,0.8)]">
           Specialist support for people building care businesses, established
           care providers pursuing new contracts, and professionals preparing
           for Registered Manager leadership.
