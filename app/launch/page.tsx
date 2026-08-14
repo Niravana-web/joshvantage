@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FunnelHero from "@/components/FunnelHero";
 import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
-import Packages from "@/components/funnel/Packages";
+import LaunchPackages from "@/components/funnel/LaunchPackages";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
@@ -84,50 +84,7 @@ export default function LaunchPage() {
           ]}
         />
 
-        <Packages
-          eyebrow="SUPPORT OPTIONS"
-          title="JV Launch support options"
-          intro="Three levels of paid delivery sit behind JV Launch. The assessment comes first — the right level is confirmed on your strategy call, never sold off the page."
-          cta="Take My CQC Readiness Assessment"
-          guardrail="The exact client scope is confirmed after the assessment and strategy call, and must match the signed proposal and service agreement. No guarantee of CQC approval or Registered Manager availability."
-          packages={[
-            {
-              name: "Application Accelerator",
-              price: "£2,499",
-              bestFor: "Founders who need focused application preparation and direction.",
-              features: [
-                "CQC application preparation",
-                "Policies, governance & operational readiness (focused, agreed scope)",
-                "Core NI / RM guidance",
-                "Focused business & launch support",
-              ],
-            },
-            {
-              name: "Registration & Compliance Builder",
-              price: "£4,999",
-              bestFor: "Founders needing broader registration, compliance and leadership preparation.",
-              features: [
-                "CQC application preparation",
-                "Broader policies, governance & operational support",
-                "Deeper NI / RM preparation",
-                "Expanded business & launch support",
-              ],
-              popular: true,
-            },
-            {
-              name: "Full Care Business Launch Partner",
-              price: "£6,999",
-              bestFor: "Founders wanting the deepest end-to-end launch support.",
-              features: [
-                "CQC application preparation",
-                "Comprehensive launch support",
-                "Deeper NI / RM preparation",
-                "Full launch-partner level business support",
-                "RM sourcing / talent-network support (subject to suitability and availability)",
-              ],
-            },
-          ]}
-        />
+        <LaunchPackages />
 
         <MultiStepForm funnel="launch"
           eyebrow="CQC READINESS ASSESSMENT"
