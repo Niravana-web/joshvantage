@@ -81,7 +81,17 @@ export default function GrowthPage() {
               price: "£1,750",
               bestFor: "Providers requiring more comprehensive support on a larger or more complex submission. Indicative scope: up to 3,500 words.",
               features: [
-                "Everything in Tender Essential",
+                "Bid/no-bid review",
+                "Tender specification review",
+                "Scoring criteria analysis",
+                "Compliance requirements check",
+                "Evidence-gap review",
+                "Client information session",
+                "Tender response writing — indicative scope up to 3,500 words",
+                "Proofreading / editing",
+                "Final quality review",
+                "Submission-readiness check",
+                "Post-result feedback review",
                 "Reusable Tender Evidence Bank development",
               ],
               popular: true,
@@ -110,6 +120,7 @@ export default function GrowthPage() {
           title="Tender Assessment"
           intro="Complete the assessment to help us understand your tender opportunity and the support you may need."
           bookCta="Book Your 20-Minute Tender Strategy Call"
+          submitNote="Submitting this assessment does not guarantee that Josh Vantage will accept the tender instruction or that any tender will be successful. We review the opportunity, scope, deadline and available evidence before confirming whether we can support the submission."
           steps={[
             {
               title: "Your Business",

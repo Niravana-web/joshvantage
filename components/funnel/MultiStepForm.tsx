@@ -26,6 +26,7 @@ export default function MultiStepForm({
   steps,
   bookCta,
   calendlyUrl,
+  submitNote,
 }: {
   id?: string;
   funnel: "launch" | "growth" | "academy";
@@ -35,6 +36,7 @@ export default function MultiStepForm({
   steps: FormStep[];
   bookCta: string;
   calendlyUrl?: string;
+  submitNote?: string;
 }) {
   const [stepIdx, setStepIdx] = useState(0);
   const [values, setValues] = useState<Record<string, string>>({});
@@ -160,12 +162,9 @@ export default function MultiStepForm({
               <p className="mt-4 text-[13.5px] font-medium text-red-700">{error}</p>
             )}
 
-            {stepIdx === steps.length - 1 && (
+            {submitNote && stepIdx === steps.length - 1 && (
               <p className="mt-6 text-[12px] leading-relaxed text-[#8a8a83]">
-                The assessment is used to understand your circumstances and
-                determine whether our services may be suitable. Completing the
-                assessment does not guarantee acceptance as a client or any CQC
-                outcome.
+                {submitNote}
               </p>
             )}
 

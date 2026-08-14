@@ -92,6 +92,7 @@ export default function LaunchPage() {
           title="CQC Readiness Assessment"
           intro="Complete the free assessment to identify your current position and whether further support may be appropriate."
           bookCta="Book Your 20-Minute CQC Strategy Call"
+          submitNote="The assessment is used to understand your circumstances and determine whether our services may be suitable. Completing the assessment does not guarantee acceptance as a client or any CQC outcome."
           steps={[
             {
               title: "Your Service",
