@@ -7,6 +7,7 @@ import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/Me
 
 const GROWTH_TESTIMONIALS: MediaTestimonial[] = [];
 import MultiStepForm from "@/components/funnel/MultiStepForm";
+import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -161,6 +162,8 @@ export default function GrowthPage() {
             },
           ]}
         />
+
+        <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, tender preparation and business development support. We do not guarantee tender awards, contracts, revenue, business growth or any specific commercial outcome. Procurement and contracting decisions are made independently by the relevant commissioning or contracting organisation." />
 
         <Footer />
       </main>

@@ -105,9 +105,11 @@ export default function Footer() {
       <div className="relative z-10 mx-auto mt-20 max-w-6xl border-t border-white/10 pt-6">
         <p className="max-w-4xl text-[12px] leading-relaxed text-white/40">
           Josh Vantage Consulting Group provides consultancy, training and
-          business support services. Regulatory, employment, commercial and
-          business outcomes depend on individual circumstances and decisions
-          made by relevant third parties. No specific outcome is guaranteed.
+          business support services. CQC registration, tender or commercial
+          outcomes, employment, Registered Manager opportunities, sponsorship
+          and other professional outcomes are not guaranteed and may depend on
+          individual circumstances and decisions made by independent third
+          parties.
         </p>
         <p className="eyebrow-mono mt-5 text-[12px] text-white/40">
           &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FunnelHero from "@/components/FunnelHero";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
+import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
 import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
@@ -195,6 +196,8 @@ export default function AcademyPage() {
             },
           ]}
         />
+
+        <FunnelDisclaimer text="The Registered Manager Leadership Programme is a professional development programme. Participation does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary. Employment and professional opportunities are subject to individual suitability, availability and the independent decisions of employers, providers and relevant third parties." />
 
         <Footer />
       </main>

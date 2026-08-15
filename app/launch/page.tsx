@@ -5,6 +5,7 @@ import StepsList from "@/components/funnel/StepsList";
 import LaunchPackages from "@/components/funnel/LaunchPackages";
 import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
+import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
@@ -136,6 +137,8 @@ export default function LaunchPage() {
             },
           ]}
         />
+
+        <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, preparation and business support. CQC registration and regulatory decisions are made independently by the Care Quality Commission. We do not guarantee registration, approval, processing timescales or any specific regulatory or commercial outcome." />
 
         <Footer />
         <StickyAssessmentCta label="Take the free CQC assessment" />
