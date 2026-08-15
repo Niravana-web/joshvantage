@@ -51,11 +51,24 @@ export default function AcademyPage() {
       <main>
         <FunnelHero
           eyebrow="JV ACADEMY"
-          title="Ready to Step Up as a Registered Manager?"
-          sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness required to compete for Registered Manager opportunities."
+          title="Build Your Path Towards Registered Manager Leadership"
+          sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness to progress towards future Registered Manager opportunities."
           cta="Apply for the Registered Manager Leadership Programme"
           priceLine="PROGRAMME INVESTMENT: £4,999 · ADMISSION BY APPLICATION"
         />
+
+        {/* Audience */}
+        <section className="bg-white px-6 py-20 text-[#181815] md:px-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow-mono text-[#8a8a83]">/WHO IS THIS PATHWAY FOR?</p>
+            <p className="mt-6 text-lg leading-relaxed text-[#4c4c47] md:text-xl">
+              Designed for ambitious people at different stages of their care
+              career, from university students, graduates and early-career
+              professionals building towards management, to experienced care
+              professionals preparing for Registered Manager leadership.
+            </p>
+          </div>
+        </section>
 
         {/* The problem */}
         <section className="bg-[#f7f7f5] px-6 py-24 text-[#181815] md:px-12">

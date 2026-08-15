@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getMongo, DB_NAME } from "@/lib/mongo";
+import { notifyTeam, notifyCustomer } from "@/lib/notify";
 
 const FUNNELS = new Set(["launch", "growth", "academy", "contact"]);
 
@@ -33,6 +34,11 @@ export async function POST(req: Request) {
       .db(DB_NAME)
       .collection("leads")
       .insertOne({ funnel, answers: clean, createdAt: new Date() });
+    // Email notifications must never block or fail the submission itself.
+    await Promise.allSettled([
+      notifyTeam(funnel, clean),
+      notifyCustomer(funnel, clean),
+    ]);
     return NextResponse.json({ ok: true, id: result.insertedId });
   } catch (err) {
     console.error("lead insert failed", err);
