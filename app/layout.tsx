@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Inter, Lora } from "next/font/google";
+import StickyLogo from "@/components/StickyLogo";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
         {children}
+        <StickyLogo />
       </body>
     </html>
   );
