@@ -23,7 +23,7 @@ const OUTCOMES = [
   },
   {
     title: "Leadership & Governance",
-    desc: "Develop the judgement and leadership behaviours expected of a Registered Manager.",
+    desc: "Develop the judgement, leadership behaviours and governance understanding required to progress towards Registered Manager leadership.",
   },
   {
     title: "Operational Management",
@@ -35,13 +35,13 @@ const OUTCOMES = [
   },
   {
     title: "Interview Preparation",
-    desc: "Practise communicating experience, judgement and regulatory understanding confidently in Registered Manager selection processes.",
+    desc: "Practise communicating your knowledge, experience, transferable skills and regulatory understanding confidently in Registered Manager selection processes.",
   },
 ];
 
 const PAINS = [
   "“I want to progress towards care leadership but haven’t yet held a Registered Manager role.”",
-  "“I have qualifications or care experience but need stronger leadership and management evidence.”",
+  "“I have qualifications, studies or care experience and want to build stronger leadership and management capability.”",
   "“I want to strengthen my regulatory knowledge and prepare for future Registered Manager / CQC interviews.”",
 ];
 
