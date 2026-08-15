@@ -32,7 +32,7 @@ const FUNNELS = [
   {
     step: "/03",
     keyword: "LEAD",
-    name: "JV Training Academy",
+    name: "JV Academy",
     headline: "Prepare for Registered Manager Leadership",
     desc: "For experienced care professionals preparing to compete for Registered Manager opportunities. Admission is by application.",
     points: ["Regulatory readiness", "Leadership & governance", "Interview preparation"],

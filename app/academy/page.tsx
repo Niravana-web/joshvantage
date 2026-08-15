@@ -9,7 +9,7 @@ import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "JV Training Academy | Josh Vantage Consulting Group",
+  title: "JV Academy | Josh Vantage Consulting Group",
   description:
     "Develop the regulatory, leadership, operational and interview capability required to compete for Registered Manager opportunities.",
 };
@@ -50,7 +50,7 @@ export default function AcademyPage() {
     <SmoothScroll>
       <main>
         <FunnelHero
-          eyebrow="JV TRAINING ACADEMY"
+          eyebrow="JV ACADEMY"
           title="Ready to Step Up as a Registered Manager?"
           sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness required to compete for Registered Manager opportunities."
           cta="Apply for the Registered Manager Leadership Programme"

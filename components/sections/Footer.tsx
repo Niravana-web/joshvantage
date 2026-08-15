@@ -69,7 +69,7 @@ export default function Footer() {
             links: [
               { label: "JV Launch", href: "/launch" },
               { label: "JV Growth", href: "/growth" },
-              { label: "JV Training Academy", href: "/academy" },
+              { label: "JV Academy", href: "/academy" },
             ],
           },
           {
