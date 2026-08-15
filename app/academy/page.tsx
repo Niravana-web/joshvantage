@@ -160,7 +160,7 @@ export default function AcademyPage() {
         <MultiStepForm funnel="academy"
           eyebrow="APPLICATION"
           title="Apply for the Registered Manager Leadership Programme"
-          intro="This is an application, not an automatic enrolment. The purpose is to understand your experience, goals, current capability and whether the programme is appropriate."
+          intro="This is an application, not an automatic enrolment. The purpose is to understand your background, goals, current stage and whether the programme is appropriate for your professional development."
           bookCta="Book Your 20-Minute Programme Assessment Call"
           submitNote="Submitting an application does not guarantee admission to the programme or any employment, Registered Manager, CQC, sponsorship or other professional outcome."
           steps={[
