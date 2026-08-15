@@ -34,7 +34,7 @@ const FUNNELS = [
     keyword: "LEAD",
     name: "JV Academy",
     headline: "Prepare for Registered Manager Leadership",
-    desc: "For experienced care professionals preparing to compete for Registered Manager opportunities. Admission is by application.",
+    desc: "For aspiring and experienced care professionals developing the knowledge, leadership capability and regulatory readiness to progress towards Registered Manager opportunities. Admission is by application.",
     points: ["Regulatory readiness", "Leadership & governance", "Interview preparation"],
     cta: "Apply Now",
     href: "/academy",
