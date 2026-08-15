@@ -39,9 +39,9 @@ const OUTCOMES = [
 ];
 
 const PAINS = [
-  "“I have care experience but haven’t yet held a Registered Manager role.”",
-  "“I have qualifications but need stronger leadership evidence.”",
-  "“I don’t feel ready for Registered Manager / CQC interviews.”",
+  "“I want to progress towards care leadership but haven’t yet held a Registered Manager role.”",
+  "“I have qualifications or care experience but need stronger leadership and management evidence.”",
+  "“I want to strengthen my regulatory knowledge and prepare for future Registered Manager / CQC interviews.”",
 ];
 
 export default function AcademyPage() {
@@ -61,7 +61,7 @@ export default function AcademyPage() {
           <div className="mx-auto max-w-6xl">
             <SectionHead
               eyebrow="THE PROBLEM"
-              title="You may be ready for more responsibility — but still need the evidence to prove it"
+              title="You want to progress into care leadership — but need the knowledge, evidence and confidence to take the next step"
             />
             <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-3">
               {PAINS.map((p) => (
