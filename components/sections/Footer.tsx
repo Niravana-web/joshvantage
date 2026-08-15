@@ -9,9 +9,12 @@ export default function Footer() {
           </p>
           <div className="mt-10 space-y-7 text-[15px]">
             <div>
-              <p className="eyebrow-mono mb-1.5 text-white/40">EMAIL</p>
-              <a href="mailto:hello@joshvantage.com" className="hover:underline">
-                hello@joshvantage.com
+              <p className="eyebrow-mono mb-1.5 text-white/40">GET IN TOUCH</p>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-[13.5px] font-semibold transition-colors hover:bg-white/25"
+              >
+                Contact us <span aria-hidden>&#8594;</span>
               </a>
             </div>
             <div>

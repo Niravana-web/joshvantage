@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getMongo, DB_NAME } from "@/lib/mongo";
 
-const FUNNELS = new Set(["launch", "growth", "academy"]);
+const FUNNELS = new Set(["launch", "growth", "academy", "contact"]);
 
 export async function POST(req: Request) {
   let body: { funnel?: string; answers?: Record<string, string> };

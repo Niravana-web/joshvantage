@@ -15,9 +15,18 @@ const FUNNELS = [
   { key: "launch", label: "LAUNCH" },
   { key: "growth", label: "GROWTH" },
   { key: "academy", label: "ACADEMY" },
+  { key: "contact", label: "CONTACT" },
 ];
 
-const CONTACT_KEYS = ["name", "email", "phone"];
+const CONTACT_KEYS = ["name", "firstName", "lastName", "email", "phone"];
+
+function displayName(answers: Record<string, string>) {
+  return (
+    answers.name ??
+    [answers.firstName, answers.lastName].filter(Boolean).join(" ") ??
+    "—"
+  );
+}
 
 function fmt(date: string | null) {
   if (!date) return "—";
@@ -168,7 +177,7 @@ export default function LeadsAdmin() {
                 <span className="eyebrow-mono bg-[var(--brand-navy)] px-2.5 py-1 text-[10.5px] text-white">
                   {lead.funnel.toUpperCase()}
                 </span>
-                <span className="text-[15px] font-semibold">{lead.answers.name ?? "—"}</span>
+                <span className="text-[15px] font-semibold">{displayName(lead.answers) || "—"}</span>
                 <span className="text-[14px] text-[#4c4c47]">{lead.answers.email}</span>
                 {lead.answers.phone && (
                   <span className="text-[14px] text-[#4c4c47]">{lead.answers.phone}</span>

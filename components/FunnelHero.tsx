@@ -27,7 +27,7 @@ export default function FunnelHero({
           <img
             src="/logo.png"
             alt="Josh Vantage Consulting Group"
-            className="h-14 w-auto"
+            className="h-16 w-auto md:h-[4.5rem]"
           />
         </a>
       </header>

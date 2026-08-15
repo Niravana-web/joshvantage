@@ -11,7 +11,7 @@ const NAV = [
   { label: "Growth", href: "/growth" },
   { label: "Academy", href: "/academy" },
   { label: "Approach", href: "#approach" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Hero() {
@@ -45,7 +45,7 @@ export default function Hero() {
           <img
             src="/logo.png"
             alt="Josh Vantage Consulting Group"
-            className="h-14 w-auto"
+            className="h-16 w-auto md:h-[4.5rem]"
           />
         </a>
         <nav className="hidden gap-7 md:flex">
@@ -61,13 +61,13 @@ export default function Hero() {
         </nav>
         <div className="flex items-center gap-1">
           <a
-            href="#contact"
+            href="/contact"
             className="rounded-full bg-white/15 px-5 py-2.5 text-xs font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/25"
           >
             Contact us
           </a>
           <a
-            href="#contact"
+            href="/contact"
             aria-label="Contact us"
             className="grid h-9 w-9 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
           >
@@ -77,14 +77,11 @@ export default function Hero() {
       </header>
 
       {/* Statement, top-right like TIWIS */}
-      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-md">
-        <p className="text-3xl font-semibold tracking-wide text-white md:text-4xl">
-          JOSH VANTAGE
+      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-lg">
+        <p className="whitespace-nowrap text-[17px] font-semibold tracking-wide text-white sm:text-[22px] md:text-[26px]">
+          JOSH VANTAGE CONSULTING GROUP
         </p>
-        <p className="eyebrow-mono mt-2 text-[var(--brand-pale)]">
-          CONSULTING GROUP
-        </p>
-        <p className="mt-5 text-lg font-normal leading-relaxed text-white [text-shadow:0_1px_18px_rgba(6,13,36,0.8)]">
+        <p className="mt-5 text-xl font-normal leading-relaxed text-white [text-shadow:0_1px_18px_rgba(6,13,36,0.8)]">
           Specialist support for people building care businesses, established
           care providers pursuing new contracts, and professionals preparing
           for Registered Manager leadership.
