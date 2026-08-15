@@ -15,7 +15,6 @@ const FUNNELS = [
   { key: "launch", label: "LAUNCH" },
   { key: "growth", label: "GROWTH" },
   { key: "academy", label: "ACADEMY" },
-  { key: "contact", label: "CONTACT" },
 ];
 
 const CONTACT_KEYS = ["name", "firstName", "lastName", "email", "phone"];
@@ -44,6 +43,7 @@ export default function LeadsAdmin() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [funnel, setFunnel] = useState("all");
+  const [section, setSection] = useState<"assessments" | "enquiries">("assessments");
   const [view, setView] = useState<"active" | "archived">("active");
   const [oldestFirst, setOldestFirst] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
@@ -60,8 +60,9 @@ export default function LeadsAdmin() {
     if (!leads) return [];
     const q = query.trim().toLowerCase();
     const filtered = leads.filter((l) => {
+      if ((l.funnel === "contact") !== (section === "enquiries")) return false;
       if (l.archived !== (view === "archived")) return false;
-      if (funnel !== "all" && l.funnel !== funnel) return false;
+      if (section === "assessments" && funnel !== "all" && l.funnel !== funnel) return false;
       if (!q) return true;
       return (
         l.funnel.includes(q) ||
@@ -71,13 +72,18 @@ export default function LeadsAdmin() {
       );
     });
     return oldestFirst ? [...filtered].reverse() : filtered;
-  }, [leads, query, funnel, view, oldestFirst]);
+  }, [leads, query, funnel, view, oldestFirst, section]);
 
   const counts = useMemo(() => {
-    const active = leads?.filter((l) => !l.archived).length ?? 0;
-    const archived = (leads?.length ?? 0) - active;
-    return { active, archived };
-  }, [leads]);
+    const inSection = (leads ?? []).filter(
+      (l) => (l.funnel === "contact") === (section === "enquiries"),
+    );
+    const active = inSection.filter((l) => !l.archived).length;
+    const archived = inSection.length - active;
+    const assessments = (leads ?? []).filter((l) => l.funnel !== "contact").length;
+    const enquiries = (leads?.length ?? 0) - assessments;
+    return { active, archived, assessments, enquiries };
+  }, [leads, section]);
 
   async function setArchived(id: string, archived: boolean) {
     setBusy(id);
@@ -113,8 +119,31 @@ export default function LeadsAdmin() {
 
   return (
     <div>
+      {/* Section switcher: funnel assessments vs contact-form enquiries */}
+      <div className="mt-8 flex border-b border-black/10">
+        {(
+          [
+            ["assessments", `ASSESSMENTS (${counts.assessments})`],
+            ["enquiries", `CONTACT ENQUIRIES (${counts.enquiries})`],
+          ] as const
+        ).map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setSection(key)}
+            className={`eyebrow-mono -mb-px cursor-pointer border-b-2 px-5 py-3 text-[11.5px] transition-colors ${
+              section === key
+                ? "border-[var(--brand-navy)] text-[var(--brand-navy)]"
+                : "border-transparent text-[#8a8a83] hover:text-[#181815]"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       {/* Controls */}
-      <div className="mt-10 flex flex-wrap items-center gap-3">
+      <div className="mt-8 flex flex-wrap items-center gap-3">
         <input
           type="search"
           value={query}
@@ -122,13 +151,15 @@ export default function LeadsAdmin() {
           placeholder="Search name, email, any answer…"
           className="h-10 w-full max-w-sm border border-black/15 bg-white px-4 text-[14px] outline-none transition-colors focus:border-[var(--brand-navy)]"
         />
-        <div className="flex">
-          {FUNNELS.map((f) => (
-            <button key={f.key} type="button" className={chip(funnel === f.key)} onClick={() => setFunnel(f.key)}>
-              {f.label}
-            </button>
-          ))}
-        </div>
+        {section === "assessments" && (
+          <div className="flex">
+            {FUNNELS.map((f) => (
+              <button key={f.key} type="button" className={chip(funnel === f.key)} onClick={() => setFunnel(f.key)}>
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
         <button
           type="button"
           className={chip(false)}
@@ -163,9 +194,11 @@ export default function LeadsAdmin() {
           <div className="border border-black/10 bg-white px-6 py-10 text-center text-[14.5px] text-[#6b6b64]">
             {view === "archived"
               ? "Nothing archived."
-              : query || funnel !== "all"
-                ? "No leads match the current filters."
-                : "No submissions yet. Leads appear here as soon as a funnel form is completed."}
+              : query || (section === "assessments" && funnel !== "all")
+                ? "No submissions match the current filters."
+                : section === "enquiries"
+                  ? "No enquiries yet. Contact-form submissions appear here."
+                  : "No submissions yet. Leads appear here as soon as a funnel form is completed."}
           </div>
         )}
 
@@ -175,7 +208,9 @@ export default function LeadsAdmin() {
             <details key={lead.id} className="group border border-black/10 bg-white">
               <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-5 gap-y-2 px-6 py-4">
                 <span className="eyebrow-mono bg-[var(--brand-navy)] px-2.5 py-1 text-[10.5px] text-white">
-                  {lead.funnel.toUpperCase()}
+                  {lead.funnel === "contact"
+                    ? (lead.answers.nature ?? "ENQUIRY").toUpperCase()
+                    : lead.funnel.toUpperCase()}
                 </span>
                 <span className="text-[15px] font-semibold">{displayName(lead.answers) || "—"}</span>
                 <span className="text-[14px] text-[#4c4c47]">{lead.answers.email}</span>
