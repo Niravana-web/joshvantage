@@ -50,7 +50,10 @@ const CORE_INCLUDED = [
 
 type Cell = true | null | string;
 
-const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] }[] }[] = [
+const GROUPS: {
+  label: string;
+  rows: { label: string; note?: string; cells: [Cell, Cell, Cell] }[];
+}[] = [
   {
     label: "REGISTRATION",
     rows: [
@@ -89,6 +92,11 @@ const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] 
       { label: "RM mock CQC interviews", cells: [null, "1 x 60 min", "2 x 60 min"] },
       { label: "NI/RM feedback & action plan", cells: [null, true, true] },
       { label: "Priority 1-to-1 NI/RM support", cells: [null, null, true] },
+      {
+        label: "Interview-Day Readiness Support",
+        note: "Final pre-interview readiness support including key-question preparation, documentation/evidence check, interview setup check and final readiness review.",
+        cells: [null, null, "✓ Included"],
+      },
     ],
   },
   {
@@ -101,7 +109,10 @@ const GROUPS: { label: string; rows: { label: string; cells: [Cell, Cell, Cell] 
       { label: "Launch implementation review sessions", cells: [null, null, "2 sessions"] },
       { label: "Workforce readiness guidance", cells: [null, null, "✓ within launch review"] },
       { label: "Mandatory training framework guidance", cells: [null, null, "✓ within launch review"] },
-      { label: "Non-Regulated Service Launch Pathway", cells: [null, true, true] },
+      {
+        label: "Non-Regulated Service Launch Pathway",
+        cells: [null, "Add-on available", "Add-on available"],
+      },
     ],
   },
   {
@@ -127,7 +138,7 @@ const ADDONS: { name: string; price: string; scope: string; note?: string }[] = 
     name: "Non-Regulated Service Launch Pathway",
     price: "£999",
     scope:
-      "Available with any package — where appropriate, you may be able to structure a suitable non-regulated service while your CQC application progresses. Already included within the £4,999 and £6,999 packages.",
+      "Available as an add-on with any package — where appropriate, you may be able to structure a suitable non-regulated service while your CQC application progresses.",
     note: "Where appropriate, we help clients explore and structure a non-regulated service pathway while their CQC registration is progressing. Suitability depends on the proposed service and activities. We do not guarantee client acquisition, revenue, profitability or business success.",
   },
   {
@@ -245,6 +256,11 @@ export default function LaunchPackages() {
                             className="sticky left-0 z-[1] bg-white px-5 py-3.5 text-[14px] font-medium leading-snug text-[#33332f]"
                           >
                             {r.label}
+                            {r.note && (
+                              <span className="mt-1 block text-[12px] font-normal leading-relaxed text-[#8a8a83]">
+                                {r.note}
+                              </span>
+                            )}
                           </th>
                           {r.cells.map((c, i) => (
                             <td
