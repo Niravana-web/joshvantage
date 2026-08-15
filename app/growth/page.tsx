@@ -3,6 +3,9 @@ import FunnelHero from "@/components/FunnelHero";
 import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
 import Packages from "@/components/funnel/Packages";
+import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
+
+const GROWTH_TESTIMONIALS: MediaTestimonial[] = [];
 import MultiStepForm from "@/components/funnel/MultiStepForm";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -51,6 +54,9 @@ export default function GrowthPage() {
             { num: "/05", title: "Quality Review", desc: "Proofreading, compliance and submission-readiness review." },
           ]}
         />
+
+        {/* Populated once the client supplies genuine tender/bid testimonials */}
+        <MediaTestimonials items={GROWTH_TESTIMONIALS} />
 
         <Packages
           eyebrow="TENDER SUPPORT"

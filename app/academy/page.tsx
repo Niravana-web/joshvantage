@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FunnelHero from "@/components/FunnelHero";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
+import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/sections/Footer";
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
   description:
     "Develop the regulatory, leadership, operational and interview capability required to compete for Registered Manager opportunities.",
 };
+
+const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [];
 
 const OUTCOMES = [
   {
@@ -126,6 +129,9 @@ export default function AcademyPage() {
             </p>
           </div>
         </section>
+
+        {/* Populated once the client supplies genuine RM/leadership testimonials */}
+        <MediaTestimonials items={ACADEMY_TESTIMONIALS} />
 
         {/* Investment */}
         <section className="bg-white px-6 py-24 text-[#181815] md:px-12">

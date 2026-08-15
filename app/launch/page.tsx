@@ -3,6 +3,7 @@ import FunnelHero from "@/components/FunnelHero";
 import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
 import LaunchPackages from "@/components/funnel/LaunchPackages";
+import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 import SectionHead from "@/components/SectionHead";
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
   description:
     "Launch your UK care business with the right CQC foundations from day one.",
 };
+
+const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [];
 
 const SUPPORT = [
   "CQC Application Preparation",
@@ -84,6 +87,9 @@ export default function LaunchPage() {
             { num: "/04", title: "Build", desc: "If suitable, we recommend the appropriate level of JV Launch support." },
           ]}
         />
+
+        {/* Populated once the client supplies genuine CQC/launch testimonials */}
+        <MediaTestimonials items={LAUNCH_TESTIMONIALS} />
 
         <LaunchPackages />
 

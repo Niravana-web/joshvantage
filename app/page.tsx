@@ -4,8 +4,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Funnels from "@/components/sections/Funnels";
 import ValueAreas from "@/components/sections/ValueAreas";
 import Method from "@/components/sections/Method";
+import Reviews from "@/components/sections/Reviews";
 import Faq from "@/components/sections/Faq";
-import Insights from "@/components/sections/Insights";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
@@ -36,10 +36,11 @@ export default function Home() {
         </div>
         {/* z-10 so the sticky silk stage can never bleed over these sections */}
         <div className="relative z-10">
+          {/* Written client reviews — renders once genuine reviews are supplied */}
+          <Reviews />
           <ValueAreas />
           <Method />
           <Faq />
-          <Insights />
           <Footer />
         </div>
       </main>
