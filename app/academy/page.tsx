@@ -121,8 +121,8 @@ export default function AcademyPage() {
             </p>
             <p className="mt-5 text-[13px] leading-relaxed text-white/50">
               Participation in the Registered Manager Leadership Programme does
-              not guarantee employment, interviews, placement, Registered
-              Manager status, CQC registration, sponsorship, visa support or a
+              not guarantee employment, interviews, placement, a Registered
+              Manager role, CQC registration, sponsorship, visa support or a
               specific salary. Employment opportunities are subject to
               suitability, availability and the independent recruitment
               decision of the provider.
