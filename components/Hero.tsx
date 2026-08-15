@@ -77,14 +77,14 @@ export default function Hero() {
       </header>
 
       {/* Statement, top-right like TIWIS */}
-      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-lg">
+      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-xl">
         <p className="whitespace-nowrap text-[17px] font-semibold tracking-wide text-white sm:text-[22px] md:text-[26px]">
           JOSH VANTAGE CONSULTING GROUP
         </p>
         <p className="mt-5 text-xl font-normal leading-relaxed text-white [text-shadow:0_1px_18px_rgba(6,13,36,0.8)]">
-          Specialist support for people building care businesses, established
-          care providers pursuing new contracts, and professionals preparing
-          for Registered Manager leadership.
+          Specialist support for people launching care businesses, established
+          care providers pursuing new contracts and aspiring and experienced
+          professionals developing towards Registered Manager leadership.
         </p>
       </div>
 
