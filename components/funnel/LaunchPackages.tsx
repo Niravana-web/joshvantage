@@ -335,17 +335,24 @@ export default function LaunchPackages() {
           </p>
         </Reveal>
 
-        {/* Scope boundaries */}
-        <Reveal className="mt-16">
-          <p className="eyebrow-mono text-[#8a8a83]">/SCOPE BOUNDARIES</p>
-          <ul className="mt-5 space-y-2.5 border-l-2 border-[var(--brand-navy)] bg-white px-6 py-5">
-            {SCOPE_NOTES.map((n) => (
-              <li key={n} className="text-[13px] leading-relaxed text-[#6b6b64]">
-                <span aria-hidden className="mr-2.5 text-[var(--brand-navy)]">&#9642;</span>
-                {n}
-              </li>
-            ))}
-          </ul>
+        {/* Scope boundaries — collapsed by default so the assessment below stays dominant */}
+        <Reveal className="mt-14">
+          <details className="faq group mx-auto max-w-3xl border-y border-black/10 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between text-[14px] font-medium text-[#4c4c47]">
+              Important Scope Information
+              <span aria-hidden className="ml-4 text-xl font-light transition-transform group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <ul className="mt-4 space-y-2.5">
+              {SCOPE_NOTES.map((n) => (
+                <li key={n} className="text-[13px] leading-relaxed text-[#6b6b64]">
+                  <span aria-hidden className="mr-2.5 text-[var(--brand-navy)]">&#9642;</span>
+                  {n}
+                </li>
+              ))}
+            </ul>
+          </details>
         </Reveal>
       </div>
     </section>
