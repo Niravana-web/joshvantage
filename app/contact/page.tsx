@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import ConsentMap from "@/components/ConsentMap";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -54,14 +55,7 @@ export default function ContactPage() {
                 863 High Road, Ilford IG3 8TG, United Kingdom
               </p>
               <div className="notch-card mt-5 flex-1 overflow-hidden border border-black/10 bg-[#f7f7f5]">
-                <iframe
-                  title="Josh Vantage Consulting Group — 863 High Road, Ilford"
-                  src="https://maps.google.com/maps?q=863+High+Rd,+Ilford+IG3+8TG,+UK&z=16&output=embed"
-                  className="h-full min-h-[380px] w-full border-0 grayscale-[35%] transition-[filter] duration-500 hover:grayscale-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
+                <ConsentMap />
               </div>
               <a
                 href="https://maps.app.goo.gl/ycvvVZkgVaqkcoDG8"

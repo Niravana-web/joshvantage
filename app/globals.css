@@ -422,3 +422,49 @@ body {
     transform: none;
   }
 }
+
+/* Legal document typography (/privacy, /terms, /disclaimer) */
+.legal-doc h2 {
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.legal-doc p,
+.legal-doc li {
+  margin-top: 0.9rem;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #4c4c47;
+}
+.legal-doc ul {
+  list-style: square;
+  padding-left: 1.4rem;
+}
+.legal-doc ul li {
+  margin-top: 0.45rem;
+}
+.legal-doc table {
+  margin-top: 1.1rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.legal-doc th,
+.legal-doc td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+  color: #4c4c47;
+  line-height: 1.6;
+}
+.legal-doc th {
+  background: #f7f7f5;
+  font-weight: 600;
+  color: #181815;
+}
+.legal-doc a {
+  color: var(--brand-navy);
+  text-decoration: underline;
+}
