@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 const FAQS = [
   {
     q: "Who does Josh Vantage work with?",
-    a: "Three groups: people launching a regulated UK care business, established care providers pursuing tender opportunities, and experienced care professionals preparing for Registered Manager roles.",
+    a: "Josh Vantage supports people at different stages of the UK care journey: students and graduates exploring a career in care, people already working in the sector who want to progress into leadership, individuals preparing to launch a regulated care business, and established care providers pursuing growth and tender opportunities. You do not need to already be a manager or business owner. Your starting point determines the pathway, support and preparation that may be appropriate for you.",
   },
   {
     q: "Do you guarantee CQC registration or tender wins?",
@@ -19,8 +19,8 @@ const FAQS = [
     a: "Launch packages run from £2,499 to £6,999 depending on depth of support. Tender support runs from £1,250 to £3,750. The Registered Manager Leadership Programme is a £4,999 investment, by application. The right level is confirmed after your assessment call.",
   },
   {
-    q: "Is the Registered Manager Programme a job placement?",
-    a: "No. The programme fee pays for training, mentoring, and professional development — not employment, sponsorship, or a guaranteed role. It is designed for experienced professionals serious about competing for RM positions.",
+    q: "Is the Registered Manager Leadership Programme a job placement programme?",
+    a: "No. The Registered Manager Leadership Programme is a professional development programme designed to strengthen regulatory knowledge, leadership capability, operational understanding and interview readiness. It does not guarantee employment, interviews, placement, Registered Manager status, CQC registration, sponsorship, visa support or a specific salary. Participants may separately have the opportunity to express an interest in joining the Josh Vantage Talent Network. Joining the Talent Network is optional and free of charge, and any opportunities remain subject to suitability, availability and the independent recruitment decision of the provider.",
   },
 ];
 
