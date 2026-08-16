@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://joshvantage.vercel.app"),
+  metadataBase: new URL("https://joshvantage.com"),
   title: "Josh Vantage Consulting Group",
   description:
     "Specialist support for people launching care businesses, established care providers pursuing new contracts and aspiring and experienced professionals developing towards Registered Manager leadership.",

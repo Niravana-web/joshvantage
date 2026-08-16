@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://joshvantage.vercel.app";
+const BASE = "https://joshvantage.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
