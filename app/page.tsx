@@ -2,6 +2,7 @@ import Splash from "@/components/Splash";
 import Hero from "@/components/Hero";
 import SmoothScroll from "@/components/SmoothScroll";
 import Funnels from "@/components/sections/Funnels";
+import WhyJoshVantage from "@/components/sections/WhyJoshVantage";
 import ValueAreas from "@/components/sections/ValueAreas";
 import Method from "@/components/sections/Method";
 import Reviews from "@/components/sections/Reviews";
@@ -32,6 +33,7 @@ export default function Home() {
             </div>
           </div>
           <Hero />
+          <WhyJoshVantage />
           <Funnels />
         </div>
         {/* z-10 so the sticky silk stage can never bleed over these sections */}
