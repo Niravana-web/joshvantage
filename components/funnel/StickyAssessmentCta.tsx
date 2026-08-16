@@ -10,9 +10,12 @@ import { useEffect, useState } from "react";
 export default function StickyAssessmentCta({
   label = "Take the free assessment",
   target = "#assessment",
+  hideAlso,
 }: {
   label?: string;
   target?: string;
+  /* additional selector whose visibility also hides the pill (e.g. a final CTA/footer) */
+  hideAlso?: string;
 }) {
   const [pastHero, setPastHero] = useState(false);
   const [atForm, setAtForm] = useState(false);
@@ -22,20 +25,25 @@ export default function StickyAssessmentCta({
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const form = document.querySelector(target);
+    const selector = hideAlso ? `${target}, ${hideAlso}` : target;
+    const zones = document.querySelectorAll(selector);
     let io: IntersectionObserver | undefined;
-    if (form) {
+    if (zones.length) {
+      const seen = new Map<Element, boolean>();
       io = new IntersectionObserver(
-        ([entry]) => setAtForm(entry.isIntersecting),
+        (entries) => {
+          entries.forEach((e) => seen.set(e.target, e.isIntersecting));
+          setAtForm([...seen.values()].some(Boolean));
+        },
         { rootMargin: "0px 0px -20% 0px" },
       );
-      io.observe(form);
+      zones.forEach((z) => io!.observe(z));
     }
     return () => {
       window.removeEventListener("scroll", onScroll);
       io?.disconnect();
     };
-  }, [target]);
+  }, [target, hideAlso]);
 
   const visible = pastHero && !atForm;
 

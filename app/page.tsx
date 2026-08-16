@@ -8,7 +8,9 @@ import Method from "@/components/sections/Method";
 import Founder from "@/components/sections/Founder";
 import Reviews from "@/components/sections/Reviews";
 import Faq from "@/components/sections/Faq";
+import FinalCta from "@/components/sections/FinalCta";
 import Footer from "@/components/sections/Footer";
+import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 
 export default function Home() {
   return (
@@ -45,8 +47,14 @@ export default function Home() {
           {/* Written client reviews — renders once genuine reviews are supplied */}
           <Reviews />
           <Faq />
+          <FinalCta />
           <Footer />
         </div>
+        <StickyAssessmentCta
+          label="Find Your Path"
+          target="#journey"
+          hideAlso="#next-step, footer"
+        />
       </main>
     </SmoothScroll>
   );
