@@ -55,7 +55,7 @@ export default function AcademyPage() {
           sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness to progress towards future Registered Manager opportunities."
           sub2="Whether you’re already working in care, building your experience, or exploring a future in care management, your starting point determines the development pathway."
           cta="Apply for the Registered Manager Leadership Programme"
-          priceLine="PROGRAMME INVESTMENT: £4,999 · ADMISSION BY APPLICATION"
+          priceLine="ADMISSION BY APPLICATION"
         />
 
         {/* Audience */}
