@@ -30,10 +30,14 @@ export default function Founder() {
             preparation and guidance to move forward with confidence.
           </p>
           <p className="mt-5 text-[16px] leading-relaxed text-[#4c4c47] md:text-[17px]">
-            Through Josh Vantage, that means helping people build care
-            businesses, helping established providers pursue growth
-            opportunities, and helping aspiring and experienced professionals
-            develop towards care leadership.
+            His work is focused on the UK care sector, supporting people at
+            three critical stages: starting/building a care business, pursuing
+            growth opportunities and developing towards care leadership.
+          </p>
+          <p className="mt-5 text-[16px] leading-relaxed text-[#4c4c47] md:text-[17px]">
+            Through JV Launch, JV Growth and JV Academy, Josh brings those
+            pathways together under one purpose: helping people turn ambition
+            into structured, informed action.
           </p>
           <p className="mt-9 text-lg font-black tracking-wide text-[var(--brand-navy)] [font-family:var(--font-archivo)]">
             BUILD. GROW. LEAD.
