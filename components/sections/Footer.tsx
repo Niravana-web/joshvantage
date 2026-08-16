@@ -30,7 +30,7 @@ export default function Footer() {
         <div>
           <p className="max-w-xs text-lg font-light leading-relaxed text-white/80">
             Building, growing, or leading a care business? Start with the right
-            assessment — let&apos;s talk.
+            assessment. Let&apos;s talk.
           </p>
           <div className="mt-10 space-y-7 text-[15px]">
             <div>

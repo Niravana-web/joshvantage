@@ -20,12 +20,12 @@ const STEPS = [
   {
     num: "/03",
     title: "Plan",
-    desc: "You get a clear, scoped plan matched to your stage — the exact scope is confirmed together and reflected in the service agreement before anything begins.",
+    desc: "You get a clear, scoped plan matched to your stage. The exact scope is confirmed together and reflected in the service agreement before anything begins.",
   },
   {
     num: "/04",
     title: "Build",
-    desc: "We deliver the work alongside you — applications, policies, bids, or leadership preparation — with practical support at every step of the journey.",
+    desc: "We deliver the work alongside you: applications, policies, bids, or leadership preparation, with practical support at every step of the journey.",
   },
 ];
 

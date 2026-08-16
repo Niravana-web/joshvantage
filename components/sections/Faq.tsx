@@ -8,11 +8,11 @@ const FAQS = [
   },
   {
     q: "Do you guarantee CQC registration or tender wins?",
-    a: "No. Josh Vantage Consulting Group provides consultancy, training, and preparation services. We cannot and do not guarantee CQC approval, contract awards, employment, or Registered Manager status — anyone who promises those outcomes should be treated with caution.",
+    a: "No. Josh Vantage Consulting Group provides consultancy, training, and preparation services. We cannot and do not guarantee CQC approval, contract awards, employment, or Registered Manager status. Anyone who promises those outcomes should be treated with caution.",
   },
   {
     q: "How does an engagement start?",
-    a: "Every journey starts with a short assessment — CQC readiness, tender assessment, or programme application — followed by a focused 20-minute strategy call. Only then do we recommend a package, and the exact scope is confirmed in the service agreement.",
+    a: "Every journey starts with a short assessment: CQC readiness, tender assessment, or programme application. A focused 20-minute strategy call follows. Only then do we recommend a package, and the exact scope is confirmed in the service agreement.",
   },
   {
     q: "What does support cost?",

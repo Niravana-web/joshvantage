@@ -138,7 +138,7 @@ const ADDONS: { name: string; price: string; scope: string; note?: string }[] = 
     name: "Non-Regulated Service Launch Pathway",
     price: "£999",
     scope:
-      "Available as an add-on with any package — where appropriate, you may be able to structure a suitable non-regulated service while your CQC application progresses.",
+      "Available as an add-on with any package. Where appropriate, you may be able to structure a suitable non-regulated service while your CQC application progresses.",
     note: "Where appropriate, we help clients explore and structure a non-regulated service pathway while their CQC registration is progressing. Suitability depends on the proposed service and activities. We do not guarantee client acquisition, revenue, profitability or business success.",
   },
   {
@@ -188,7 +188,7 @@ export default function LaunchPackages() {
         <SectionHead
           eyebrow="SUPPORT OPTIONS"
           title="JV Launch support options"
-          intro="Three levels of paid delivery sit behind JV Launch, built on the same deliverables at increasing depth. The assessment comes first — the right level is confirmed on your strategy call, never sold off the page."
+          intro="Three levels of paid delivery sit behind JV Launch, built on the same deliverables at increasing depth. The assessment comes first. The right level is confirmed on your strategy call, never sold off the page."
         />
 
         {/* Shared foundation — keeps the comparison table down to what differs */}

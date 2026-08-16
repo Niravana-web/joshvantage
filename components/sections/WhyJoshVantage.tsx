@@ -33,7 +33,7 @@ export default function WhyJoshVantage() {
             Josh Vantage exists to change that.
           </p>
           <p>
-            We help people turn ambition into something real — a business they
+            We help people turn ambition into something real: a business they
             can build, opportunities they can pursue, and leadership they can
             grow into.
           </p>

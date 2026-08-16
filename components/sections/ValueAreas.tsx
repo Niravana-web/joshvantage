@@ -5,7 +5,7 @@ const AREAS = [
   {
     icon: "◎",
     title: "CQC Registration",
-    desc: "Preparing new providers for the CQC application journey — foundations, documentation, and readiness before you submit.",
+    desc: "Preparing new providers for the CQC application journey: foundations, documentation, and readiness before you submit.",
   },
   {
     icon: "⚖",
@@ -15,7 +15,7 @@ const AREAS = [
   {
     icon: "⧉",
     title: "Tender Strategy",
-    desc: "Honest bid/no-bid advice — is this tender worth pursuing, and can you score competitively against its criteria?",
+    desc: "Honest bid/no-bid advice: is this tender worth pursuing, and can you score competitively against its criteria?",
   },
   {
     icon: "✎",
@@ -40,7 +40,7 @@ const AREAS = [
   {
     icon: "✚",
     title: "Quality & Safeguarding",
-    desc: "Day-to-day operational management — staffing, safeguarding, quality assurance, and governance routines.",
+    desc: "Day-to-day operational management: staffing, safeguarding, quality assurance, and governance routines.",
   },
 ];
 

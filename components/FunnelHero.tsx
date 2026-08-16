@@ -56,7 +56,7 @@ export default function FunnelHero({
           <p className="eyebrow-mono mt-5 text-[var(--brand-pale)]">{priceLine}</p>
         )}
         <p className="mt-6 text-[13px] text-white/50">
-          Assessment first — no commitment. A focused 20-minute strategy call
+          Assessment first, no commitment. A focused 20-minute strategy call
           follows if it is a fit.
         </p>
       </div>

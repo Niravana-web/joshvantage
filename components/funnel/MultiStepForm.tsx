@@ -203,7 +203,7 @@ export default function MultiStepForm({
             <p className="eyebrow-mono text-[var(--brand-navy)]">/NEXT STEP</p>
             <h3 className="mt-4 text-2xl font-semibold">{bookCta}</h3>
             <p className="mx-auto mt-3 max-w-md text-[14.5px] leading-relaxed text-[#4c4c47]">
-              Thank you — based on your answers, the next step is a focused
+              Thank you. Based on your answers, the next step is a focused
               20-minute call to look at your situation honestly and confirm the
               right level of support.
             </p>
