@@ -40,9 +40,9 @@ const OUTCOMES = [
 ];
 
 const PAINS = [
-  "“I want to progress towards care leadership but haven’t yet held a Registered Manager role.”",
-  "“I have qualifications, studies or care experience and want to build stronger leadership and management capability.”",
-  "“I want to strengthen my regulatory knowledge and prepare for future Registered Manager / CQC interviews.”",
+  "“I’m exploring a career in care and want to understand the pathway into management and leadership.”",
+  "“I already have care experience or qualifications and want to build stronger leadership and management capability.”",
+  "“I’m preparing to progress towards Registered Manager responsibilities and want stronger regulatory, operational and interview readiness.”",
 ];
 
 export default function AcademyPage() {
@@ -51,8 +51,9 @@ export default function AcademyPage() {
       <main>
         <FunnelHero
           eyebrow="JV ACADEMY"
-          title="Build Your Path Towards Registered Manager Leadership"
+          title="Ready to Step Up as a Registered Manager?"
           sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness to progress towards future Registered Manager opportunities."
+          sub2="Whether you’re already working in care, building your experience, or exploring a future in care management, your starting point determines the development pathway."
           cta="Apply for the Registered Manager Leadership Programme"
           priceLine="PROGRAMME INVESTMENT: £4,999 · ADMISSION BY APPLICATION"
         />
@@ -75,7 +76,7 @@ export default function AcademyPage() {
           <div className="mx-auto max-w-6xl">
             <SectionHead
               eyebrow="THE PROBLEM"
-              title="You want to progress into care leadership — but need the knowledge, evidence and confidence to take the next step"
+              title="Your starting point may be different. The destination is stronger care leadership."
             />
             <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-3">
               {PAINS.map((p) => (

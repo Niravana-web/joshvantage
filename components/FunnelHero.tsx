@@ -3,12 +3,14 @@ export default function FunnelHero({
   eyebrow,
   title,
   sub,
+  sub2,
   cta,
   priceLine,
 }: {
   eyebrow: string;
   title: string;
   sub: string;
+  sub2?: string;
   cta: string;
   priceLine?: string;
 }) {
@@ -39,6 +41,11 @@ export default function FunnelHero({
         <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-[var(--ice)]">
           {sub}
         </p>
+        {sub2 && (
+          <p className="mt-4 max-w-xl text-[15px] font-light leading-relaxed text-white/70">
+            {sub2}
+          </p>
+        )}
         <a
           href="#assessment"
           className="mt-10 flex h-14 items-center rounded-full bg-[var(--brand-pale)] px-9 text-center text-[15px] font-semibold text-[var(--brand-navy)] transition-colors hover:bg-white"
