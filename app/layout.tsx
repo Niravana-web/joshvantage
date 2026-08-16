@@ -22,9 +22,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://joshvantage.vercel.app"),
   title: "Josh Vantage Consulting Group",
   description:
-    "Specialist support for people building care businesses, established care providers pursuing new contracts, and professionals preparing for Registered Manager leadership.",
+    "Specialist support for people launching care businesses, established care providers pursuing new contracts and aspiring and experienced professionals developing towards Registered Manager leadership.",
+  alternates: { canonical: "./" },
+  openGraph: {
+    siteName: "Josh Vantage Consulting Group",
+    type: "website",
+    locale: "en_GB",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Josh Vantage Consulting Group — Build. Grow. Lead." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
