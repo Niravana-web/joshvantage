@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import ConsentMap from "@/components/ConsentMap";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -48,23 +47,25 @@ export default function ContactPage() {
 
         <section className="bg-white px-6 py-20 text-[#181815] md:px-12">
           <div className="mx-auto grid max-w-6xl items-stretch gap-10 md:grid-cols-[1fr_1.15fr]">
-            {/* Map + address — left on desktop, below the form on mobile */}
-            <div className="order-2 flex flex-col md:order-1">
-              <p className="eyebrow-mono text-[#8a8a83]">/VISIT US</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#4c4c47]">
-                863 High Road, Ilford IG3 8TG, United Kingdom
-              </p>
-              <div className="notch-card mt-5 flex-1 overflow-hidden border border-black/10 bg-[#f7f7f5]">
-                <ConsentMap />
-              </div>
-              <a
-                href="https://maps.app.goo.gl/ycvvVZkgVaqkcoDG8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="eyebrow-mono mt-4 inline-flex w-fit items-center gap-2 text-[11.5px] text-[var(--brand-navy)] hover:underline"
+            {/* Intro copy — left on desktop, below the form on mobile */}
+            <div className="order-2 flex flex-col justify-center md:order-1">
+              <p className="eyebrow-mono text-[#8a8a83]">/START A CONVERSATION</p>
+              <h2
+                className="mt-5 text-3xl font-semibold leading-tight md:text-4xl"
+                style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
               >
-                OPEN IN GOOGLE MAPS <span aria-hidden>&#8599;</span>
-              </a>
+                Let&apos;s discuss what you&apos;re looking to achieve.
+              </h2>
+              <p className="mt-6 text-[15.5px] leading-relaxed text-[#4c4c47]">
+                Whether you&apos;re preparing to launch a care business,
+                pursuing new tender opportunities, or developing towards care
+                leadership, tell us where you are now and what support
+                you&apos;re looking for.
+              </p>
+              <p className="mt-4 text-[15.5px] leading-relaxed text-[#4c4c47]">
+                Complete the enquiry form and we&apos;ll discuss the most
+                appropriate next step.
+              </p>
             </div>
 
             <div className="order-1 md:order-2">

@@ -23,13 +23,13 @@ const TIERS = [
     price: "£4,999",
     blurb:
       "Registration plus deeper compliance, launch readiness, NI/RM preparation and 1 month email support.",
-    popular: true,
   },
   {
     name: "Full Care Business Launch Partner",
     price: "£6,999",
     blurb:
       "Higher-touch registration-to-launch partnership with deeper NI/RM preparation, hands-on CQC response support and 3 months priority support.",
+    popular: true,
   },
 ];
 
