@@ -49,13 +49,21 @@ const EXPERIENCES: Experience[] = [
     attribution: ["Tender Support Client"],
   },
   {
-    /* Reserved for the Registered Manager / Academy video testimonial. Stays
-       unpublished — and therefore unrendered — until the client supplies it.
-       To publish: add the real quote, attribution and video, set published. */
+    /* Academy video is in place, but the testimonial around it is not: no
+       pull-quote and no attribution have been approved, and none may be
+       written on the client's behalf. Publishing is also likely to need the
+       shared disclaimer below widened — as worded it covers CQC registration
+       and tender decisions only, not programme, employment, Registered
+       Manager or sponsorship outcomes.
+       To go live: fill in quote and attribution, then set published to true. */
     journey: "JV Academy",
     published: false,
     quote: "",
     attribution: [],
+    video: {
+      src: "/testimonials/jv-academy-client.mp4",
+      label: "JV Academy client testimonial",
+    },
   },
 ];
 
