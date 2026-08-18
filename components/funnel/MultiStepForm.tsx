@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { bookingUrl, type Funnel } from "@/lib/booking";
 
 export type Field = {
   name: string;
@@ -14,8 +15,8 @@ export type FormStep = { title: string; fields: Field[] };
 
 /*
  * Multi-step, mobile-first assessment form with progress indicator.
- * Lead delivery + Calendly embed are connected at integration time —
- * the booking panel links out once the live URL is supplied.
+ * On completion the panel links out to the funnel's Calendly event — linking
+ * rather than embedding, so no third-party script or cookie is introduced.
  */
 export default function MultiStepForm({
   id = "assessment",
@@ -29,12 +30,14 @@ export default function MultiStepForm({
   submitNote,
 }: {
   id?: string;
-  funnel: "launch" | "growth" | "academy";
+  funnel: Funnel;
   eyebrow: string;
   title: string;
   intro: string;
   steps: FormStep[];
   bookCta: string;
+  /* Optional override; by default the link is derived from `funnel`, so a page
+     cannot accidentally point at another funnel's event type. */
   calendlyUrl?: string;
   submitNote?: string;
 }) {
@@ -46,6 +49,8 @@ export default function MultiStepForm({
 
   const step = steps[stepIdx];
   const pct = Math.round(((stepIdx + 1) / steps.length) * 100);
+  /* Prefilled with what the assessment just captured, plus funnel UTMs. */
+  const bookHref = bookingUrl(funnel, values, calendlyUrl);
 
   const set = (name: string, value: string) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -207,14 +212,20 @@ export default function MultiStepForm({
               20-minute call to look at your situation honestly and confirm the
               right level of support.
             </p>
-            <a
-              href={calendlyUrl ?? "#"}
-              className="mx-auto mt-7 flex h-13 w-fit items-center rounded-full bg-[var(--brand-navy)] px-9 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
-            >
-              Book your 20-minute call
-            </a>
-            {!calendlyUrl && (
-              <p className="mt-4 text-[12px] text-[#8a8a83]">
+            {/* Opens in a new tab so the visitor keeps this confirmation
+                behind them. No button at all while unconfigured — better than
+                one that goes nowhere. */}
+            {bookHref ? (
+              <a
+                href={bookHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-auto mt-7 flex h-13 w-fit items-center rounded-full bg-[var(--brand-navy)] px-9 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
+              >
+                Book your 20-minute call
+              </a>
+            ) : (
+              <p className="mt-6 text-[12px] text-[#8a8a83]">
                 Booking link goes live at launch.
               </p>
             )}
