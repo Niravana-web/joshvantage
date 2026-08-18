@@ -3,6 +3,7 @@ import FunnelHero from "@/components/FunnelHero";
 import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
 import Packages from "@/components/funnel/Packages";
+import ClientResults from "@/components/funnel/ClientResults";
 import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 
 const GROWTH_TESTIMONIALS: MediaTestimonial[] = [];
@@ -59,6 +60,9 @@ export default function GrowthPage() {
 
         {/* Populated once the client supplies genuine tender/bid testimonials */}
         <MediaTestimonials items={GROWTH_TESTIMONIALS} />
+
+        {/* Documentary proof of delivery, immediately before the investment */}
+        <ClientResults />
 
         <Packages
           eyebrow="TENDER SUPPORT"
@@ -167,7 +171,12 @@ export default function GrowthPage() {
         <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, tender preparation and business development support. We do not guarantee tender awards, contracts, revenue, business growth or any specific commercial outcome. Procurement and contracting decisions are made independently by the relevant commissioning or contracting organisation." />
 
         <Footer />
-        <StickyAssessmentCta label="Take the Tender Assessment" />
+        {/* Steps aside for the evidence documents and for the assessment form
+            itself, so it never sits over a document or the submit button */}
+        <StickyAssessmentCta
+          label="Take the Tender Assessment"
+          hideAlso="#client-results"
+        />
       </main>
     </SmoothScroll>
   );
