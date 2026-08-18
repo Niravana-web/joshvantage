@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 /* All three options scroll back to the journey section, where the visitor
  * picks their pathway card. */
 const PATHS = [
-  { label: "Start with JV Launch", href: "#journey", primary: true },
+  { label: "Start with JV Launch", href: "#journey" },
   { label: "Explore JV Growth", href: "#journey" },
   { label: "Explore JV Academy", href: "#journey" },
 ];
@@ -32,11 +32,9 @@ export default function FinalCta() {
             <a
               key={p.label}
               href={p.href}
-              className={`flex h-13 items-center rounded-full px-7 py-3.5 text-[14px] font-semibold transition-colors ${
-                p.primary
-                  ? "bg-[var(--brand-pale)] text-[var(--brand-navy)] hover:bg-white"
-                  : "border border-white/30 text-white hover:bg-white/10"
-              }`}
+              /* All three read as equal routes: outlined at rest, filling with
+                 brand pale on hover and keyboard focus. */
+              className="flex h-13 items-center rounded-full border border-white/30 px-7 py-3.5 text-[14px] font-semibold text-white transition-colors hover:border-[var(--brand-pale)] hover:bg-[var(--brand-pale)] hover:text-[var(--brand-navy)] focus-visible:border-[var(--brand-pale)] focus-visible:bg-[var(--brand-pale)] focus-visible:text-[var(--brand-navy)]"
             >
               {p.label} <span aria-hidden className="ml-2">&#8594;</span>
             </a>
