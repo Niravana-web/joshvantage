@@ -194,17 +194,19 @@ export default function ClientExperiences() {
 
         {/* Having seen the proof, the visitor is routed straight into the
             journey that matches them rather than back to the picker. */}
-        <Reveal stagger={0.1} className="mt-16 grid gap-px border-t border-black/10 bg-black/10 md:grid-cols-3">
+        <Reveal
+          stagger={0.1}
+          className="mt-16 grid gap-10 border-t border-black/10 pt-12 md:grid-cols-3 md:gap-8"
+        >
           {ROUTES.map((r) => (
-            <a
-              key={r.href}
-              href={r.href}
-              className="group flex flex-col bg-white px-2 py-8 transition-colors hover:bg-[#f7f7f5] md:px-8"
-            >
-              <span className="text-[15px] leading-relaxed text-[#4c4c47]">
+            <div key={r.href} className="flex flex-col items-start">
+              <p className="text-[15px] leading-relaxed text-[#4c4c47]">
                 {r.question}
-              </span>
-              <span className="mt-3 inline-flex items-center text-[15.5px] font-semibold text-[var(--brand-navy)]">
+              </p>
+              <a
+                href={r.href}
+                className="group mt-5 inline-flex h-12 items-center rounded-full bg-[var(--brand-navy)] px-6 text-[14px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
+              >
                 {r.label}
                 <span
                   aria-hidden
@@ -212,8 +214,8 @@ export default function ClientExperiences() {
                 >
                   &#8594;
                 </span>
-              </span>
-            </a>
+              </a>
+            </div>
           ))}
         </Reveal>
       </div>
