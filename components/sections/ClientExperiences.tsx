@@ -49,26 +49,32 @@ const EXPERIENCES: Experience[] = [
     attribution: ["Tender Support Client"],
   },
   {
-    /* Academy video is in place, but the testimonial around it is not: no
-       pull-quote and no attribution have been approved, and none may be
-       written on the client's behalf. Publishing is also likely to need the
-       shared disclaimer below widened — as worded it covers CQC registration
-       and tender decisions only, not programme, employment, Registered
-       Manager or sponsorship outcomes.
-       To go live: fill in quote and attribution, then set published to true. */
+    /* Registered Manager testimonial. The video carries the story on its own:
+       no pull-quote or attribution has been approved for it, and none may be
+       written on the client's behalf, so the card publishes with the journey
+       identifier alone. Add quote and attribution here if the client supplies
+       approved wording later. */
     journey: "JV Academy",
-    published: false,
+    published: true,
     quote: "",
     attribution: [],
     video: {
       src: "/testimonials/jv-academy-client.mp4",
-      label: "JV Academy client testimonial",
+      label: "JV Academy client on progressing into a Registered Manager role",
     },
   },
 ];
 
+/*
+ * Shared across all three journeys. The first two sentences are the client's
+ * approved testimonial disclaimer. The third was added when the Academy
+ * testimonial went live, because that story is about reaching a Registered
+ * Manager role and the original wording covered CQC registration and tender
+ * decisions only. It is the client's own approved sentence, taken verbatim
+ * from the disclaimer on /academy, with the subject named so it stands alone.
+ */
 const DISCLAIMER =
-  "Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. CQC registration and tender decisions are made independently by the relevant regulatory or contracting authorities.";
+  "Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. CQC registration and tender decisions are made independently by the relevant regulatory or contracting authorities. Participation in the Registered Manager Leadership Programme does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary.";
 
 export default function ClientExperiences() {
   const published = EXPERIENCES.filter((e) => e.published);
@@ -76,7 +82,8 @@ export default function ClientExperiences() {
 
   /* Two approved testimonials sit 2-up; the third slot widens the grid to
      3-up automatically once the Academy video is published. */
-  const cols = published.length >= 3 ? "lg:grid-cols-3" : "md:grid-cols-2";
+  const cols =
+    published.length >= 3 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2";
 
   return (
     <section
