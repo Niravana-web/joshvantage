@@ -39,21 +39,14 @@ const EXPERIENCES: Experience[] = [
     },
   },
   {
-    /* Client replaced the written email feedback with this video. The approved
-       written version is kept here in case it is ever wanted back:
-         "Tender application passed 💃💃💃\nThank you for the great work!"
-         — Tender Support Client
-       No pull-quote or attribution is published for the video yet: none has
-       been supplied, and none may be written on the client's behalf. Fill the
-       two fields below in when the approved wording arrives. */
+    /* Approved redacted client email, deliberately anonymised — the client's
+       name is not used, and no photograph, rating or initials are added. The
+       source screenshot is not shown on the card: the written feedback is the
+       testimonial. Intentionally a different format from the Launch video. */
     journey: "JV Growth",
     published: true,
-    quote: "",
-    attribution: [],
-    video: {
-      src: "/testimonials/jv-growth-client.mp4",
-      label: "Josh Vantage tender support client on their JV Growth experience",
-    },
+    quote: "Tender application passed \u{1F483}\u{1F483}\u{1F483}\nThank you for the great work!",
+    attribution: ["Tender Support Client"],
   },
   {
     /* Reserved for the Registered Manager / Academy video testimonial. Stays
