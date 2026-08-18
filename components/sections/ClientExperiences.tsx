@@ -1,6 +1,7 @@
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import TestimonialVideo from "@/components/TestimonialVideo";
+import TestimonialImage from "@/components/TestimonialImage";
 
 /*
  * Homepage client experiences — one testimonial per journey (Launch, Growth,
@@ -21,6 +22,8 @@ type Experience = {
      supplied anonymous feedback. */
   attribution: string[];
   video?: { src: string; poster?: string; captions?: string; label: string };
+  /* Source evidence behind a written testimonial, shown in the media slot. */
+  image?: { src: string; alt: string };
 };
 
 const EXPERIENCES: Experience[] = [
@@ -40,23 +43,29 @@ const EXPERIENCES: Experience[] = [
   },
   {
     /* Approved redacted client email, deliberately anonymised — the client's
-       name is not used, and no photograph, rating or initials are added. The
-       source screenshot is not shown on the card: the written feedback is the
-       testimonial. Intentionally a different format from the Launch video. */
+       name is not used and nothing is added to the image. The written quote
+       is the testimonial and reads on its own; the screenshot sits in the
+       media slot as corroboration and to balance the two video cards. */
     journey: "JV Growth",
     published: true,
     quote: "Tender application passed \u{1F483}\u{1F483}\u{1F483}\nThank you for the great work!",
     attribution: ["Tender Support Client"],
+    image: {
+      src: "/tender-passed.png",
+      alt: "Redacted client email confirming the tender application passed",
+    },
   },
   {
-    /* Registered Manager testimonial. The video carries the story on its own:
-       no pull-quote or attribution has been approved for it, and none may be
-       written on the client's behalf, so the card publishes with the journey
-       identifier alone. Add quote and attribution here if the client supplies
-       approved wording later. */
+    /* Registered Manager testimonial. Quote is the client's own words, read
+       verbatim off the video's burnt-in subtitles — speech as spoken, not
+       tidied into marketing prose. The ellipsis marks a genuine gap between
+       the two supplied frames rather than an edit; replace it with the full
+       line if the complete transcript is supplied. No attribution is shown:
+       none has been supplied, and one may not be invented. */
     journey: "JV Academy",
     published: true,
-    quote: "",
+    quote:
+      "So it was a life changing. I went from being unsure about my future of securing the … 35k salary and leading team in a registered manager.",
     attribution: [],
     video: {
       src: "/testimonials/jv-academy-client.mp4",
@@ -75,6 +84,13 @@ const EXPERIENCES: Experience[] = [
  */
 const DISCLAIMER =
   "Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. CQC registration and tender decisions are made independently by the relevant regulatory or contracting authorities. Participation in the Registered Manager Leadership Programme does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary.";
+
+/* Each route drops the visitor into the matching funnel page. */
+const ROUTES = [
+  { question: "Building a care business?", label: "Explore JV Launch", href: "/launch" },
+  { question: "Growing an existing care business?", label: "Explore JV Growth", href: "/growth" },
+  { question: "Developing towards care leadership?", label: "Explore JV Academy", href: "/academy" },
+];
 
 export default function ClientExperiences() {
   const published = EXPERIENCES.filter((e) => e.published);
@@ -97,7 +113,11 @@ export default function ClientExperiences() {
         />
 
         <Reveal stagger={0.12} className={`mt-12 grid gap-6 ${cols}`}>
-          {published.map((e) => (
+          {published.map((e) => {
+            /* A card with media sits its text below it; a text-only card
+               centres in the space the media would have taken. */
+            const hasMedia = Boolean(e.video || e.image);
+            return (
             <article
               key={e.journey}
               className="notch-card flex h-full flex-col overflow-hidden border border-black/5 bg-[#f7f7f5]"
@@ -110,10 +130,11 @@ export default function ClientExperiences() {
                   label={e.video.label}
                 />
               )}
+              {e.image && <TestimonialImage src={e.image.src} alt={e.image.alt} />}
 
               <div
                 className={`flex flex-1 flex-col p-8 md:p-9 ${
-                  e.video ? "" : "justify-center"
+                  hasMedia ? "" : "justify-center"
                 }`}
               >
                 <p className="eyebrow-mono text-[var(--brand-navy)]">
@@ -125,12 +146,12 @@ export default function ClientExperiences() {
                 {e.quote && (
                   <blockquote
                     className={`mt-5 whitespace-pre-line leading-relaxed text-[#33332f] ${
-                      e.video
+                      hasMedia
                         ? "text-[16px] md:text-[16.5px]"
                         : "text-[19px] md:text-[22px]"
                     }`}
                     style={
-                      e.video
+                      hasMedia
                         ? undefined
                         : { fontFamily: "var(--font-lora), Georgia, serif" }
                     }
@@ -163,12 +184,38 @@ export default function ClientExperiences() {
                 )}
               </div>
             </article>
-          ))}
+            );
+          })}
         </Reveal>
 
         <p className="mx-auto mt-12 max-w-3xl border-t border-black/10 pt-7 text-[13px] leading-relaxed text-[#6b6b64]">
           {DISCLAIMER}
         </p>
+
+        {/* Having seen the proof, the visitor is routed straight into the
+            journey that matches them rather than back to the picker. */}
+        <Reveal stagger={0.1} className="mt-16 grid gap-px border-t border-black/10 bg-black/10 md:grid-cols-3">
+          {ROUTES.map((r) => (
+            <a
+              key={r.href}
+              href={r.href}
+              className="group flex flex-col bg-white px-2 py-8 transition-colors hover:bg-[#f7f7f5] md:px-8"
+            >
+              <span className="text-[15px] leading-relaxed text-[#4c4c47]">
+                {r.question}
+              </span>
+              <span className="mt-3 inline-flex items-center text-[15.5px] font-semibold text-[var(--brand-navy)]">
+                {r.label}
+                <span
+                  aria-hidden
+                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  &#8594;
+                </span>
+              </span>
+            </a>
+          ))}
+        </Reveal>
       </div>
     </section>
   );
