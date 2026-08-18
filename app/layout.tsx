@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   description:
     "Specialist support for people launching care businesses, established care providers pursuing new contracts and aspiring and experienced professionals developing towards Registered Manager leadership.",
   alternates: { canonical: "./" },
+  /* The site is published by the client and built by the agency — `publisher`
+     and `creator` keep that distinction accurate rather than crediting one for
+     the other's work. */
+  authors: [{ name: "Lokesh Sai Tamiri", url: "https://niravana.in" }],
+  creator: "Niravana",
+  publisher: "Josh Vantage Consulting Group",
   openGraph: {
     siteName: "Josh Vantage Consulting Group",
     type: "website",
