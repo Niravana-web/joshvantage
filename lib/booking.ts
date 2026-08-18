@@ -1,51 +1,64 @@
 /*
- * Calendly booking links for the funnel assessments.
+ * Calendly booking configuration for the funnel assessments.
  *
- * One Calendly event type per funnel, so each stays separately identifiable in
- * Calendly's reporting and names the right service in the prospect's
- * confirmation and reminder emails. Behind them sits a single availability
- * schedule and a single account-level daily meeting limit, so a booking on any
- * one funnel consumes the same shared sales capacity and blocks the slot on the
- * other two. That capacity rule lives in the Calendly account, not here.
+ * The end state is one Calendly event type per funnel, so each stays separately
+ * identifiable in Calendly's reporting and names the right service in the
+ * prospect's confirmation and reminder emails. Behind them sits a single
+ * availability schedule and a single account-level daily meeting limit, so a
+ * booking on any one funnel consumes the same shared sales capacity and blocks
+ * the slot on the other two. That capacity rule lives in the Calendly account,
+ * not here.
+ *
+ * INTERIM: all three currently point at one shared 30-minute event so booking
+ * works today. Two consequences until the per-funnel events exist:
+ *   - the site says "20-Minute" in eight places; the booking page says 30
+ *   - bookings are not separable by funnel in Calendly's own reporting, so the
+ *     UTM campaign below is the only thing distinguishing them
+ * Replace each entry with its own event URL to resolve both.
  */
 
 export type Funnel = "launch" | "growth" | "academy";
 
-/*
- * Empty until the client supplies the live event URLs. While a URL is empty the
- * booking button is not rendered at all — better than shipping a guessed slug
- * that would 404 for a prospect who has just completed an assessment.
- */
+const INTERIM_SHARED_EVENT =
+  "https://calendly.com/meetings-joshvantageconsultinggroup/30min";
+
 export const CALENDLY_URLS: Record<Funnel, string> = {
-  launch: "",
-  growth: "",
-  academy: "",
+  launch: INTERIM_SHARED_EVENT,
+  growth: INTERIM_SHARED_EVENT,
+  academy: INTERIM_SHARED_EVENT,
 };
 
-/* Campaign name per funnel, so Calendly's reporting can attribute a booking to
-   the funnel it came from on top of the event type itself. */
+/* Campaign name per funnel, so a booking can be attributed to the funnel it
+   came from even while all three share one event type. */
 const UTM_CAMPAIGN: Record<Funnel, string> = {
   launch: "jv-launch",
   growth: "jv-growth",
   academy: "jv-academy",
 };
 
+export type BookingConfig = {
+  url: string;
+  prefill: { name?: string; email?: string };
+  utm: { utmSource: string; utmMedium: string; utmCampaign: string };
+};
+
 /*
- * Builds the booking link for a funnel, prefilling what the assessment already
- * captured so the prospect does not retype it. Returns null when no URL is
- * configured, which is the caller's signal to hide the button.
+ * Everything the embed needs, or null when no URL is configured — the caller's
+ * signal to render nothing rather than an empty booking frame.
+ *
+ * Prefill and UTM are kept as objects rather than query parameters because
+ * Calendly's inline widget takes them through its own API; `bookingUrl` below
+ * folds them into a URL for the plain-link fallback.
  */
-export function bookingUrl(
+export function bookingConfig(
   funnel: Funnel,
   answers: Record<string, string>,
   override?: string
-): string | null {
+): BookingConfig | null {
   const base = override ?? CALENDLY_URLS[funnel];
   if (!base) return null;
-
-  let url: URL;
   try {
-    url = new URL(base);
+    new URL(base);
   } catch {
     return null;
   }
@@ -53,12 +66,36 @@ export function bookingUrl(
   /* Every funnel assessment collects these same two fields. */
   const name = answers.name?.trim();
   const email = answers.email?.trim();
-  if (name) url.searchParams.set("name", name);
-  if (email) url.searchParams.set("email", email);
 
-  url.searchParams.set("utm_source", "website");
-  url.searchParams.set("utm_medium", "assessment");
-  url.searchParams.set("utm_campaign", UTM_CAMPAIGN[funnel]);
+  return {
+    url: base,
+    prefill: { ...(name && { name }), ...(email && { email }) },
+    utm: {
+      utmSource: "website",
+      utmMedium: "assessment",
+      utmCampaign: UTM_CAMPAIGN[funnel],
+    },
+  };
+}
 
+/*
+ * The same booking destination as a plain URL. Used for the fallback link shown
+ * beneath the embed, so a visitor whose browser blocks third-party scripts can
+ * still reach the booking page.
+ */
+export function bookingUrl(
+  funnel: Funnel,
+  answers: Record<string, string>,
+  override?: string
+): string | null {
+  const config = bookingConfig(funnel, answers, override);
+  if (!config) return null;
+
+  const url = new URL(config.url);
+  if (config.prefill.name) url.searchParams.set("name", config.prefill.name);
+  if (config.prefill.email) url.searchParams.set("email", config.prefill.email);
+  url.searchParams.set("utm_source", config.utm.utmSource);
+  url.searchParams.set("utm_medium", config.utm.utmMedium);
+  url.searchParams.set("utm_campaign", config.utm.utmCampaign);
   return url.toString();
 }

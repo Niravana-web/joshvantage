@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { bookingUrl, type Funnel } from "@/lib/booking";
+import { bookingConfig, bookingUrl, type Funnel } from "@/lib/booking";
+import CalendlyEmbed from "@/components/funnel/CalendlyEmbed";
 
 export type Field = {
   name: string;
@@ -50,6 +51,7 @@ export default function MultiStepForm({
   const step = steps[stepIdx];
   const pct = Math.round(((stepIdx + 1) / steps.length) * 100);
   /* Prefilled with what the assessment just captured, plus funnel UTMs. */
+  const booking = bookingConfig(funnel, values, calendlyUrl);
   const bookHref = bookingUrl(funnel, values, calendlyUrl);
 
   const set = (name: string, value: string) => {
@@ -212,18 +214,11 @@ export default function MultiStepForm({
               20-minute call to look at your situation honestly and confirm the
               right level of support.
             </p>
-            {/* Opens in a new tab so the visitor keeps this confirmation
-                behind them. No button at all while unconfigured — better than
-                one that goes nowhere. */}
-            {bookHref ? (
-              <a
-                href={bookHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-auto mt-7 flex h-13 w-fit items-center rounded-full bg-[var(--brand-navy)] px-9 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
-              >
-                Book your 20-minute call
-              </a>
+            {/* The scheduler itself, so the visitor books without leaving the
+                page. Nothing renders while unconfigured — better than an empty
+                booking frame. */}
+            {booking && bookHref ? (
+              <CalendlyEmbed config={booking} fallbackHref={bookHref} />
             ) : (
               <p className="mt-6 text-[12px] text-[#8a8a83]">
                 Booking link goes live at launch.
