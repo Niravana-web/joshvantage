@@ -111,23 +111,9 @@ export default function Footer() {
           individual circumstances and decisions made by independent third
           parties.
         </p>
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="eyebrow-mono text-[12px] text-white/40">
-            &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.
-          </p>
-          {/* Design credit. Editorial link, so no rel="nofollow". */}
-          <p className="eyebrow-mono text-[12px] text-white/40">
-            DESIGNED BY{" "}
-            <a
-              href="https://niravana.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/60 underline underline-offset-2 transition-colors hover:text-white"
-            >
-              NIRAVANA
-            </a>
-          </p>
-        </div>
+        <p className="eyebrow-mono mt-5 text-[12px] text-white/40">
+          &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.
+        </p>
       </div>
     </footer>
   );
