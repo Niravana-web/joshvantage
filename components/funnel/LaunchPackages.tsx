@@ -90,8 +90,14 @@ const GROUPS: {
       { label: "NI mock CQC interviews", cells: [null, "1 x 60 min", "2 x 60 min"] },
       { label: "RM preparation sessions", cells: [null, "1 x 60 min", "3 x 60 min"] },
       { label: "RM mock CQC interviews", cells: [null, "1 x 60 min", "2 x 60 min"] },
-      { label: "NI/RM feedback & action plan", cells: [null, true, true] },
-      { label: "Priority 1-to-1 NI/RM support", cells: [null, null, true] },
+      {
+        label: "NI/RM feedback & action plan",
+        cells: [null, true, "Feedback after the preparation sessions and mock interviews, with an agreed action plan"],
+      },
+      {
+        label: "Priority 1-to-1 NI/RM support",
+        cells: [null, null, "Direct one-to-one support for the Nominated Individual and Registered Manager"],
+      },
       {
         label: "Interview-Day Readiness Support",
         note: "Final pre-interview readiness support including key-question preparation, documentation/evidence check, interview setup check and final readiness review.",
@@ -104,11 +110,17 @@ const GROUPS: {
     rows: [
       {
         label: "Launch Readiness Review & Personalised Action Plan",
-        cells: [null, true, "✓ Comprehensive"],
+        cells: [null, true, "Full launch readiness review with a personalised action plan"],
       },
       { label: "Launch implementation review sessions", cells: [null, null, "2 sessions"] },
-      { label: "Workforce readiness guidance", cells: [null, null, "✓ within launch review"] },
-      { label: "Mandatory training framework guidance", cells: [null, null, "✓ within launch review"] },
+      {
+        label: "Workforce readiness guidance",
+        cells: [null, null, "Workforce readiness guidance, delivered within the launch readiness review"],
+      },
+      {
+        label: "Mandatory training framework guidance",
+        cells: [null, null, "Mandatory training framework guidance, delivered within the launch readiness review"],
+      },
       {
         label: "Non-Regulated Service Launch Pathway",
         cells: [null, "Add-on available", "Add-on available"],

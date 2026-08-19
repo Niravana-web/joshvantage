@@ -8,28 +8,42 @@ import { NextResponse, type NextRequest } from "next/server";
  * destination stays editable here forever — repoint a campaign by changing one
  * line, without reprinting anything.
  *
- * Each entry also stamps the campaign onto the destination as UTM parameters,
- * so the source is captured by lib/analytics.ts on landing and travels through
- * to the lead record in MongoDB.
+ * Each entry stamps its campaign onto the destination as UTM parameters, which
+ * lib/analytics.ts captures on landing and carries through to the lead record
+ * in MongoDB. So a registration can be traced back to the exact piece of
+ * collateral it came from, in the admin dashboard as well as in GA4.
  *
- * PLACEHOLDERS: the slugs below are illustrative. Replace them with the real
- * campaigns before any code is printed — a printed slug that is not in this
- * map falls back to the homepage.
+ * To add a campaign: add a slug below and print joshvantage.com/go/<slug>.
+ * To repoint one: change its `path`. The printed code keeps working.
  */
 type Destination = {
   /* Path on this site the code resolves to. */
   path: string;
-  /* utm_medium — how the person encountered the code. */
+  /* utm_source — the channel class. */
+  source: string;
+  /* utm_medium — how the person encountered it. */
   medium: string;
   /* utm_campaign — which specific piece of collateral. */
   campaign: string;
 };
 
 const DESTINATIONS: Record<string, Destination> = {
-  leaflet: { path: "/academy", medium: "print", campaign: "university-leaflet" },
-  letter: { path: "/launch", medium: "print", campaign: "provider-letter" },
-  event: { path: "/", medium: "event", campaign: "event-standee" },
-  card: { path: "/", medium: "print", campaign: "business-card" },
+  /* Per-funnel codes — the general-purpose ones for any printed material
+     pointing at a single service. */
+  launch: { path: "/launch", source: "qr", medium: "print", campaign: "qr-launch" },
+  growth: { path: "/growth", source: "qr", medium: "print", campaign: "qr-growth" },
+  academy: { path: "/academy", source: "qr", medium: "print", campaign: "qr-academy" },
+
+  /* Collateral-specific codes — use these where you want to tell two pieces
+     of print apart even though they point at the same page. */
+  leaflet: { path: "/academy", source: "qr", medium: "print", campaign: "university-leaflet" },
+  letter: { path: "/launch", source: "qr", medium: "print", campaign: "provider-letter" },
+  event: { path: "/", source: "qr", medium: "event", campaign: "event-standee" },
+  card: { path: "/", source: "qr", medium: "print", campaign: "business-card" },
+
+  /* Not a QR code — a link for email campaigns, kept here so the destination
+     stays editable in the same place as everything else. */
+  email: { path: "/", source: "email", medium: "email", campaign: "email-campaign" },
 };
 
 export async function GET(
@@ -39,12 +53,9 @@ export async function GET(
   const { slug } = await ctx.params;
   const target = DESTINATIONS[slug.toLowerCase()];
 
-  const base = new URL(
-    target?.path ?? "/",
-    "https://joshvantage.com"
-  );
+  const base = new URL(target?.path ?? "/", "https://joshvantage.com");
   if (target) {
-    base.searchParams.set("utm_source", "qr");
+    base.searchParams.set("utm_source", target.source);
     base.searchParams.set("utm_medium", target.medium);
     base.searchParams.set("utm_campaign", target.campaign);
   }
