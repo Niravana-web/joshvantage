@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { bookingUrl, type Funnel } from "@/lib/booking";
+import { track, getSource } from "@/lib/analytics";
 import CalendlyEmbed from "@/components/funnel/CalendlyEmbed";
 
 export type Field = {
@@ -47,6 +48,7 @@ export default function MultiStepForm({
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [started, setStarted] = useState(false);
 
   const step = steps[stepIdx];
   const pct = Math.round(((stepIdx + 1) / steps.length) * 100);
@@ -54,6 +56,11 @@ export default function MultiStepForm({
   const bookHref = bookingUrl(funnel, values, calendlyUrl);
 
   const set = (name: string, value: string) => {
+    /* First interaction with any field counts as starting the form. */
+    if (!started) {
+      setStarted(true);
+      track("form_start", { funnel });
+    }
     setValues((v) => ({ ...v, [name]: value }));
     setError("");
   };
@@ -75,9 +82,13 @@ export default function MultiStepForm({
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ funnel, answers: values }),
+        /* Campaign source travels with the lead so print and QR campaigns can
+           be attributed in the admin dashboard, not just in GA4. The API
+           sanitiser already accepts arbitrary flat string fields. */
+        body: JSON.stringify({ funnel, answers: { ...values, ...getSource() } }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      track("form_complete", { funnel });
       setDone(true);
     } catch {
       setError(
@@ -217,7 +228,7 @@ export default function MultiStepForm({
                 page. Nothing renders while unconfigured — better than an empty
                 booking frame. */}
             {bookHref ? (
-              <CalendlyEmbed url={bookHref} />
+              <CalendlyEmbed url={bookHref} funnel={funnel} />
             ) : (
               <p className="mt-6 text-[12px] text-[#8a8a83]">
                 Booking link goes live at launch.

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { track } from "@/lib/analytics";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +15,7 @@ const FUNNELS = [
     headline: "Launch a Care Business",
     desc: "For people entering the UK care sector and preparing to launch a regulated care business, with the right CQC foundations from day one.",
     points: ["CQC application preparation", "Policies & governance", "Launch readiness"],
-    cta: "Free CQC Readiness Assessment",
+    cta: "Get My Free CQC Readiness Assessment",
     href: "/launch",
     layers: 1,
   },
@@ -36,7 +37,7 @@ const FUNNELS = [
     headline: "Prepare for Registered Manager Leadership",
     desc: "For aspiring and experienced care professionals developing the knowledge, leadership capability and regulatory readiness to progress towards Registered Manager opportunities. Admission is by application.",
     points: ["Regulatory readiness", "Leadership & governance", "Interview preparation"],
-    cta: "Apply Now",
+    cta: "Apply for the Programme",
     href: "/academy",
     layers: 3,
     crowned: true,
@@ -107,7 +108,12 @@ export default function Funnels() {
 
         <div className="mx-auto mt-12 grid w-full max-w-6xl gap-5 md:grid-cols-3">
           {FUNNELS.map((f) => (
-            <a key={f.name} href={f.href} className="funnel-card group">
+            <a
+              key={f.name}
+              href={f.href}
+              onClick={() => track("pathway_click", { funnel: f.name, location: "journey" })}
+              className="funnel-card group"
+            >
               <div className="flex items-baseline justify-between">
                 <span className="eyebrow-mono text-[var(--brand-pale)]">
                   {f.step} {f.keyword}

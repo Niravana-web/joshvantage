@@ -3,8 +3,12 @@ import Reveal from "@/components/Reveal";
 /* Three objection blocks — the "we hear you" row on each funnel page. */
 export default function Objections({
   items,
+  transition,
 }: {
   items: { q: string; a: string }[];
+  /* Optional closing line under the three cards, bridging into the next
+     section rather than leaving the objections hanging. */
+  transition?: string;
 }) {
   return (
     <section className="bg-[#f7f7f5] px-6 py-24 text-[#181815] md:px-12">
@@ -18,6 +22,16 @@ export default function Objections({
           </article>
         ))}
       </Reveal>
+      {transition && (
+        <Reveal className="mx-auto mt-12 max-w-6xl">
+          <p
+            className="text-center text-2xl font-medium text-[#181815] md:text-3xl"
+            style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+          >
+            {transition}
+          </p>
+        </Reveal>
+      )}
     </section>
   );
 }

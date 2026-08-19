@@ -23,25 +23,34 @@ const SOCIALS: { name: string; href: string; path: string }[] = [
   },
 ];
 
-export default function Footer() {
+/*
+ * `generalCta` controls the "Building, growing, or leading…/Contact us" block.
+ * Funnel pages switch it off: each drives one specific assessment, and a
+ * generic contact CTA competes with that. The homepage and /contact keep it.
+ */
+export default function Footer({ generalCta = true }: { generalCta?: boolean }) {
   return (
     <footer id="contact" className="footer-glow relative overflow-hidden bg-[#0b0b0b] px-6 pb-40 pt-24 text-white md:px-12">
       <div className="relative z-10 mx-auto grid max-w-6xl gap-14 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <p className="max-w-xs text-lg font-light leading-relaxed text-white/80">
-            Building, growing, or leading a care business? Start with the right
-            assessment. Let&apos;s talk.
-          </p>
-          <div className="mt-10 space-y-7 text-[15px]">
-            <div>
-              <p className="eyebrow-mono mb-1.5 text-white/40">GET IN TOUCH</p>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-[13.5px] font-semibold transition-colors hover:bg-white/25"
-              >
-                Contact us <span aria-hidden>&#8594;</span>
-              </a>
-            </div>
+          {generalCta && (
+            <p className="max-w-xs text-lg font-light leading-relaxed text-white/80">
+              Building, growing, or leading a care business? Start with the right
+              assessment. Let&apos;s talk.
+            </p>
+          )}
+          <div className={`space-y-7 text-[15px] ${generalCta ? "mt-10" : ""}`}>
+            {generalCta && (
+              <div>
+                <p className="eyebrow-mono mb-1.5 text-white/40">GET IN TOUCH</p>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-[13.5px] font-semibold transition-colors hover:bg-white/25"
+                >
+                  Contact us <span aria-hidden>&#8594;</span>
+                </a>
+              </div>
+            )}
             <div>
               <p className="eyebrow-mono mb-2.5 text-white/40">CONNECT</p>
               <div className="flex gap-3">

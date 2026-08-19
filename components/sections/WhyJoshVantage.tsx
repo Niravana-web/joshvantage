@@ -20,22 +20,21 @@ export default function WhyJoshVantage() {
         </Reveal>
         <Reveal stagger={0.12} className="mx-auto mt-14 max-w-xl space-y-6 text-[16px] font-light leading-relaxed text-white/75 md:text-[17px]">
           <p>
-            Behind every care business is someone who decided to build
-            something of their own. Behind every great leader is someone who
-            once had to take their first step.
+            Starting a care business, winning contracts or progressing towards
+            care leadership can become complicated quickly.
           </p>
           <p>
-            Too often, capable people know where they want to go but not how
-            to get there. Regulation can feel complicated. Opportunities can
-            feel out of reach. The next step is not always clear.
+            Regulations. Applications. Evidence. Tender requirements.
+            Leadership expectations. Knowing what to do next is often the
+            hardest part.
+          </p>
+          <p>
+            Josh Vantage brings these challenges into one specialist
+            care-sector ecosystem, with structured support for three critical
+            stages:
           </p>
           <p className="text-[17px] font-normal text-white md:text-[19px]">
-            Josh Vantage exists to change that.
-          </p>
-          <p>
-            We help people turn ambition into something real: a business they
-            can build, opportunities they can pursue, and leadership they can
-            grow into.
+            Build your business. Grow your opportunities. Develop as a leader.
           </p>
         </Reveal>
         <Reveal className="mt-14">

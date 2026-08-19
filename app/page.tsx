@@ -7,6 +7,7 @@ import ValueAreas from "@/components/sections/ValueAreas";
 import Method from "@/components/sections/Method";
 import Founder from "@/components/sections/Founder";
 import ClientExperiences from "@/components/sections/ClientExperiences";
+import ChooseYourPath from "@/components/sections/ChooseYourPath";
 import Reviews from "@/components/sections/Reviews";
 import Faq from "@/components/sections/Faq";
 import FinalCta from "@/components/sections/FinalCta";
@@ -45,9 +46,11 @@ export default function Home() {
           <ValueAreas />
           <Method />
           <Founder />
-          {/* Client experiences — JV Launch video + JV Growth written feedback;
-              the JV Academy slot stays unpublished until its video is supplied */}
+          {/* Required ending order: testimonials -> disclaimer -> Choose Your
+              Path -> FAQs -> final dark CTA -> footer. The disclaimer sits
+              inside ClientExperiences, directly under the cards it qualifies. */}
           <ClientExperiences />
+          <ChooseYourPath />
           {/* Written client reviews — renders once genuine reviews are supplied */}
           <Reviews />
           <Faq />

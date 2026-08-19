@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 /*
  * Calendly's inline scheduler, so the visitor books without leaving the site.
@@ -29,9 +30,32 @@ declare global {
   }
 }
 
-export default function CalendlyEmbed({ url }: { url: string }) {
+export default function CalendlyEmbed({
+  url,
+  funnel,
+}: {
+  url: string;
+  /* Reported with the booking events so each funnel is measurable. */
+  funnel?: string;
+}) {
   const host = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
+
+  /* The visitor reached the scheduler, and separately, completed a booking.
+     Calendly announces the latter by posting a message to the parent window —
+     it is the only signal available from inside the iframe. */
+  useEffect(() => {
+    track("calendly_reached", { funnel });
+    const onMessage = (e: MessageEvent) => {
+      if (typeof e.origin === "string" && !e.origin.includes("calendly.com")) return;
+      const data = e.data as { event?: string } | null;
+      if (data?.event === "calendly.event_scheduled") {
+        track("booked_call", { funnel });
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [funnel]);
 
   useEffect(() => {
     let cancelled = false;

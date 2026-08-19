@@ -56,16 +56,17 @@ const EXPERIENCES: Experience[] = [
     },
   },
   {
-    /* Registered Manager testimonial. Quote is the client's own words, read
-       verbatim off the video's burnt-in subtitles — speech as spoken, not
-       tidied into marketing prose. The ellipsis marks a genuine gap between
-       the two supplied frames rather than an edit; replace it with the full
-       line if the complete transcript is supplied. No attribution is shown:
-       none has been supplied, and one may not be invented. */
+    /* Registered Manager testimonial, transcribed from the video's burnt-in
+       subtitles and corrected by the client ("leading team as a Registered
+       Manager"). Otherwise left as spoken rather than tidied into marketing
+       prose. The ellipsis marks a genuine gap between the two supplied frames
+       rather than an edit; replace it with the full line if the complete
+       transcript is supplied. No attribution is shown: none has been
+       supplied, and one may not be invented. */
     journey: "JV Academy",
     published: true,
     quote:
-      "So it was a life changing. I went from being unsure about my future of securing the … 35k salary and leading team in a registered manager.",
+      "So it was a life changing. I went from being unsure about my future of securing the … 35k salary and leading team as a Registered Manager.",
     attribution: [],
     video: {
       src: "/testimonials/jv-academy-client.mp4",
@@ -85,13 +86,6 @@ const EXPERIENCES: Experience[] = [
 const DISCLAIMER =
   "Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. CQC registration and tender decisions are made independently by the relevant regulatory or contracting authorities. Participation in the Registered Manager Leadership Programme does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary.";
 
-/* Each route drops the visitor into the matching funnel page. */
-const ROUTES = [
-  { question: "Building a care business?", label: "Explore JV Launch", href: "/launch" },
-  { question: "Growing an existing care business?", label: "Explore JV Growth", href: "/growth" },
-  { question: "Developing towards care leadership?", label: "Explore JV Academy", href: "/academy" },
-];
-
 export default function ClientExperiences() {
   const published = EXPERIENCES.filter((e) => e.published);
   if (published.length === 0) return null;
@@ -104,7 +98,7 @@ export default function ClientExperiences() {
   return (
     <section
       id="client-experiences"
-      className="bg-white px-6 py-24 text-[#181815] md:px-12"
+      className="bg-white px-6 pb-16 pt-24 text-[#181815] md:px-12"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHead
@@ -192,32 +186,6 @@ export default function ClientExperiences() {
           {DISCLAIMER}
         </p>
 
-        {/* Having seen the proof, the visitor is routed straight into the
-            journey that matches them rather than back to the picker. */}
-        <Reveal
-          stagger={0.1}
-          className="mt-16 grid gap-10 border-t border-black/10 pt-12 md:grid-cols-3 md:gap-8"
-        >
-          {ROUTES.map((r) => (
-            <div key={r.href} className="flex flex-col items-start">
-              <p className="text-[15px] leading-relaxed text-[#4c4c47]">
-                {r.question}
-              </p>
-              <a
-                href={r.href}
-                className="group mt-5 inline-flex h-12 items-center rounded-full bg-[var(--brand-navy)] px-6 text-[14px] font-semibold text-white transition-colors hover:bg-[#1b2f8d]"
-              >
-                {r.label}
-                <span
-                  aria-hidden
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  &#8594;
-                </span>
-              </a>
-            </div>
-          ))}
-        </Reveal>
       </div>
     </section>
   );

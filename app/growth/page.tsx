@@ -4,6 +4,7 @@ import Objections from "@/components/funnel/Objections";
 import StepsList from "@/components/funnel/StepsList";
 import Packages from "@/components/funnel/Packages";
 import ClientResults from "@/components/funnel/ClientResults";
+import FunnelFinalCta from "@/components/funnel/FunnelFinalCta";
 import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 
 const GROWTH_TESTIMONIALS: MediaTestimonial[] = [];
@@ -25,23 +26,23 @@ export default function GrowthPage() {
         <FunnelHero
           eyebrow="JV GROWTH"
           title="Win Your Next Care Tender With a Stronger, Evidence-Led Bid"
-          sub="Specialist tender-writing support for established UK care providers that want expert help assessing opportunities, developing strong responses and submitting competitive bids."
+          sub="Specialist tender-writing support for established UK care providers. We help you assess the opportunity, understand the specification, build the evidence and develop a stronger, competitive submission."
           cta="Get My Tender Assessment"
         />
 
         <Objections
           items={[
             {
-              q: "Not sure whether the tender is worth pursuing?",
-              a: "We review the opportunity before significant time is committed.",
+              q: "Not sure if the tender is worth pursuing?",
+              a: "Not every opportunity is the right opportunity. Before committing significant time and resources, we help assess the requirements, scope and fit.",
             },
             {
-              q: "Don't have time to write a strong bid?",
-              a: "Josh Vantage can take the lead on developing the submission while gathering the required information and evidence from your organisation.",
+              q: "Don’t have time to build a strong submission?",
+              a: "Tender responses can involve extensive specifications, method statements and evidence requirements. We help turn your operational knowledge into structured, evidence-led responses.",
             },
             {
               q: "Tendered before without winning?",
-              a: "We focus the response around the specification, scoring criteria and available evidence rather than generic answers.",
+              a: "A compliant answer isn’t automatically a competitive answer. We focus on the specification, scoring criteria, evidence and what the evaluator is actually asking you to demonstrate.",
             },
           ]}
         />
@@ -50,11 +51,11 @@ export default function GrowthPage() {
           eyebrow="THE SYSTEM"
           title="The JV Tender Win System"
           steps={[
-            { num: "/01", title: "Assess the Opportunity", desc: "Bid/no-bid review before significant time is committed." },
-            { num: "/02", title: "Analyse the Tender", desc: "Review specification, requirements, questions and scoring criteria." },
-            { num: "/03", title: "Build the Evidence", desc: "Identify the information and evidence required for the response." },
-            { num: "/04", title: "Develop the Bid", desc: "Develop structured, evidence-led tender responses." },
-            { num: "/05", title: "Quality Review", desc: "Proofreading, compliance and submission-readiness review." },
+            { num: "/01", title: "Assess Opportunity", desc: "Is this opportunity commercially and operationally worth pursuing?" },
+            { num: "/02", title: "Analyse the Tender", desc: "Break down the specification, evaluation criteria, submission requirements and scoring structure." },
+            { num: "/03", title: "Build the Evidence", desc: "Identify the policies, examples, outcomes, processes and operational evidence needed to support the bid." },
+            { num: "/04", title: "Develop the Bid", desc: "Build structured, evidence-led responses around the buyer’s requirements." },
+            { num: "/05", title: "Quality & Compliance Review", desc: "Review the submission against the requirements before finalisation." },
           ]}
         />
 
@@ -111,7 +112,14 @@ export default function GrowthPage() {
             {
               name: "3-Bid Growth Bundle",
               price: "£3,750",
-              bestFor: "Established providers planning to actively pursue multiple tender opportunities. Valid for 12 months.",
+              tagline: "Build once. Strengthen over time. Bid more strategically.",
+              value: {
+                compare: "3 × Tender Complete (£1,750)",
+                comparePrice: "£5,250",
+                saving: "£1,500",
+                validity: "Valid for 12 months from purchase/start date.",
+              },
+              bestFor: "Three tender projects to use within 12 months, supported by a reusable evidence bank and tender pipeline prioritisation.",
               features: [
                 "Three eligible tenders within the agreed validity period and scope",
                 "Bid/no-bid reviews",
@@ -129,8 +137,8 @@ export default function GrowthPage() {
 
         <MultiStepForm funnel="growth"
           eyebrow="TENDER ASSESSMENT"
-          title="Tender Assessment"
-          intro="Complete the assessment to help us understand your tender opportunity and the support you may need."
+          title="Is this tender worth pursuing? Start here."
+          intro="Tell us about your business and the opportunity you’re considering. We’ll assess the tender, your current position and the support required before recommending the appropriate next step."
           bookCta="Book Your 20-Minute Tender Strategy Call"
           submitNote="Submitting this assessment does not guarantee that Josh Vantage will accept the tender instruction or that any tender will be successful. We review the opportunity, scope, deadline and available evidence before confirming whether we can support the submission."
           steps={[
@@ -170,12 +178,18 @@ export default function GrowthPage() {
 
         <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, tender preparation and business development support. We do not guarantee tender awards, contracts, revenue, business growth or any specific commercial outcome. Procurement and contracting decisions are made independently by the relevant commissioning or contracting organisation." />
 
-        <Footer />
+        <FunnelFinalCta
+          title="Have a tender opportunity you’re considering?"
+          body="Start with the Tender Assessment. We’ll understand the opportunity, deadline and support required before determining the appropriate next step."
+          cta="Get My Tender Assessment"
+        />
+
+        <Footer generalCta={false} />
         {/* Steps aside for the evidence documents and for the assessment form
             itself, so it never sits over a document or the submit button */}
         <StickyAssessmentCta
-          label="Take the Tender Assessment"
-          hideAlso="#client-results"
+          label="Get My Tender Assessment"
+          hideAlso="#client-results, #next-step"
         />
       </main>
     </SmoothScroll>

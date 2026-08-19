@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { track } from "@/lib/analytics";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,15 +77,34 @@ export default function Hero() {
         </div>
       </header>
 
-      {/* Statement, top-right like TIWIS */}
-      <div className="hero-statement absolute left-6 right-6 top-[22vh] z-10 md:left-auto md:right-14 md:top-[24vh] md:max-w-xl">
+      {/* Statement, top-right like TIWIS. The giant wordmark below is the
+          headline; this block carries the eyebrow, supporting copy and the
+          single hero action. */}
+      <div className="hero-statement absolute left-6 right-6 top-[20vh] z-10 md:left-auto md:right-14 md:top-[22vh] md:max-w-xl">
         <p className="whitespace-nowrap text-[17px] font-semibold tracking-wide text-white sm:text-[22px] md:text-[26px]">
           JOSH VANTAGE CONSULTING GROUP
         </p>
         <p className="mt-5 text-xl font-normal leading-relaxed text-white [text-shadow:0_1px_18px_rgba(6,13,36,0.8)]">
-          Specialist support for people launching care businesses, established
-          care providers pursuing new contracts and aspiring and experienced
-          professionals developing towards Registered Manager leadership.
+          Specialist support for people building care businesses, established
+          providers pursuing contracts, and professionals progressing towards
+          care leadership.
+        </p>
+        <a
+          href="#journey"
+          onClick={() => track("find_your_path_click", { location: "hero" })}
+          className="group mt-8 inline-flex h-13 items-center rounded-full bg-[var(--brand-pale)] px-8 py-3.5 text-[14.5px] font-semibold text-[var(--brand-navy)] transition-colors hover:bg-white"
+        >
+          Find Your Path
+          <span
+            aria-hidden
+            className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+          >
+            &#8594;
+          </span>
+        </a>
+        <p className="mt-5 text-[14px] leading-relaxed text-white/75">
+          Three specialist pathways. Start with the one that matches where you
+          are now.
         </p>
       </div>
 

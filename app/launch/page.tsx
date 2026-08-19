@@ -7,6 +7,7 @@ import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/Me
 import MultiStepForm from "@/components/funnel/MultiStepForm";
 import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
+import FunnelFinalCta from "@/components/funnel/FunnelFinalCta";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/sections/Footer";
@@ -26,7 +27,7 @@ const SUPPORT = [
   "Business & Operational Readiness",
   "Nominated Individual Preparation",
   "Registered Manager Preparation",
-  "Associated Launch Support",
+  "Launch Support",
 ];
 
 export default function LaunchPage() {
@@ -36,7 +37,7 @@ export default function LaunchPage() {
         <FunnelHero
           eyebrow="JV LAUNCH"
           title="Launch Your UK Care Business With the Right CQC Foundations From Day One"
-          sub="Structured support with CQC preparation, business readiness, leadership preparation and the operational foundations required to move your care business forward."
+          sub="From CQC application preparation and policies to business readiness, Nominated Individual and Registered Manager preparation, JV Launch gives you structured support through the critical stages of getting your care business ready for registration and launch."
           cta="Get My Free CQC Readiness Assessment"
         />
 
@@ -44,24 +45,25 @@ export default function LaunchPage() {
           items={[
             {
               q: "Not sure where to start?",
-              a: "We assess your current position and help identify the steps required to move your registration and launch forward.",
+              a: "You may have formed the company, but registration involves much more than completing an application. Your service model, documentation, leadership and operational foundations need to align.",
             },
             {
-              q: "Worried you are not ready for CQC?",
-              a: "Identify gaps across your application, documentation, leadership preparation and operational readiness before progressing.",
+              q: "Worried you’re not ready for CQC?",
+              a: "Gaps in your application, policies, evidence or understanding of your service can create problems before you’ve even started operating.",
             },
             {
               q: "Still need the right leadership structure?",
-              a: "Support can include Registered Manager and Nominated Individual preparation appropriate to the proposed service.",
+              a: "Your Nominated Individual and Registered Manager arrangements are central to the registration journey. Knowing who is suitable and how they should prepare matters.",
             },
           ]}
+          transition="You don't need to figure every part out alone."
         />
 
         <section className="bg-white px-6 py-24 text-[#181815] md:px-12">
           <div className="mx-auto max-w-6xl">
             <SectionHead
               eyebrow="SCOPE"
-              title="What JV Launch can support"
+              title="The foundations your care business needs before launch"
             />
             <Reveal stagger={0.08} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {SUPPORT.map((s) => (
@@ -82,10 +84,10 @@ export default function LaunchPage() {
           eyebrow="HOW IT WORKS"
           title="How it works"
           steps={[
-            { num: "/01", title: "Assess", desc: "Complete your CQC Readiness Assessment." },
-            { num: "/02", title: "Diagnose", desc: "Identify your current position and major readiness gaps." },
-            { num: "/03", title: "Plan", desc: "Book a 20-minute CQC Strategy Call." },
-            { num: "/04", title: "Build", desc: "If suitable, we recommend the appropriate level of JV Launch support." },
+            { num: "/01", title: "Assess", desc: "Understand where you are now and what you’ve already completed." },
+            { num: "/02", title: "Diagnose", desc: "Identify the gaps in your registration, leadership and business readiness." },
+            { num: "/03", title: "Plan", desc: "Establish the priorities and the level of support appropriate for your situation." },
+            { num: "/04", title: "Build", desc: "Work through the agreed registration and launch requirements with structured JV support." },
           ]}
         />
 
@@ -96,8 +98,8 @@ export default function LaunchPage() {
 
         <MultiStepForm funnel="launch"
           eyebrow="CQC READINESS ASSESSMENT"
-          title="CQC Readiness Assessment"
-          intro="Complete the free assessment to identify your current position and whether further support may be appropriate."
+          title="Find out how ready you are to move forward with your CQC registration"
+          intro="Complete the free CQC Readiness Assessment to help us understand your service, current stage, registration progress and biggest obstacles. Based on your answers, we’ll determine whether a focused 20-minute CQC Strategy Call is the appropriate next step."
           bookCta="Book Your 20-Minute CQC Strategy Call"
           submitNote="The assessment is used to understand your circumstances and determine whether our services may be suitable. Completing the assessment does not guarantee acceptance as a client or any CQC outcome."
           steps={[
@@ -140,8 +142,14 @@ export default function LaunchPage() {
 
         <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, preparation and business support. CQC registration and regulatory decisions are made independently by the Care Quality Commission. We do not guarantee registration, approval, processing timescales or any specific regulatory or commercial outcome." />
 
-        <Footer />
-        <StickyAssessmentCta label="Take the free CQC assessment" />
+        <FunnelFinalCta
+          title="Ready to find out where your CQC journey stands?"
+          body="Start with the free CQC Readiness Assessment. We’ll understand where you are, identify the key gaps and determine whether a strategy call is the right next step."
+          cta="Get My Free CQC Readiness Assessment"
+        />
+
+        <Footer generalCta={false} />
+        <StickyAssessmentCta label="Get My Free CQC Readiness Assessment" hideAlso="#next-step" />
       </main>
     </SmoothScroll>
   );

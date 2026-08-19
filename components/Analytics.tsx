@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Script from "next/script";
+import { captureSource } from "@/lib/analytics";
 
 const GA_ID = "G-BWG7SVB1Q5";
 const KEY = "jv_cookie_consent"; // "granted" | "denied"
@@ -16,6 +17,11 @@ export default function Analytics() {
 
   useEffect(() => {
     setConsent(localStorage.getItem(KEY));
+    /* Campaign attribution. Runs regardless of analytics consent: it only
+       carries the visitor's own referral parameters through to a form they
+       choose to submit, is session-scoped, and sets no cookies. GA4 itself
+       stays gated below. */
+    captureSource();
   }, []);
 
   const choose = (value: "granted" | "denied") => {

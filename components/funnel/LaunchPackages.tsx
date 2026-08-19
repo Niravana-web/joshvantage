@@ -188,7 +188,7 @@ export default function LaunchPackages() {
         <SectionHead
           eyebrow="SUPPORT OPTIONS"
           title="JV Launch support options"
-          intro="Three levels of paid delivery sit behind JV Launch, built on the same deliverables at increasing depth. The assessment comes first. The right level is confirmed on your strategy call, never sold off the page."
+          intro="Choose the level of support that matches your starting point. JV Launch offers three levels of support depending on how much of your registration and business foundation is already in place. Start with the free CQC Readiness Assessment and we’ll identify the most appropriate level of support for your situation."
         />
 
         {/* Shared foundation — keeps the comparison table down to what differs */}
@@ -225,7 +225,7 @@ export default function LaunchPackages() {
                       >
                         {t.popular && (
                           <span className="eyebrow-mono inline-block bg-[var(--brand-navy)] px-2.5 py-1 text-[10.5px] text-white">
-                            MOST POPULAR
+                            MOST RECOMMENDED
                           </span>
                         )}
                         <p className={`text-[15px] font-semibold leading-snug ${t.popular ? "mt-3" : "mt-[34px]"}`}>

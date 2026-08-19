@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import FunnelHero from "@/components/FunnelHero";
 import MultiStepForm from "@/components/funnel/MultiStepForm";
 import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
+import FunnelFinalCta from "@/components/funnel/FunnelFinalCta";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 import MediaTestimonials, { type MediaTestimonial } from "@/components/funnel/MediaTestimonials";
 import SectionHead from "@/components/SectionHead";
@@ -15,35 +16,64 @@ export const metadata: Metadata = {
     "Develop the regulatory, leadership, operational and interview capability required to compete for Registered Manager opportunities.",
 };
 
+/* Stays empty until the client supplies genuine Academy testimonials — the
+   section renders nothing rather than a placeholder. */
 const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [];
 
-const OUTCOMES = [
+/* Who the programme is for — three starting points, one destination. */
+const AUDIENCE = [
   {
-    title: "Regulatory Readiness",
-    desc: "Understand the regulations and explain them confidently during interviews and in practice.",
+    title: "Building towards care leadership",
+    desc: "You already work in or are entering health and social care and want to understand what strong management and regulatory leadership actually require.",
   },
   {
-    title: "Leadership & Governance",
-    desc: "Develop the judgement, leadership behaviours and governance understanding required to progress towards Registered Manager leadership.",
+    title: "Experienced but not yet RM-ready",
+    desc: "You have care experience or qualifications, but need stronger leadership evidence, operational understanding and confidence before progressing.",
   },
   {
-    title: "Operational Management",
-    desc: "Learn how services are managed day to day, including staffing, safeguarding, quality assurance and governance.",
-  },
-  {
-    title: "Evidence Development",
-    desc: "Build stronger examples and evidence that demonstrate leadership capability rather than relying on memorised answers.",
-  },
-  {
-    title: "Interview Preparation",
-    desc: "Practise communicating your knowledge, experience, transferable skills and regulatory understanding confidently in Registered Manager selection processes.",
+    title: "Preparing for Registered Manager opportunities",
+    desc: "You are moving closer to RM-level responsibility and want structured preparation for leadership, governance and interview expectations.",
   },
 ];
 
 const PAINS = [
-  "“I’m exploring a career in care and want to understand the pathway into management and leadership.”",
-  "“I already have care experience or qualifications and want to build stronger leadership and management capability.”",
-  "“I’m preparing to progress towards Registered Manager responsibilities and want stronger regulatory, operational and interview readiness.”",
+  "“I have care experience, but I’m not sure I could confidently demonstrate RM-level judgement.”",
+  "“I understand care delivery, but governance, regulation and leadership interviews still feel like a different level.”",
+  "“I want to progress, but I need a clearer pathway rather than just applying and hoping I’m ready.”",
+];
+
+/* The five development pillars. */
+const OUTCOMES = [
+  {
+    title: "Regulatory Readiness",
+    desc: "Understand the regulations and be able to explain how they shape real management decisions, not just repeat definitions.",
+  },
+  {
+    title: "Leadership & Governance",
+    desc: "Develop stronger judgement around accountability, quality, governance and leadership expectations.",
+  },
+  {
+    title: "Operational Management",
+    desc: "Build confidence around staffing, safeguarding, quality assurance, risk and day-to-day service oversight.",
+  },
+  {
+    title: "Evidence Development",
+    desc: "Turn your experience into credible examples that demonstrate leadership capability.",
+  },
+  {
+    title: "Interview Preparation",
+    desc: "Practise communicating judgement, experience and regulatory understanding clearly in Registered Manager selection processes.",
+  },
+];
+
+/* Deliberately framed as aims rather than promised results — the programme
+   develops capability, it does not guarantee an outcome. */
+const TRANSFORMATION = [
+  "Explain regulatory expectations in practical terms.",
+  "Demonstrate leadership judgement.",
+  "Discuss safeguarding, staffing, governance and quality with more confidence.",
+  "Build credible examples from their experience.",
+  "Communicate more effectively in Registered Manager selection and professional conversations.",
 ];
 
 export default function AcademyPage() {
@@ -53,32 +83,41 @@ export default function AcademyPage() {
         <FunnelHero
           eyebrow="JV ACADEMY"
           title="Ready to Step Up as a Registered Manager?"
-          sub="Develop the regulatory knowledge, leadership capability, operational understanding and interview readiness to progress towards future Registered Manager opportunities."
-          sub2="Whether you’re already working in care, building your experience, or exploring a future in care management, your starting point determines the development pathway."
+          sub="Develop the regulatory knowledge, leadership judgement, operational understanding and interview readiness needed to progress towards Registered Manager leadership."
+          sub2="Designed for ambitious care professionals who want a structured route towards stronger management and regulatory readiness."
           cta="Apply for the Registered Manager Leadership Programme"
           priceLine="ADMISSION BY APPLICATION"
         />
 
-        {/* Audience */}
-        <section className="bg-white px-6 py-20 text-[#181815] md:px-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow-mono text-[#8a8a83]">/WHO IS THIS PATHWAY FOR?</p>
-            <p className="mt-6 text-lg leading-relaxed text-[#4c4c47] md:text-xl">
-              Designed for ambitious people at different stages of their care
-              career, from university students, graduates and early-career
-              professionals building towards management, to experienced care
-              professionals preparing for Registered Manager leadership.
-            </p>
+        {/* Who the programme is for */}
+        <section className="bg-white px-6 py-24 text-[#181815] md:px-12">
+          <div className="mx-auto max-w-6xl">
+            <SectionHead
+              eyebrow="WHO IS THIS PATHWAY FOR?"
+              title="Your starting point may be different. The destination is stronger care leadership."
+            />
+            <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-3">
+              {AUDIENCE.map((a) => (
+                <article
+                  key={a.title}
+                  className="border border-black/5 bg-[#f7f7f5] p-8"
+                >
+                  <h3 className="text-xl font-semibold tracking-tight">
+                    {a.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[#4c4c47]">
+                    {a.desc}
+                  </p>
+                </article>
+              ))}
+            </Reveal>
           </div>
         </section>
 
-        {/* The problem */}
+        {/* The problem, in participants' own framing */}
         <section className="bg-[#f7f7f5] px-6 py-24 text-[#181815] md:px-12">
           <div className="mx-auto max-w-6xl">
-            <SectionHead
-              eyebrow="THE PROBLEM"
-              title="Your starting point may be different. The destination is stronger care leadership."
-            />
+            <SectionHead eyebrow="THE PROBLEM" title="Where people get stuck" />
             <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-3">
               {PAINS.map((p) => (
                 <blockquote
@@ -92,13 +131,10 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Programme outcomes */}
+        {/* Five development pillars */}
         <section className="bg-white px-6 py-24 text-[#181815] md:px-12">
           <div className="mx-auto max-w-6xl">
-            <SectionHead
-              eyebrow="OUTCOMES"
-              title="What the programme develops"
-            />
+            <SectionHead eyebrow="OUTCOMES" title="What the programme develops" />
             <Reveal stagger={0.1} className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {OUTCOMES.map((o, i) => (
                 <div key={o.title}>
@@ -117,37 +153,39 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Opportunity + suitability guardrails */}
-        <section className="funnels-bg px-6 py-24 text-white md:px-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow-mono text-[var(--brand-pale)]">/PROFESSIONAL OPPORTUNITY</p>
-            <h2 className="mt-5 text-3xl font-semibold md:text-4xl">
-              Josh Vantage Talent Network
-            </h2>
-            <p className="mt-6 text-[15.5px] leading-relaxed text-white/80">
-              Participants may have the opportunity to separately express an
-              interest in joining the Josh Vantage Talent Network for
-              consideration for potentially suitable Registered Manager
-              opportunities.
-            </p>
-            <p className="mt-5 text-[15.5px] leading-relaxed text-white/80">
-              Details on how to express interest in the Talent Network are
-              provided separately to eligible participants. Joining the Talent
-              Network is optional and free of charge.
-            </p>
-            <p className="mt-5 text-[13px] leading-relaxed text-white/50">
-              Participation in the Registered Manager Leadership Programme does
-              not guarantee employment, interviews, placement, a Registered
-              Manager role, CQC registration, sponsorship, visa support or a
-              specific salary. Employment opportunities are subject to
-              suitability, availability and the independent recruitment
-              decision of the provider.
-            </p>
+        {/* What the development is actually aiming at */}
+        <section className="bg-[#f7f7f5] px-6 py-24 text-[#181815] md:px-12">
+          <div className="mx-auto max-w-3xl">
+            <Reveal>
+              <p className="eyebrow-mono text-[#8a8a83]">/THE GOAL</p>
+              <h2
+                className="mt-6 text-3xl font-semibold leading-snug md:text-4xl"
+                style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+              >
+                The goal is not to memorise interview answers.
+              </h2>
+              <p className="mt-6 text-[15.5px] leading-relaxed text-[#4c4c47]">
+                By the end of the development process, the aim is for
+                participants to be better able to:
+              </p>
+            </Reveal>
+            <Reveal stagger={0.08} className="mt-8 space-y-4">
+              {TRANSFORMATION.map((t) => (
+                <p key={t} className="flex gap-3 text-[15.5px] leading-relaxed text-[#33332f]">
+                  <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-navy)]" />
+                  {t}
+                </p>
+              ))}
+            </Reveal>
           </div>
         </section>
 
-        {/* Populated once the client supplies genuine RM/leadership testimonials */}
-        <MediaTestimonials items={ACADEMY_TESTIMONIALS} />
+        {/* Proof — three spaces held ready, before the investment is shown */}
+        <MediaTestimonials
+          items={ACADEMY_TESTIMONIALS}
+          eyebrow="PARTICIPANT EXPERIENCES"
+          title="Hear from participants"
+        />
 
         {/* Investment */}
         <section className="bg-white px-6 py-24 text-[#181815] md:px-12">
@@ -160,15 +198,44 @@ export default function AcademyPage() {
               £4,999
             </p>
             <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[#4c4c47]">
-              The Registered Manager Leadership Programme is a professional
-              development programme designed to strengthen regulatory
-              knowledge, leadership capability, operational understanding and
-              interview readiness.
+              This is a structured professional-development programme focused on
+              regulatory readiness, leadership and governance, operational
+              management, evidence development and Registered Manager interview
+              preparation.
             </p>
             <p className="mx-auto mt-4 max-w-xl text-[13px] text-[#8a8a83]">
-              The fee covers training, mentoring, preparation and professional
-              development. It does not purchase employment, sponsorship, visa
-              support or a Registered Manager role.
+              The investment covers the programme&rsquo;s training, mentoring,
+              preparation and development support. It does not purchase
+              employment, sponsorship, visa support or a Registered Manager
+              role.
+            </p>
+          </div>
+        </section>
+
+        {/*
+          Talent Network — deliberately secondary. It is an optional extra, not
+          the product, so it sits as a quiet inset rather than the full-bleed
+          dark section it previously occupied. Every guarantee disclaimer is
+          kept word for word.
+        */}
+        <section className="bg-white px-6 pb-24 text-[#181815] md:px-12">
+          <div className="mx-auto max-w-3xl border border-black/10 bg-[#f7f7f5] p-8 md:p-10">
+            <p className="eyebrow-mono text-[#8a8a83]">/OPTIONAL PROFESSIONAL OPPORTUNITY</p>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">
+              Josh Vantage Talent Network
+            </h2>
+            <p className="mt-3 text-[14.5px] leading-relaxed text-[#4c4c47]">
+              Eligible participants may separately express interest in joining
+              the free Josh Vantage Talent Network for consideration where
+              potentially suitable opportunities arise.
+            </p>
+            <p className="mt-4 text-[12.5px] leading-relaxed text-[#8a8a83]">
+              Participation in the Registered Manager Leadership Programme does
+              not guarantee employment, interviews, placement, a Registered
+              Manager role, CQC registration, sponsorship, visa support or a
+              specific salary. Employment opportunities are subject to
+              suitability, availability and the independent recruitment
+              decision of the provider.
             </p>
           </div>
         </section>
@@ -176,7 +243,7 @@ export default function AcademyPage() {
         <MultiStepForm funnel="academy"
           eyebrow="APPLICATION"
           title="Apply for the Registered Manager Leadership Programme"
-          intro="This is an application, not an automatic enrolment. The purpose is to understand your background, goals, current stage and whether the programme is appropriate for your professional development."
+          intro="This is an application, not automatic enrolment. We use the application to understand your current role, experience, qualifications, leadership background and professional goals before deciding whether the programme is appropriate for your stage."
           bookCta="Book Your 20-Minute Programme Assessment Call"
           submitNote="Submitting an application does not guarantee admission to the programme or any employment, Registered Manager, CQC, sponsorship or other professional outcome."
           steps={[
@@ -214,8 +281,17 @@ export default function AcademyPage() {
 
         <FunnelDisclaimer text="The Registered Manager Leadership Programme is a professional development programme. Participation does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary. Employment and professional opportunities are subject to individual suitability, availability and the independent decisions of employers, providers and relevant third parties." />
 
-        <Footer />
-        <StickyAssessmentCta label="Apply for the Programme" />
+        <FunnelFinalCta
+          title="Ready to find out whether the programme fits your next step?"
+          body="Complete the application so we can understand your experience, goals and current stage."
+          cta="Apply for the Registered Manager Leadership Programme"
+        />
+
+        <Footer generalCta={false} />
+        <StickyAssessmentCta
+          label="Apply for the Programme"
+          hideAlso="#next-step"
+        />
       </main>
     </SmoothScroll>
   );
