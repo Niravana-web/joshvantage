@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { bookingConfig, bookingUrl, type Funnel } from "@/lib/booking";
+import { bookingUrl, type Funnel } from "@/lib/booking";
 import CalendlyEmbed from "@/components/funnel/CalendlyEmbed";
 
 export type Field = {
@@ -16,8 +16,8 @@ export type FormStep = { title: string; fields: Field[] };
 
 /*
  * Multi-step, mobile-first assessment form with progress indicator.
- * On completion the panel links out to the funnel's Calendly event — linking
- * rather than embedding, so no third-party script or cookie is introduced.
+ * On completion the panel embeds the funnel's Calendly scheduler, prefilled
+ * with the name and email just collected.
  */
 export default function MultiStepForm({
   id = "assessment",
@@ -51,7 +51,6 @@ export default function MultiStepForm({
   const step = steps[stepIdx];
   const pct = Math.round(((stepIdx + 1) / steps.length) * 100);
   /* Prefilled with what the assessment just captured, plus funnel UTMs. */
-  const booking = bookingConfig(funnel, values, calendlyUrl);
   const bookHref = bookingUrl(funnel, values, calendlyUrl);
 
   const set = (name: string, value: string) => {
@@ -217,8 +216,8 @@ export default function MultiStepForm({
             {/* The scheduler itself, so the visitor books without leaving the
                 page. Nothing renders while unconfigured — better than an empty
                 booking frame. */}
-            {booking && bookHref ? (
-              <CalendlyEmbed config={booking} fallbackHref={bookHref} />
+            {bookHref ? (
+              <CalendlyEmbed url={bookHref} />
             ) : (
               <p className="mt-6 text-[12px] text-[#8a8a83]">
                 Booking link goes live at launch.

@@ -9,12 +9,14 @@
  * the slot on the other two. That capacity rule lives in the Calendly account,
  * not here.
  *
- * INTERIM: all three currently point at one shared 30-minute event so booking
- * works today. Two consequences until the per-funnel events exist:
- *   - the site says "20-Minute" in eight places; the booking page says 30
- *   - bookings are not separable by funnel in Calendly's own reporting, so the
- *     UTM campaign below is the only thing distinguishing them
- * Replace each entry with its own event URL to resolve both.
+ * INTERIM: all three currently point at one shared event so booking works
+ * today. Its slug still reads "30min" but the event itself is configured as a
+ * 20-minute meeting, which is what the booking page shows — so the slug is
+ * cosmetic and matches the site's "20-Minute" copy in practice.
+ *
+ * The remaining consequence is that bookings are not separable by funnel in
+ * Calendly's own reporting, so the UTM campaign below is the only thing
+ * distinguishing them. Replace each entry with its own event URL to fix that.
  */
 
 export type Funnel = "launch" | "growth" | "academy";
@@ -36,29 +38,28 @@ const UTM_CAMPAIGN: Record<Funnel, string> = {
   academy: "jv-academy",
 };
 
-export type BookingConfig = {
-  url: string;
-  prefill: { name?: string; email?: string };
-  utm: { utmSource: string; utmMedium: string; utmCampaign: string };
-};
-
 /*
- * Everything the embed needs, or null when no URL is configured — the caller's
- * signal to render nothing rather than an empty booking frame.
+ * The booking destination, with the visitor's details prefilled, or null when
+ * no URL is configured — the caller's signal to render nothing rather than an
+ * empty booking frame.
  *
- * Prefill and UTM are kept as objects rather than query parameters because
- * Calendly's inline widget takes them through its own API; `bookingUrl` below
- * folds them into a URL for the plain-link fallback.
+ * Prefill goes in the URL rather than through the widget's `prefill` option:
+ * the current Calendly widget.js accepts a `prefill` object and silently drops
+ * it, forwarding only `utm`, so the object form leaves the booking page blank.
+ * Query parameters are honoured by both the inline widget and the booking page
+ * itself, so one URL serves the embed and the fallback link alike.
  */
-export function bookingConfig(
+export function bookingUrl(
   funnel: Funnel,
   answers: Record<string, string>,
   override?: string
-): BookingConfig | null {
+): string | null {
   const base = override ?? CALENDLY_URLS[funnel];
   if (!base) return null;
+
+  let url: URL;
   try {
-    new URL(base);
+    url = new URL(base);
   } catch {
     return null;
   }
@@ -67,35 +68,24 @@ export function bookingConfig(
   const name = answers.name?.trim();
   const email = answers.email?.trim();
 
-  return {
-    url: base,
-    prefill: { ...(name && { name }), ...(email && { email }) },
-    utm: {
-      utmSource: "website",
-      utmMedium: "assessment",
-      utmCampaign: UTM_CAMPAIGN[funnel],
-    },
-  };
-}
+  const params: [string, string][] = [];
+  if (name) params.push(["name", name]);
+  if (email) params.push(["email", email]);
+  params.push(
+    ["utm_source", "website"],
+    ["utm_medium", "assessment"],
+    ["utm_campaign", UTM_CAMPAIGN[funnel]]
+  );
 
-/*
- * The same booking destination as a plain URL. Used for the fallback link shown
- * beneath the embed, so a visitor whose browser blocks third-party scripts can
- * still reach the booking page.
- */
-export function bookingUrl(
-  funnel: Funnel,
-  answers: Record<string, string>,
-  override?: string
-): string | null {
-  const config = bookingConfig(funnel, answers, override);
-  if (!config) return null;
+  /*
+   * Built with encodeURIComponent rather than URLSearchParams on purpose.
+   * URLSearchParams encodes a space as "+", and Calendly's widget re-encodes
+   * that "+" as %2B — so "Jane Smith" reaches the booking page as
+   * "Jane+Smith". Percent-encoded spaces survive the round trip intact.
+   */
+  const query = params
+    .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
+    .join("&");
 
-  const url = new URL(config.url);
-  if (config.prefill.name) url.searchParams.set("name", config.prefill.name);
-  if (config.prefill.email) url.searchParams.set("email", config.prefill.email);
-  url.searchParams.set("utm_source", config.utm.utmSource);
-  url.searchParams.set("utm_medium", config.utm.utmMedium);
-  url.searchParams.set("utm_campaign", config.utm.utmCampaign);
-  return url.toString();
+  return `${url.origin}${url.pathname}${url.search}${url.search ? "&" : "?"}${query}`;
 }

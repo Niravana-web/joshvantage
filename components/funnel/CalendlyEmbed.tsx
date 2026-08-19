@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { BookingConfig } from "@/lib/booking";
 
 /*
  * Calendly's inline scheduler, so the visitor books without leaving the site.
  *
- * The widget is initialised through Calendly's own API rather than the
- * data-attribute form, which lets the name and email the assessment just
- * captured be passed as prefill instead of being pushed into the URL.
+ * `url` carries the prefill and UTM parameters already. That is deliberate:
+ * the current Calendly widget.js accepts `initInlineWidget`'s `prefill` option
+ * and silently discards it — only `utm` survives — so passing the details as
+ * query parameters is what actually reaches the booking page. It also means
+ * the embed and the fallback link below it point at exactly the same place.
  *
  * This loads a third-party script that sets cookies. It only mounts after a
  * visitor has completed and submitted an assessment — never on page view — so
@@ -19,12 +20,7 @@ import type { BookingConfig } from "@/lib/booking";
 const WIDGET_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 
 type CalendlyApi = {
-  initInlineWidget: (opts: {
-    url: string;
-    parentElement: HTMLElement;
-    prefill?: Record<string, string>;
-    utm?: Record<string, string>;
-  }) => void;
+  initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
 };
 
 declare global {
@@ -33,24 +29,9 @@ declare global {
   }
 }
 
-export default function CalendlyEmbed({
-  config,
-  fallbackHref,
-}: {
-  config: BookingConfig;
-  /* Same destination as a plain link, for browsers that block the script. */
-  fallbackHref: string;
-}) {
+export default function CalendlyEmbed({ url }: { url: string }) {
   const host = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
-
-  /* `config` is rebuilt each render, so its object identity cannot drive the
-     effect — that would tear down and re-init the scheduler on every render.
-     Serialising to primitives gives the effect deps that only change when the
-     values actually do. */
-  const { url } = config;
-  const prefillJson = JSON.stringify(config.prefill);
-  const utmJson = JSON.stringify(config.utm);
 
   useEffect(() => {
     let cancelled = false;
@@ -59,12 +40,7 @@ export default function CalendlyEmbed({
       if (cancelled || !host.current || !window.Calendly) return;
       /* Guard against a double-init leaving two schedulers stacked. */
       host.current.innerHTML = "";
-      window.Calendly.initInlineWidget({
-        url,
-        parentElement: host.current,
-        prefill: JSON.parse(prefillJson),
-        utm: JSON.parse(utmJson),
-      });
+      window.Calendly.initInlineWidget({ url, parentElement: host.current });
     };
 
     if (window.Calendly) {
@@ -102,7 +78,7 @@ export default function CalendlyEmbed({
       script.removeEventListener("load", onLoad);
       script.removeEventListener("error", onError);
     };
-  }, [url, prefillJson, utmJson]);
+  }, [url]);
 
   return (
     <div className="mt-8">
@@ -117,7 +93,7 @@ export default function CalendlyEmbed({
           ? "The booking calendar could not load — it may be blocked by your browser. "
           : "Prefer a new tab? "}
         <a
-          href={fallbackHref}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
           className="underline underline-offset-2 transition-colors hover:text-[var(--brand-navy)]"
