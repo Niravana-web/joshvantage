@@ -52,27 +52,47 @@ export default function Funnels() {
     if (!el) return;
     const mm = gsap.matchMedia(el);
 
-    // Desktop: pinned, scroll-scrubbed sequence
+    // Desktop: pinned, scroll-scrubbed sequence.
+    // The heading and the first card are deliberately OUTSIDE the scrubbed
+    // timeline: #journey is the target of every "Find Your Path" link, so
+    // arriving here at scrub progress 0 must never show an empty navy screen.
     mm.add("(min-width: 768px)", () => {
+      const cards = gsap.utils.toArray<HTMLElement>(".funnel-card");
+
+      // fromTo + immediateRender:false, not .from(): the pin below re-measures
+      // on every ScrollTrigger.refresh(), and a refresh re-renders an
+      // immediate-render `from` tween at time 0 — which strands the first card
+      // 40px low permanently.
+      gsap.fromTo(
+        [".funnels-head", cards[0]],
+        { autoAlpha: 0, y: 40 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.15,
+          immediateRender: false,
+          scrollTrigger: { trigger: el, start: "top bottom", once: true },
+        },
+      );
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          end: "+=260%",
+          end: "+=190%",
           pin: true,
           scrub: 0.4,
         },
       });
+      // the cue has done its job the moment the visitor starts scrolling
+      tl.to(".scroll-cue", { autoAlpha: 0, duration: 0.5 }, 0);
       tl.fromTo(
-        ".funnels-head",
-        { autoAlpha: 0, y: 40 },
-        { autoAlpha: 1, y: 0, duration: 0.8 },
-      );
-      tl.fromTo(
-        ".funnel-card",
+        cards.slice(1),
         { autoAlpha: 0, y: 80 },
         { autoAlpha: 1, y: 0, duration: 1, stagger: 1, ease: "power2.out" },
-        "+=0.2",
+        0,
       );
       tl.to({}, { duration: 0.8 }); // hold before unpin
     });
@@ -143,6 +163,16 @@ export default function Funnels() {
               <span className="funnel-cta">{f.cta}</span>
             </a>
           ))}
+        </div>
+
+        {/* Only needed while the section is pinned on desktop; on mobile the
+            cards simply continue in normal flow. */}
+        <div
+          className="scroll-cue pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 md:flex"
+          aria-hidden
+        >
+          <span className="scroll-cue-mouse" />
+          <span className="eyebrow-mono text-[11px] text-white/55">Scroll</span>
         </div>
       </div>
     </section>

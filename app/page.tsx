@@ -60,7 +60,10 @@ export default function Home() {
         <StickyAssessmentCta
           label="Find Your Path"
           target="#journey"
-          hideAlso="#next-step, footer"
+          /* #contact is the site footer. A bare `footer` selector would also
+             match each testimonial card's attribution <footer>, which hid the
+             pill halfway through Client Experiences. */
+          hideAlso="#next-step, #contact"
         />
       </main>
     </SmoothScroll>
