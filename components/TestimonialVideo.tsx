@@ -21,6 +21,7 @@ export default function TestimonialVideo({
   poster,
   captions,
   label,
+  fill = false,
 }: {
   src: string;
   poster?: string;
@@ -28,11 +29,21 @@ export default function TestimonialVideo({
   captions?: string;
   /* Accessible description of whose testimonial this is. */
   label: string;
+  /* Grow to fill the card instead of holding the fixed panel height. Set on
+     a card that carries no quote or attribution, so it matches the height of
+     its neighbours without leaving an empty strip under the video. */
+  fill?: boolean;
 }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="relative h-[420px] w-full overflow-hidden bg-[linear-gradient(160deg,#0b153f_0%,#13226a_45%,#060d24_100%)] md:h-[480px]">
+    <div
+      className={`relative w-full overflow-hidden bg-[linear-gradient(160deg,#0b153f_0%,#13226a_45%,#060d24_100%)] ${
+        fill
+          ? "min-h-[420px] flex-1 md:min-h-[480px]"
+          : "h-[420px] md:h-[480px]"
+      }`}
+    >
       {playing ? (
         <video
           src={src}

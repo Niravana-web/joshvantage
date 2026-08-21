@@ -19,7 +19,61 @@ export const metadata: Metadata = {
     "Launch your UK care business with the right CQC foundations from day one.",
 };
 
-const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [];
+/*
+ * JV Launch proof — three positions in fixed display order: left, centre,
+ * right on desktop. The two pending assets hold their slots with
+ * `published: false`, so the section reads as one balanced row the moment
+ * each file lands: drop it in /public/testimonials at the path below and
+ * flip the flag. Nothing is invented in the meantime — no placeholder
+ * quotes, names or images render.
+ */
+const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
+  {
+    /* LEFT — Company Director video covering the full JV Launch / CQC
+       registration journey. Asset awaited; a supplied cover frame can go in
+       `poster`, otherwise the video's own first frame is the thumbnail.
+       Replace `label` with the client's approved name and role when known. */
+    id: "company-director",
+    published: false,
+    media: {
+      kind: "video",
+      src: "/testimonials/jv-launch-company-director.mp4",
+      label: "Company Director on their CQC registration journey with JV Launch",
+    },
+  },
+  {
+    /* CENTRE — deliberately the middle card: identifiable written proof
+       between the two media testimonials. Quote, name, role and company are
+       used exactly as supplied. The photograph is cropped from the
+       client-supplied testimonial graphic; the graphic itself is not used as
+       the card, so the wording and typography stay in the site's own system. */
+    id: "jude-onorihewe",
+    published: true,
+    media: {
+      kind: "photo",
+      src: "/testimonials/jude-onorihewe.jpg",
+      alt: "Jude Onorihewe, Registered Manager and Nominated Individual at AbleWay Support Ltd",
+    },
+    quote:
+      "Josh has been incredibly helpful throughout the development of AbleWay Support Ltd. He supported me with the policies and procedures needed for our CQC registration and has continued to guide me around tenders, frameworks and procurement opportunities.\n\nMore than anything, he has been a genuine mentor — approachable, knowledgeable and always willing to help.\n\nI would happily recommend him to other care providers.",
+    name: "Jude Onorihewe",
+    role: "Registered Manager & Nominated Individual",
+    company: "AbleWay Support Ltd",
+  },
+  {
+    /* RIGHT — Starlit Recruitment. Format not yet confirmed: this is written
+       as a photo/written card, and switching it to
+       `{ kind: "video", src, label }` is the only change needed if a video
+       is supplied instead. Either way it balances against the left card. */
+    id: "starlit-recruitment",
+    published: false,
+    media: {
+      kind: "photo",
+      src: "/testimonials/starlit-recruitment.jpg",
+      alt: "Starlit Recruitment client testimonial",
+    },
+  },
+];
 
 const SUPPORT = [
   "CQC Application Preparation",
@@ -91,8 +145,15 @@ export default function LaunchPage() {
           ]}
         />
 
-        {/* Populated once the client supplies genuine CQC/launch testimonials */}
-        <MediaTestimonials items={LAUNCH_TESTIMONIALS} />
+        {/* Proof — three positions held; only supplied testimonials render.
+            The disclaimer sits directly under the cards, in the client's
+            approved wording, rather than only at the foot of the page. */}
+        <MediaTestimonials
+          items={LAUNCH_TESTIMONIALS}
+          eyebrow="CLIENT EXPERIENCES"
+          title="Hear from our clients"
+          disclaimer="Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. CQC registration and tender decisions are made independently by the relevant regulatory or contracting authorities."
+        />
 
         <LaunchPackages />
 

@@ -51,7 +51,7 @@ const EXPERIENCES: Experience[] = [
     quote: "Tender application passed \u{1F483}\u{1F483}\u{1F483}\nThank you for the great work!",
     attribution: ["Tender Support Client"],
     image: {
-      src: "/tender-passed.png",
+      src: "/tender-passed.jpg",
       alt: "Redacted client email confirming the tender application passed",
     },
   },
