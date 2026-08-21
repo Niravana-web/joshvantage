@@ -36,10 +36,14 @@ const AUDIENCE = [
   },
 ];
 
+/* Three starting points, in deliberate order: student / new to care, then
+   care professional, then aspiring manager. Someone arriving from a
+   university campaign has to recognise themselves in the first card, so the
+   programme does not read as being for experienced care workers only. */
 const PAINS = [
-  "“I have care experience, but I’m not sure I could confidently demonstrate RM-level judgement.”",
-  "“I understand care delivery, but governance, regulation and leadership interviews still feel like a different level.”",
-  "“I want to progress, but I need a clearer pathway rather than just applying and hoping I’m ready.”",
+  "“I want to build a career in health and social care, but I’m not sure where to start or how to build the right experience.”",
+  "“I already work in care, but I’m not sure how to move from delivering care into leadership and management.”",
+  "“I want to progress towards Registered Manager level, but I need stronger regulatory knowledge, management evidence and interview readiness.”",
 ];
 
 /* The five development pillars. */
@@ -69,11 +73,12 @@ const OUTCOMES = [
 /* Deliberately framed as aims rather than promised results — the programme
    develops capability, it does not guarantee an outcome. */
 const TRANSFORMATION = [
-  "Explain regulatory expectations in practical terms.",
-  "Demonstrate leadership judgement.",
-  "Discuss safeguarding, staffing, governance and quality with more confidence.",
-  "Build credible examples from their experience.",
-  "Communicate more effectively in Registered Manager selection and professional conversations.",
+  "Understand how UK health and social care operates in practice.",
+  "Build practical understanding of CQC and regulatory expectations.",
+  "Develop leadership and management judgement.",
+  "Build credible experience and evidence as they progress.",
+  "Understand safeguarding, staffing, governance and quality.",
+  "Prepare for management opportunities and, when appropriate, Registered Manager selection and interviews.",
 ];
 
 export default function AcademyPage() {
@@ -162,11 +167,17 @@ export default function AcademyPage() {
                 className="mt-6 text-3xl font-semibold leading-snug md:text-4xl"
                 style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
               >
-                The goal is not to memorise interview answers.
+                The goal is to build towards management — not just prepare
+                for an interview.
               </h2>
               <p className="mt-6 text-[15.5px] leading-relaxed text-[#4c4c47]">
-                By the end of the development process, the aim is for
-                participants to be better able to:
+                Your starting point may be different. The programme is designed
+                to help you build the knowledge, judgement, experience and
+                professional readiness needed to progress towards care
+                leadership.
+              </p>
+              <p className="mt-5 text-[15.5px] leading-relaxed text-[#4c4c47]">
+                Participants work towards being better able to:
               </p>
             </Reveal>
             <Reveal stagger={0.08} className="mt-8 space-y-4">
