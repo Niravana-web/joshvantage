@@ -13,11 +13,14 @@ import TestimonialVideo from "@/components/TestimonialVideo";
  * arrives. Only published entries render, and the grid narrows to match how
  * many there are, so a half-filled section never shows an empty column.
  *
- * Every card is the same shape whichever format it carries: a fixed-height
- * media panel on the brand navy surface, then the quote and attribution
- * below it. That is what keeps video | written | video and
- * video | written | written equally weighted — the media panel height is a
- * constant, not a consequence of the asset.
+ * Every card is the same shape whichever format it carries: a media panel on
+ * the brand navy surface, then the quote and attribution below it. The panel
+ * has a fixed floor so a short card never collapses, and takes whatever
+ * height is left over once the text has been laid out. Cards in a row are
+ * equal height, and the difference between a two-line quote and a
+ * six-paragraph one goes into the media rather than into an empty strip
+ * above the attribution — which is what keeps video | written | video and
+ * video | written | written equally weighted.
  *
  * Nothing here may be invented. Names, roles, quotes and media are used
  * exactly as supplied by the client — no fabricated or placeholder
@@ -93,23 +96,15 @@ export default function MediaTestimonials({
                     poster={t.media.poster}
                     captions={t.media.captions}
                     label={t.media.label}
-                    fill={!hasText}
+                    fill
                   />
                 )}
 
                 {t.media?.kind === "photo" && (
-                  /* Same panel height as the video cards. The photograph
+                  /* Same panel floor as the video cards. The photograph
                      fills it rather than sitting letterboxed, so a portrait
-                     next to a phone-shot video still reads as one row. With
-                     no quote or attribution to sit under it, the panel grows
-                     into the space instead of leaving an empty strip. */
-                  <div
-                    className={`w-full overflow-hidden bg-[linear-gradient(160deg,#0b153f_0%,#13226a_45%,#060d24_100%)] ${
-                      hasText
-                        ? "h-[420px] md:h-[480px]"
-                        : "min-h-[420px] flex-1 md:min-h-[480px]"
-                    }`}
-                  >
+                     next to a phone-shot video still reads as one row. */
+                  <div className="w-full min-h-[420px] flex-1 overflow-hidden bg-[linear-gradient(160deg,#0b153f_0%,#13226a_45%,#060d24_100%)] md:min-h-[480px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={t.media.src}
@@ -121,7 +116,7 @@ export default function MediaTestimonials({
                 )}
 
                 {hasText && (
-                  <div className="flex flex-1 flex-col p-8 md:p-9">
+                  <div className="flex flex-col p-8 md:p-9">
                     {t.quote && (
                       <blockquote className="whitespace-pre-line text-[15.5px] leading-relaxed text-[#33332f] md:text-[16px]">
                         <span aria-hidden className="text-[var(--brand-navy)]">
@@ -135,7 +130,7 @@ export default function MediaTestimonials({
                     )}
 
                     {(t.name || t.role || t.company) && (
-                      <footer className="mt-auto pt-7">
+                      <footer className="mt-7">
                         <div className="border-t border-black/10 pt-5">
                           {t.name && (
                             <p className="text-[14.5px] font-semibold text-[#181815]">

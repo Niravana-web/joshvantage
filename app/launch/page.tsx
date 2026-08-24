@@ -32,9 +32,8 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
   {
     /* LEFT — Company Director video covering the full JV Launch / CQC
        registration journey. The thumbnail is the video's own first frame;
-       set `poster` if a designed cover frame is supplied later. No quote is
-       shown: the video is the testimonial and no pull-quote has been
-       approved, so only the supplied name and role sit beneath it. */
+       set `poster` if a designed cover frame is supplied later. The written
+       summary beneath is the client's approved wording, used verbatim. */
     id: "funmilayo",
     published: true,
     media: {
@@ -42,6 +41,8 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
       src: "/testimonials/jv-launch-funmilayo.mp4",
       label: "Funmilayo, Company Director, on their CQC registration journey with JV Launch",
     },
+    quote:
+      "Josh Vantage supported us throughout our CQC registration journey, from preparation and documentation through to interview readiness. We successfully completed the process and became CQC registered.",
     name: "Funmilayo",
     role: "Company Director",
   },

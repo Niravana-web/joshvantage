@@ -29,9 +29,10 @@ export default function TestimonialVideo({
   captions?: string;
   /* Accessible description of whose testimonial this is. */
   label: string;
-  /* Grow to fill the card instead of holding the fixed panel height. Set on
-     a card that carries no quote or attribution, so it matches the height of
-     its neighbours without leaving an empty strip under the video. */
+  /* Treat the panel height as a floor and grow into whatever height is left
+     in the card, instead of holding it exactly. Set where cards sit in an
+     equal-height row: the slack goes into the video rather than leaving an
+     empty strip between a short quote and the attribution. */
   fill?: boolean;
 }) {
   const [playing, setPlaying] = useState(false);

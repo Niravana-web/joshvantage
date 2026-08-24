@@ -42,21 +42,24 @@ const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [
     company: "Dove Care & Support Ltd",
   },
   {
-    /* Written testimonial supplied by the client, used verbatim — including
-       the account of an employer introduction and Skilled Worker
-       sponsorship, which is this participant's own experience and not an
-       offer. The disclaimer under the cards carries that boundary, so
-       nothing here may be tightened into a promise of sponsorship,
-       introductions or a Registered Manager role. */
+    /* Video testimonial, with the client's approved short written summary
+       beneath it — the condensed version of the fuller account she supplied,
+       shortened by the client rather than by us. It describes an employer
+       introduction and progression into a management opportunity, which is
+       this participant's own experience and not an offer; the disclaimer
+       under the cards carries that boundary, so nothing here may be
+       tightened into a promise of introductions, sponsorship or a
+       Registered Manager role. */
     id: "mahreen-munier",
     published: true,
     media: {
-      kind: "photo",
-      src: "/testimonials/mahreen-munier.jpeg",
-      alt: "Mahreen Munier, Registered Manager at Compact Personnel Ltd",
+      kind: "video",
+      src: "/testimonials/jv-academy-mahreen-munier.mp4",
+      label:
+        "Mahreen Munier, Registered Manager at Compact Personnel Ltd, on progressing from care into management with Josh Vantage",
     },
     quote:
-      "My name is Mahreen Munier. I came to the UK as an international student and, after completing my Master’s degree, started working in health and social care. I was determined to build a successful career in the sector, but as someone new to the UK, I didn’t understand how to progress from working in care into management.\n\nThat changed when I came across Josh Vantage.\n\nJosh and the team helped me understand what employers and regulators expect from someone moving into a management role. They supported my development in regulatory knowledge, leadership and management readiness, and helped me prepare properly for interviews.\n\nThey also introduced me to an employer opportunity and supported me through both the employer interview process and my preparation for the CQC process.\n\nI successfully progressed into the management opportunity, and the employer was able to provide Skilled Worker sponsorship for my role.\n\nFor me, Josh Vantage was more than interview preparation. They helped me understand the pathway, build my confidence and develop the knowledge I needed to take the next step in my UK health and social care career.",
+      "I came to the UK as an international student and wanted to progress from working in care into management. Josh Vantage helped me understand the pathway, develop my regulatory and leadership knowledge, prepare for interviews and progress into a management opportunity.",
     name: "Mahreen Munier",
     role: "Registered Manager",
     company: "Compact Personnel Ltd",
