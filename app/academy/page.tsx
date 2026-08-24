@@ -16,9 +16,52 @@ export const metadata: Metadata = {
     "Develop the regulatory, leadership, operational and interview capability required to compete for Registered Manager opportunities.",
 };
 
-/* Stays empty until the client supplies genuine Academy testimonials — the
-   section renders nothing rather than a placeholder. */
-const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [];
+/*
+ * JV Academy proof. Only genuine, client-supplied testimonials appear here —
+ * a slot stays absent rather than holding a placeholder. Entries sit in
+ * display order and the grid tracks how many there are — two sit 2-up, and a
+ * third approved testimonial widens it to 3-up on its own.
+ */
+const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [
+  {
+    /* Written testimonial supplied by the client, used verbatim — blank
+       lines are the paragraph breaks as written. The photograph is the
+       client-supplied portrait; wording and typography stay in the site's
+       own system rather than using a supplied graphic as the card. */
+    id: "jennifer-harper",
+    published: true,
+    media: {
+      kind: "photo",
+      src: "/testimonials/jennifer-harper.jpeg",
+      alt: "Jennifer Harper, Registered Manager at Dove Care & Support Ltd",
+    },
+    quote:
+      "After working in the care sector for 15 years, becoming a Registered Manager was a goal I had wanted to achieve for a long time. However, I lacked the right guidance, structured training and confidence to take that final step.\n\nWorking with Josh and the team at Josh Vantage Consulting Group changed that. Through regular one-to-one sessions, focused training and realistic mock interviews, Josh made sure I was fully prepared and supported throughout the process. He remained committed to helping me cross the finish line and today, I am proud to say that I am a Registered Manager.\n\nI am incredibly grateful to have come across Josh Vantage Consulting Group. I would highly recommend them to anyone who wants to progress professionally and unlock their full potential within health and social care.",
+    name: "Jennifer Harper",
+    role: "Registered Manager",
+    company: "Dove Care & Support Ltd",
+  },
+  {
+    /* Written testimonial supplied by the client, used verbatim — including
+       the account of an employer introduction and Skilled Worker
+       sponsorship, which is this participant's own experience and not an
+       offer. The disclaimer under the cards carries that boundary, so
+       nothing here may be tightened into a promise of sponsorship,
+       introductions or a Registered Manager role. */
+    id: "mahreen-munier",
+    published: true,
+    media: {
+      kind: "photo",
+      src: "/testimonials/mahreen-munier.jpeg",
+      alt: "Mahreen Munier, Registered Manager at Compact Personnel Ltd",
+    },
+    quote:
+      "My name is Mahreen Munier. I came to the UK as an international student and, after completing my Master’s degree, started working in health and social care. I was determined to build a successful career in the sector, but as someone new to the UK, I didn’t understand how to progress from working in care into management.\n\nThat changed when I came across Josh Vantage.\n\nJosh and the team helped me understand what employers and regulators expect from someone moving into a management role. They supported my development in regulatory knowledge, leadership and management readiness, and helped me prepare properly for interviews.\n\nThey also introduced me to an employer opportunity and supported me through both the employer interview process and my preparation for the CQC process.\n\nI successfully progressed into the management opportunity, and the employer was able to provide Skilled Worker sponsorship for my role.\n\nFor me, Josh Vantage was more than interview preparation. They helped me understand the pathway, build my confidence and develop the knowledge I needed to take the next step in my UK health and social care career.",
+    name: "Mahreen Munier",
+    role: "Registered Manager",
+    company: "Compact Personnel Ltd",
+  },
+];
 
 /* Who the programme is for — three starting points, one destination. */
 const AUDIENCE = [
@@ -191,11 +234,12 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Proof — three spaces held ready, before the investment is shown */}
+        {/* Proof, before the investment is shown */}
         <MediaTestimonials
           items={ACADEMY_TESTIMONIALS}
           eyebrow="PARTICIPANT EXPERIENCES"
           title="Hear from participants"
+          disclaimer="Testimonials reflect individual client experiences and do not guarantee the same or similar outcomes. Participation in the Registered Manager Leadership Programme does not guarantee employment, interviews, placement, a Registered Manager role, CQC registration, sponsorship, visa support or a specific salary."
         />
 
         {/* Investment */}

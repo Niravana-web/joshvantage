@@ -61,16 +61,17 @@ const EXPERIENCES: Experience[] = [
        Manager"). Otherwise left as spoken rather than tidied into marketing
        prose. The ellipsis marks a genuine gap between the two supplied frames
        rather than an edit; replace it with the full line if the complete
-       transcript is supplied. No attribution is shown: none has been
-       supplied, and one may not be invented. */
+       transcript is supplied. Name and role are as supplied by the client,
+       shown in the same hierarchy as the JV Launch card. */
     journey: "JV Academy",
     published: true,
     quote:
       "So it was a life changing. I went from being unsure about my future of securing the … 35k salary and leading team as a Registered Manager.",
-    attribution: [],
+    attribution: ["Mohammed Waza", "Registered Manager, Serenity Homecare Solutions Ltd"],
     video: {
       src: "/testimonials/jv-academy-client.mp4",
-      label: "JV Academy client on progressing into a Registered Manager role",
+      label:
+        "Mohammed Waza, Registered Manager at Serenity Homecare Solutions Ltd, on progressing into a Registered Manager role with JV Academy",
     },
   },
 ];

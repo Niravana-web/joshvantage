@@ -21,25 +21,29 @@ export const metadata: Metadata = {
 
 /*
  * JV Launch proof — three positions in fixed display order: left, centre,
- * right on desktop. The two pending assets hold their slots with
+ * right on desktop. Jude holds the centre deliberately, between the two
+ * media testimonials. The pending asset holds its slot with
  * `published: false`, so the section reads as one balanced row the moment
- * each file lands: drop it in /public/testimonials at the path below and
- * flip the flag. Nothing is invented in the meantime — no placeholder
- * quotes, names or images render.
+ * the file lands: drop it in /public/testimonials at the path below and
+ * flip the flag. Until then the two published cards sit 2-up. Nothing is
+ * invented in the meantime — no placeholder quotes, names or images render.
  */
 const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
   {
     /* LEFT — Company Director video covering the full JV Launch / CQC
-       registration journey. Asset awaited; a supplied cover frame can go in
-       `poster`, otherwise the video's own first frame is the thumbnail.
-       Replace `label` with the client's approved name and role when known. */
-    id: "company-director",
-    published: false,
+       registration journey. The thumbnail is the video's own first frame;
+       set `poster` if a designed cover frame is supplied later. No quote is
+       shown: the video is the testimonial and no pull-quote has been
+       approved, so only the supplied name and role sit beneath it. */
+    id: "funmilayo",
+    published: true,
     media: {
       kind: "video",
-      src: "/testimonials/jv-launch-company-director.mp4",
-      label: "Company Director on their CQC registration journey with JV Launch",
+      src: "/testimonials/jv-launch-funmilayo.mp4",
+      label: "Funmilayo, Company Director, on their CQC registration journey with JV Launch",
     },
+    name: "Funmilayo",
+    role: "Company Director",
   },
   {
     /* CENTRE — deliberately the middle card: identifiable written proof

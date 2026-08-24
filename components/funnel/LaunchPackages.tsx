@@ -170,6 +170,29 @@ const ADDONS: { name: string; price: string; scope: string; note?: string }[] = 
   },
 ];
 
+/* JV Talent Pool — the bridge from JV Launch to JV Academy, for a provider
+ * who still needs a Registered Manager. Deliberately framed as access and
+ * possible introductions, never as recruitment or a guaranteed placement:
+ * the three points and the disclaimer are the client's approved wording and
+ * carry that boundary, so nothing here may be tightened into a promise. */
+const TALENT_POOL = [
+  {
+    title: "Developing Management Talent",
+    desc: "Access potential candidates progressing through structured care leadership and management development.",
+  },
+  {
+    title: "Introductions Based on Fit",
+    desc: "Potential introductions are considered based on the needs of the service and the candidate’s experience and readiness.",
+  },
+  {
+    title: "Separate Talent Service",
+    desc: "Candidate introduction, recruitment or placement support is separate from the JV Launch package and discussed individually.",
+  },
+];
+
+const TALENT_POOL_DISCLAIMER =
+  "Access to the JV Talent Pool does not guarantee candidate availability, suitability, employment, sponsorship, Registered Manager status or CQC approval. Employers remain responsible for recruitment, suitability and right-to-work checks.";
+
 const INTERVIEW_ADDON_NOTE =
   "Interview preparation and mentoring are designed to improve readiness and confidence. We do not guarantee CQC approval, Registered Manager status, interview outcomes or employment.";
 
@@ -304,6 +327,49 @@ export default function LaunchPackages() {
               Take My CQC Readiness Assessment
             </a>
           </div>
+        </Reveal>
+
+        {/* JV Talent Pool — sits between the comparison table and the add-ons,
+            where a provider has just weighed up support levels and the
+            Registered Manager question is live. Same block rhythm as the
+            add-ons below (rule, eyebrow, intro, cards) so it reads as a
+            related but separate service rather than part of a package. */}
+        <Reveal className="mt-20">
+          <div
+            className="rule"
+            style={{
+              height: 2,
+              background: "linear-gradient(to right, #181815 0 13%, rgba(0,0,0,0.08) 13%)",
+            }}
+          />
+          <p className="eyebrow-mono mt-3">/JV TALENT POOL</p>
+          <h3 className="mt-4 max-w-2xl text-2xl font-semibold leading-snug md:text-[28px]">
+            Still need the right Registered Manager for your service?
+          </h3>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4c4c47]">
+            Building the right leadership team can be an important part of
+            preparing your care service for launch.
+          </p>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#4c4c47]">
+            Where appropriate, JV Launch clients can access the JV Talent Pool,
+            with the opportunity to be introduced to management candidates
+            developing their regulatory, leadership and operational readiness
+            through JV Academy.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {TALENT_POOL.map((t) => (
+              <div key={t.title} className="border border-black/5 bg-white px-6 py-5">
+                <p className="text-[14.5px] font-medium">{t.title}</p>
+                <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#4c4c47]">
+                  {t.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          {/* Client-mandated wording — directly under the Talent Pool points */}
+          <p className="mt-4 text-[12px] leading-relaxed text-[#8a8a83]">
+            {TALENT_POOL_DISCLAIMER}
+          </p>
         </Reveal>
 
         {/* Optional add-ons — deliberately secondary to the core packages */}
