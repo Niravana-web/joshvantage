@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Josh Vantage Consulting Group",
     type: "website",
     locale: "en_GB",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Josh Vantage Consulting Group — Build. Grow. Lead." }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Josh Vantage Consulting Group - Build. Grow. Lead." }],
   },
   twitter: {
     card: "summary_large_image",

@@ -60,7 +60,7 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
       alt: "Jude Onorihewe, Registered Manager and Nominated Individual at AbleWay Support Ltd",
     },
     quote:
-      "Josh has been incredibly helpful throughout the development of AbleWay Support Ltd. He supported me with the policies and procedures needed for our CQC registration and has continued to guide me around tenders, frameworks and procurement opportunities.\n\nMore than anything, he has been a genuine mentor — approachable, knowledgeable and always willing to help.\n\nI would happily recommend him to other care providers.",
+      "Josh has been incredibly helpful throughout the development of AbleWay Support Ltd. He supported me with the policies and procedures needed for our CQC registration and has continued to guide me around tenders, frameworks and procurement opportunities.\n\nMore than anything, he has been a genuine mentor - approachable, knowledgeable and always willing to help.\n\nI would happily recommend him to other care providers.",
     name: "Jude Onorihewe",
     role: "Registered Manager & Nominated Individual",
     company: "AbleWay Support Ltd",
@@ -107,8 +107,8 @@ export default function LaunchPage() {
               a: "You may have formed the company, but registration involves much more than completing an application. Your service model, documentation, leadership and operational foundations need to align.",
             },
             {
-              q: "Worried you’re not ready for CQC?",
-              a: "Gaps in your application, policies, evidence or understanding of your service can create problems before you’ve even started operating.",
+              q: "Worried you're not ready for CQC?",
+              a: "Gaps in your application, policies, evidence or understanding of your service can create problems before you've even started operating.",
             },
             {
               q: "Still need the right leadership structure?",
@@ -143,7 +143,7 @@ export default function LaunchPage() {
           eyebrow="HOW IT WORKS"
           title="How it works"
           steps={[
-            { num: "/01", title: "Assess", desc: "Understand where you are now and what you’ve already completed." },
+            { num: "/01", title: "Assess", desc: "Understand where you are now and what you've already completed." },
             { num: "/02", title: "Diagnose", desc: "Identify the gaps in your registration, leadership and business readiness." },
             { num: "/03", title: "Plan", desc: "Establish the priorities and the level of support appropriate for your situation." },
             { num: "/04", title: "Build", desc: "Work through the agreed registration and launch requirements with structured JV support." },
@@ -165,7 +165,7 @@ export default function LaunchPage() {
         <MultiStepForm funnel="launch"
           eyebrow="CQC READINESS ASSESSMENT"
           title="Find out how ready you are to move forward with your CQC registration"
-          intro="Complete the free CQC Readiness Assessment to help us understand your service, current stage, registration progress and biggest obstacles. Based on your answers, we’ll determine whether a focused 20-minute CQC Strategy Call is the appropriate next step."
+          intro="Complete the free CQC Readiness Assessment to help us understand your service, current stage, registration progress and biggest obstacles. Based on your answers, we'll determine whether a focused 20-minute CQC Strategy Call is the appropriate next step."
           bookCta="Book Your 20-Minute CQC Strategy Call"
           submitNote="The assessment is used to understand your circumstances and determine whether our services may be suitable. Completing the assessment does not guarantee acceptance as a client or any CQC outcome."
           steps={[
@@ -191,7 +191,7 @@ export default function LaunchPage() {
                 { name: "policies", label: "Policies and governance status", type: "select", options: ["In place", "Partially in place", "Not started"] },
                 { name: "rmStatus", label: "Registered Manager status", type: "select", options: ["RM identified and ready", "RM identified, needs preparation", "No RM yet"] },
                 { name: "obstacle", label: "What is your biggest obstacle right now?", type: "textarea" },
-                { name: "timeline", label: "Target timeline", type: "select", options: ["Within 3 months", "3–6 months", "6–12 months", "Over 12 months"] },
+                { name: "timeline", label: "Target timeline", type: "select", options: ["Within 3 months", "3-6 months", "6-12 months", "Over 12 months"] },
                 { name: "support", label: "Do you require professional support?", type: "radio", options: ["Yes", "Not sure yet"] },
               ],
             },
@@ -210,7 +210,7 @@ export default function LaunchPage() {
 
         <FunnelFinalCta
           title="Ready to find out where your CQC journey stands?"
-          body="Start with the free CQC Readiness Assessment. We’ll understand where you are, identify the key gaps and determine whether a strategy call is the right next step."
+          body="Start with the free CQC Readiness Assessment. We'll understand where you are, identify the key gaps and determine whether a strategy call is the right next step."
           cta="Get My Free CQC Readiness Assessment"
         />
 

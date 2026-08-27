@@ -51,9 +51,9 @@ export default function DisclaimerPage() {
       </ul>
       <p>
         Every such decision rests with the applicable independent third party
-        — the Care Quality Commission, the relevant commissioning or
+        - the Care Quality Commission, the relevant commissioning or
         contracting authority, the employer or care provider, the Home Office,
-        or another decision-maker — based on their own criteria, processes and
+        or another decision-maker - based on their own criteria, processes and
         judgement.
       </p>
 
@@ -73,7 +73,7 @@ export default function DisclaimerPage() {
         is not legal, regulatory, financial, tax or immigration advice. You
         should take appropriate independent professional advice before acting
         on any matter of significance. Where a solicitor referral is made (for
-        example in relation to sponsor licences), the solicitor&rsquo;s
+        example in relation to sponsor licences), the solicitor&apos;s
         services, advice and fees are entirely separate from ours.
       </p>
 

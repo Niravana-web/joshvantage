@@ -73,8 +73,8 @@ export async function notifyTeam(
     const funnelKey = { "JV Launch": "launch", "JV Growth": "growth", "JV Academy": "academy" }[nature];
     to = funnelKey ? FUNNEL_INBOX[funnelKey] : INFO;
     subject = funnelKey
-      ? `New ${nature} Enquiry – ${name}`
-      : `New Enquiry (${nature}) – ${name}`;
+      ? `New ${nature} Enquiry - ${name}`
+      : `New Enquiry (${nature}) - ${name}`;
   } else {
     to = FUNNEL_INBOX[funnel] ?? INFO;
     const kind =
@@ -83,7 +83,7 @@ export async function notifyTeam(
         : funnel === "growth"
           ? "Tender Assessment"
           : "Assessment";
-    subject = `New ${FUNNEL_LABEL[funnel] ?? funnel} ${kind} – ${name}`;
+    subject = `New ${FUNNEL_LABEL[funnel] ?? funnel} ${kind} - ${name}`;
   }
 
   await send({
@@ -107,31 +107,31 @@ export async function notifyCustomer(
   const { subject, body, replyTo } =
     funnel === "contact"
       ? {
-          subject: "We have received your enquiry — Josh Vantage Consulting Group",
+          subject: "We have received your enquiry - Josh Vantage Consulting Group",
           body: "Thank you for contacting Josh Vantage Consulting Group. A member of the team will review your enquiry and come back to you.",
           replyTo: INFO,
         }
       : funnel === "academy"
         ? {
-            subject: "Your Registered Manager Leadership Programme application — JV Academy",
+            subject: "Your Registered Manager Leadership Programme application - JV Academy",
             body: "Thank you for applying for the Registered Manager Leadership Programme. We will review your application and contact you about the next step. Submitting an application does not guarantee admission to the programme or any employment, Registered Manager, CQC, sponsorship or other professional outcome.",
             replyTo: FUNNEL_INBOX.academy,
           }
         : funnel === "growth"
           ? {
-              subject: "Your Tender Assessment — JV Growth",
+              subject: "Your Tender Assessment - JV Growth",
               body: "Thank you for completing the JV Growth Tender Assessment. We will review the opportunity, scope, deadline and available evidence before confirming whether we can support the submission, and will be in touch shortly.",
               replyTo: FUNNEL_INBOX.growth,
             }
           : {
-              subject: "Your CQC Readiness Assessment — JV Launch",
+              subject: "Your CQC Readiness Assessment - JV Launch",
               body: "Thank you for completing the JV Launch CQC Readiness Assessment. We will review your current position and come back to you about the next step. Completing the assessment does not guarantee acceptance as a client or any CQC outcome.",
               replyTo: FUNNEL_INBOX.launch,
             };
 
   await send({
     from: label
-      ? `${label} — Josh Vantage Consulting Group <notifications@niravana.in>`
+      ? `${label} - Josh Vantage Consulting Group <notifications@niravana.in>`
       : FROM,
     to: [answers.email],
     reply_to: [replyTo],

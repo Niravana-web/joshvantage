@@ -37,12 +37,12 @@ export default function GrowthPage() {
               a: "Not every opportunity is the right opportunity. Before committing significant time and resources, we help assess the requirements, scope and fit.",
             },
             {
-              q: "Don’t have time to build a strong submission?",
+              q: "Don't have time to build a strong submission?",
               a: "Tender responses can involve extensive specifications, method statements and evidence requirements. We help turn your operational knowledge into structured, evidence-led responses.",
             },
             {
               q: "Tendered before without winning?",
-              a: "A compliant answer isn’t automatically a competitive answer. We focus on the specification, scoring criteria, evidence and what the evaluator is actually asking you to demonstrate.",
+              a: "A compliant answer isn't automatically a competitive answer. We focus on the specification, scoring criteria, evidence and what the evaluator is actually asking you to demonstrate.",
             },
           ]}
         />
@@ -54,7 +54,7 @@ export default function GrowthPage() {
             { num: "/01", title: "Assess Opportunity", desc: "Is this opportunity commercially and operationally worth pursuing?" },
             { num: "/02", title: "Analyse the Tender", desc: "Break down the specification, evaluation criteria, submission requirements and scoring structure." },
             { num: "/03", title: "Build the Evidence", desc: "Identify the policies, examples, outcomes, processes and operational evidence needed to support the bid." },
-            { num: "/04", title: "Develop the Bid", desc: "Build structured, evidence-led responses around the buyer’s requirements." },
+            { num: "/04", title: "Develop the Bid", desc: "Build structured, evidence-led responses around the buyer's requirements." },
             { num: "/05", title: "Quality & Compliance Review", desc: "Review the submission against the requirements before finalisation." },
           ]}
         />
@@ -100,7 +100,7 @@ export default function GrowthPage() {
                 "Compliance requirements check",
                 "Evidence-gap review",
                 "Client information session",
-                "Tender response writing — indicative scope up to 3,500 words",
+                "Tender response writing - indicative scope up to 3,500 words",
                 "Proofreading / editing",
                 "Final quality review",
                 "Submission-readiness check",
@@ -138,7 +138,7 @@ export default function GrowthPage() {
         <MultiStepForm funnel="growth"
           eyebrow="TENDER ASSESSMENT"
           title="Is this tender worth pursuing? Start here."
-          intro="Tell us about your business and the opportunity you’re considering. We’ll assess the tender, your current position and the support required before recommending the appropriate next step."
+          intro="Tell us about your business and the opportunity you're considering. We'll assess the tender, your current position and the support required before recommending the appropriate next step."
           bookCta="Book Your 20-Minute Tender Strategy Call"
           submitNote="Submitting this assessment does not guarantee that Josh Vantage will accept the tender instruction or that any tender will be successful. We review the opportunity, scope, deadline and available evidence before confirming whether we can support the submission."
           steps={[
@@ -179,8 +179,8 @@ export default function GrowthPage() {
         <FunnelDisclaimer text="Josh Vantage Consulting Group provides consultancy, tender preparation and business development support. We do not guarantee tender awards, contracts, revenue, business growth or any specific commercial outcome. Procurement and contracting decisions are made independently by the relevant commissioning or contracting organisation." />
 
         <FunnelFinalCta
-          title="Have a tender opportunity you’re considering?"
-          body="Start with the Tender Assessment. We’ll understand the opportunity, deadline and support required before determining the appropriate next step."
+          title="Have a tender opportunity you're considering?"
+          body="Start with the Tender Assessment. We'll understand the opportunity, deadline and support required before determining the appropriate next step."
           cta="Get My Tender Assessment"
         />
 

@@ -12,8 +12,8 @@ export default function PrivacyPage() {
     <LegalPage eyebrow="/PRIVACY" title="Privacy Notice" updated="16 AUGUST 2026">
       <h2>1. Who we are</h2>
       <p>
-        Josh Vantage Consulting Group Ltd (&ldquo;Josh Vantage&rdquo;,
-        &ldquo;we&rdquo;, &ldquo;us&rdquo;) provides consultancy, training and
+        Josh Vantage Consulting Group Ltd (&quot;Josh Vantage&quot;,
+        &quot;we&quot;, &quot;us&quot;) provides consultancy, training and
         business support services to people and organisations in the UK care
         sector. We are a company registered in England and Wales, company
         number 15931129, and our contact address is 863 High Road, Ilford IG3
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
       <p>
         Assessment, application and enquiry submissions are retained for as
         long as needed to deal with your request and for a reasonable period
-        afterwards so we can respond to follow-up contact — no longer than 24
+        afterwards so we can respond to follow-up contact - no longer than 24
         months where no engagement results. Where you become a client, records
         are kept for the duration of the engagement and then for up to six
         years in line with limitation periods for contractual claims. We
@@ -131,11 +131,11 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>MongoDB Atlas</strong> — our database provider, which stores
+          <strong>MongoDB Atlas</strong> - our database provider, which stores
           form submissions;
         </li>
         <li>
-          <strong>Vercel Inc.</strong> — our website hosting provider, which
+          <strong>Vercel Inc.</strong> - our website hosting provider, which
           processes data transmitted through the site;
         </li>
         <li>professional advisers (legal, accounting) where necessary;</li>
@@ -154,8 +154,8 @@ export default function PrivacyPage() {
         Our hosting and database providers may process data in data centres
         outside the UK, including in the United States. Where that happens,
         transfers are protected by safeguards recognised under UK data
-        protection law, including the UK Extension to the EU&ndash;US Data
-        Privacy Framework and/or the ICO&rsquo;s International Data Transfer
+        protection law, including the UK Extension to the EU-US Data
+        Privacy Framework and/or the ICO&apos;s International Data Transfer
         Agreement / Addendum to the EU Standard Contractual Clauses.
       </p>
 
@@ -166,7 +166,7 @@ export default function PrivacyPage() {
         used solely by our staff to access a private administration area;
         ordinary visitors do not receive it. Our Contact page includes an
         embedded Google Map that loads only if you choose to activate it, at
-        which point Google may set its own cookies — see Google&rsquo;s privacy
+        which point Google may set its own cookies - see Google&apos;s privacy
         policy for details.
       </p>
 
@@ -186,7 +186,7 @@ export default function PrivacyPage() {
       <p>
         If you are unhappy with how we handle your personal information,
         please contact us first so we can try to resolve it. You also have the
-        right to complain to the Information Commissioner&rsquo;s Office
+        right to complain to the Information Commissioner&apos;s Office
         (ICO): ico.org.uk / 0303 123 1113.
       </p>
 

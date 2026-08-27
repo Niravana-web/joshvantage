@@ -120,7 +120,7 @@ export default function EvidenceGallery({ items }: { items: Evidence[] }) {
             className="mx-auto w-full max-w-[900px] bg-white shadow-2xl"
           />
           <p className="mx-auto mt-4 max-w-[900px] pb-4 text-center text-[12.5px] text-white/60">
-            {open.title} &mdash; tap outside the document or press Esc to close
+            {open.title} - tap outside the document or press Esc to close
           </p>
         </div>
       )}

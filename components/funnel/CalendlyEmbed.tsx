@@ -114,7 +114,7 @@ export default function CalendlyEmbed({
       />
       <p className="mt-4 text-[12px] text-[#8a8a83]">
         {failed
-          ? "The booking calendar could not load — it may be blocked by your browser. "
+          ? "The booking calendar could not load - it may be blocked by your browser. "
           : "Prefer a new tab? "}
         <a
           href={url}

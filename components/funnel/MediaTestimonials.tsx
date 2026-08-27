@@ -120,11 +120,11 @@ export default function MediaTestimonials({
                     {t.quote && (
                       <blockquote className="whitespace-pre-line text-[15.5px] leading-relaxed text-[#33332f] md:text-[16px]">
                         <span aria-hidden className="text-[var(--brand-navy)]">
-                          &ldquo;
+                          &quot;
                         </span>
                         {t.quote}
                         <span aria-hidden className="text-[var(--brand-navy)]">
-                          &rdquo;
+                          &quot;
                         </span>
                       </blockquote>
                     )}

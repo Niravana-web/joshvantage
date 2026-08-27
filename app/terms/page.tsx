@@ -29,8 +29,8 @@ export default function TermsPage() {
 
       <h2>3. Intellectual property</h2>
       <p>
-        The content of this website — including text, branding, the Josh
-        Vantage name and logo, page designs and images — is owned by or
+        The content of this website - including text, branding, the Josh
+        Vantage name and logo, page designs and images - is owned by or
         licensed to Josh Vantage Consulting Group Ltd and is protected by
         intellectual property laws. You may view and print pages for your own
         personal or internal business reference. You must not otherwise

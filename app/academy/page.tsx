@@ -80,7 +80,7 @@ const ACADEMY_TESTIMONIALS: MediaTestimonial[] = [
         "Jeevitha Reddys Panchangam, Care Manager at Starlit Recruitment Ltd, on progressing from a student background into care management with JV Academy",
     },
     quote:
-      "I came from a student background and wanted to build a professional career in UK health and social care. Through JV Academy, I received training and ongoing support around care management, leadership, CQC expectations and managing a care service. I’ve now progressed into working as a Care Manager and feel much more confident, knowledgeable and prepared as I continue developing towards greater leadership responsibilities.",
+      "I came from a student background and wanted to build a professional career in UK health and social care. Through JV Academy, I received training and ongoing support around care management, leadership, CQC expectations and managing a care service. I've now progressed into working as a Care Manager and feel much more confident, knowledgeable and prepared as I continue developing towards greater leadership responsibilities.",
     name: "Jeevitha Reddys Panchangam",
     role: "Care Manager",
     company: "Starlit Recruitment Ltd",
@@ -108,8 +108,8 @@ const AUDIENCE = [
    university campaign has to recognise themselves in the first card, so the
    programme does not read as being for experienced care workers only. */
 const PAINS = [
-  "I want to build a career in health and social care, but I’m not sure where to start or how to build the right experience.",
-  "I already work in care, but I’m not sure how to move from delivering care into leadership and management.",
+  "I want to build a career in health and social care, but I'm not sure where to start or how to build the right experience.",
+  "I already work in care, but I'm not sure how to move from delivering care into leadership and management.",
   "I want to progress towards Registered Manager level, but I need stronger regulatory knowledge, management evidence and interview readiness.",
 ];
 
@@ -234,7 +234,7 @@ export default function AcademyPage() {
                 className="mt-6 text-3xl font-semibold leading-snug md:text-4xl"
                 style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
               >
-                The goal is to build towards management — not just prepare
+                The goal is to build towards management - not just prepare
                 for an interview.
               </h2>
               <p className="mt-6 text-[15.5px] leading-relaxed text-[#4c4c47]">
@@ -283,7 +283,7 @@ export default function AcademyPage() {
               preparation.
             </p>
             <p className="mx-auto mt-4 max-w-xl text-[13px] text-[#8a8a83]">
-              The investment covers the programme&rsquo;s training, mentoring,
+              The investment covers the programme&apos;s training, mentoring,
               preparation and development support. It does not purchase
               employment, sponsorship, visa support or a Registered Manager
               role.

@@ -152,11 +152,11 @@ export default function ClientExperiences() {
                     }
                   >
                     <span aria-hidden className="text-[var(--brand-navy)]">
-                      &ldquo;
+                      &quot;
                     </span>
                     {e.quote}
                     <span aria-hidden className="text-[var(--brand-navy)]">
-                      &rdquo;
+                      &quot;
                     </span>
                   </blockquote>
                 )}

@@ -27,7 +27,7 @@ export default function StickyLogo() {
       href="/"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      aria-label="Josh Vantage Consulting Group — home"
+      aria-label="Josh Vantage Consulting Group - home"
       className={`fixed left-4 top-4 z-40 grid h-16 w-16 place-items-center rounded-full bg-[rgba(9,17,48,0.85)] shadow-[0_10px_30px_rgba(6,13,36,0.45)] backdrop-blur-sm transition-all duration-300 md:left-6 md:top-5 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"
       }`}

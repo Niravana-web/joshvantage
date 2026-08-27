@@ -182,7 +182,7 @@ const TALENT_POOL = [
   },
   {
     title: "Introductions Based on Fit",
-    desc: "Potential introductions are considered based on the needs of the service and the candidate’s experience and readiness.",
+    desc: "Potential introductions are considered based on the needs of the service and the candidate's experience and readiness.",
   },
   {
     title: "Separate Talent Service",
@@ -210,7 +210,7 @@ const SCOPE_NOTES = [
 function cell(v: Cell) {
   if (v === true)
     return <span className="text-[15px] font-semibold text-[var(--brand-navy)]">&#10003;</span>;
-  if (v === null) return <span className="text-[#c6c6c0]">&ndash;</span>;
+  if (v === null) return <span className="text-[#c6c6c0]">-</span>;
   return <span className="text-[13px] leading-snug text-[#33332f]">{v}</span>;
 }
 
@@ -223,7 +223,7 @@ export default function LaunchPackages() {
         <SectionHead
           eyebrow="SUPPORT OPTIONS"
           title="JV Launch support options"
-          intro="Choose the level of support that matches your starting point. JV Launch offers three levels of support depending on how much of your registration and business foundation is already in place. Start with the free CQC Readiness Assessment and we’ll identify the most appropriate level of support for your situation."
+          intro="Choose the level of support that matches your starting point. JV Launch offers three levels of support depending on how much of your registration and business foundation is already in place. Start with the free CQC Readiness Assessment and we'll identify the most appropriate level of support for your situation."
         />
 
         {/* Shared foundation — keeps the comparison table down to what differs */}
