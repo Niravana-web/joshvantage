@@ -24,7 +24,7 @@ const SOCIALS: { name: string; href: string; path: string }[] = [
 ];
 
 /*
- * `generalCta` controls the "Building, growing, or leading…/Contact us" block.
+ * `generalCta` controls the "Looking to build or grow…/Contact us" block.
  * Funnel pages switch it off: each drives one specific assessment, and a
  * generic contact CTA competes with that. The homepage and /contact keep it.
  */
@@ -34,15 +34,15 @@ export default function Footer({ generalCta = true }: { generalCta?: boolean }) 
       <div className="relative z-10 mx-auto grid max-w-6xl gap-14 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
           {generalCta && (
-            <p className="max-w-xs text-lg font-light leading-relaxed text-white/80">
-              Building, growing, or leading a care business? Start with the right
-              assessment. Let&apos;s talk.
+            <p className="max-w-sm text-lg font-light leading-relaxed text-white/80">
+              Looking to build or grow a UK care business, or develop your career
+              in health and social care? Choose your pathway to get started.
             </p>
           )}
           <div className={`space-y-7 text-[15px] ${generalCta ? "mt-10" : ""}`}>
             {generalCta && (
               <div>
-                <p className="eyebrow-mono mb-1.5 text-white/40">GET IN TOUCH</p>
+                <p className="eyebrow-mono mb-1.5 text-white/40">GENERAL ENQUIRIES</p>
                 <a
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-[13.5px] font-semibold transition-colors hover:bg-white/25"
@@ -120,8 +120,13 @@ export default function Footer({ generalCta = true }: { generalCta?: boolean }) 
           individual circumstances and decisions made by independent third
           parties.
         </p>
-        <p className="eyebrow-mono mt-5 text-[12px] text-white/40">
-          &copy; 2026 JOSH VANTAGE CONSULTING GROUP. ALL RIGHTS RESERVED.
+        <p className="mt-5 max-w-4xl text-[12px] leading-relaxed text-white/40">
+          Josh Vantage Consulting Group Ltd | Company No. 15931129 | Registered
+          in England and Wales | Registered Office: 863 High Road, Ilford,
+          England, IG3 8TG
+        </p>
+        <p className="mt-5 text-[12px] leading-relaxed text-white/40">
+          &copy; 2026 Josh Vantage Consulting Group Ltd. All rights reserved.
         </p>
       </div>
     </footer>
