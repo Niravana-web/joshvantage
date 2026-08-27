@@ -54,7 +54,7 @@ export default function Funnels() {
 
     // Desktop: pinned, scroll-scrubbed sequence.
     // The heading and the first card are deliberately OUTSIDE the scrubbed
-    // timeline: #journey is the target of every "Find Your Path" link, so
+    // timeline: #journey is the target of every "Choose Your Path" link, so
     // arriving here at scrub progress 0 must never show an empty navy screen.
     mm.add("(min-width: 768px)", () => {
       const cards = gsap.utils.toArray<HTMLElement>(".funnel-card");

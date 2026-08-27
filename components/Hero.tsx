@@ -94,7 +94,7 @@ export default function Hero() {
           onClick={() => track("find_your_path_click", { location: "hero" })}
           className="group mt-8 inline-flex h-13 items-center rounded-full bg-[var(--brand-pale)] px-8 py-3.5 text-[14.5px] font-semibold text-[var(--brand-navy)] transition-colors hover:bg-white"
         >
-          Find Your Path
+          Choose Your Path
           <span
             aria-hidden
             className="ml-2 transition-transform duration-300 group-hover:translate-x-1"

@@ -32,7 +32,7 @@ export default function FinalCta() {
             onClick={() => track("find_your_path_click", { location: "final_cta" })}
             className="group flex h-13 items-center rounded-full border border-white/30 px-8 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:border-[var(--brand-pale)] hover:bg-[var(--brand-pale)] hover:text-[var(--brand-navy)] focus-visible:border-[var(--brand-pale)] focus-visible:bg-[var(--brand-pale)] focus-visible:text-[var(--brand-navy)]"
           >
-            Find Your Path
+            Choose Your Path
             <span
               aria-hidden
               className="ml-2 transition-transform duration-300 group-hover:translate-x-1"

@@ -58,7 +58,7 @@ export default function Home() {
           <Footer />
         </div>
         <StickyAssessmentCta
-          label="Find Your Path"
+          label="Choose Your Path"
           target="#journey"
           /* #contact is the site footer. A bare `footer` selector would also
              match each testimonial card's attribution <footer>, which hid the
