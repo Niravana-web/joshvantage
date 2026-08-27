@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 
+/*
+ * The three funnel options were removed deliberately: JV Launch / Growth /
+ * Academy enquiries are meant to start from their own assessment or
+ * application (see the pathway links above the form on /contact), so this
+ * page now only handles enquiries that fall outside those funnels.
+ */
 const NATURE_OPTIONS = [
-  "JV Launch",
-  "JV Growth",
-  "JV Academy",
   "Existing Client",
   "Partnership / Professional Enquiry",
+  "General Enquiry",
   "Other",
 ];
 

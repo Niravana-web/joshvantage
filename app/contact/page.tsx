@@ -36,16 +36,54 @@ export default function ContactPage() {
               className="mt-5 text-4xl font-semibold leading-tight text-white md:text-5xl"
               style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
             >
-              Let&apos;s talk about your care journey
+              Have a general enquiry?
             </h1>
             <p className="mt-5 max-w-xl text-lg font-light leading-relaxed text-white/85">
-              Tell us a little about your enquiry and a member of the team will
-              come back to you.
+              For general enquiries, partnerships or questions that don&apos;t
+              fit one of our dedicated pathways, send us a message and a member
+              of the team will get back to you.
             </p>
           </div>
         </section>
 
-        <section className="bg-white px-6 py-20 text-[#181815] md:px-12">
+        <section className="bg-white px-6 pt-20 text-[#181815] md:px-12">
+          <div className="mx-auto max-w-6xl border border-black/10 bg-[#fbfbfa] p-7 md:p-9">
+            <h2
+              className="text-2xl font-semibold leading-tight md:text-[1.75rem]"
+              style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+            >
+              Looking for JV Launch, JV Growth or JV Academy support?
+            </h2>
+            <p className="mt-4 max-w-3xl text-[15.5px] leading-relaxed text-[#4c4c47]">
+              Please start through the relevant assessment or application so we
+              can understand your requirements and direct you to the appropriate
+              next step.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {[
+                { label: "JV Launch", detail: "CQC Readiness Assessment", href: "/launch#assessment" },
+                { label: "JV Growth", detail: "Tender Assessment", href: "/growth#assessment" },
+                { label: "JV Academy", detail: "Programme Application", href: "/academy#assessment" },
+              ].map((path) => (
+                <a
+                  key={path.label}
+                  href={path.href}
+                  className="group flex flex-col justify-between gap-3 border border-black/15 bg-white px-5 py-4 transition-colors hover:border-[var(--brand-navy)] hover:bg-[var(--brand-navy)] hover:text-white"
+                >
+                  <span className="text-[15px] font-semibold">{path.label}</span>
+                  <span className="flex items-center justify-between gap-3 text-[13.5px] leading-snug text-[#4c4c47] transition-colors group-hover:text-white/80">
+                    {path.detail}
+                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                      &#8594;
+                    </span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-6 pb-20 pt-14 text-[#181815] md:px-12">
           <div className="mx-auto grid max-w-6xl items-stretch gap-10 md:grid-cols-[1fr_1.15fr]">
             {/* Intro copy — left on desktop, below the form on mobile */}
             <div className="order-2 flex flex-col justify-center md:order-1">
