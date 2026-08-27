@@ -66,17 +66,25 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
     company: "AbleWay Support Ltd",
   },
   {
-    /* RIGHT — Starlit Recruitment. Format not yet confirmed: this is written
-       as a photo/written card, and switching it to
-       `{ kind: "video", src, label }` is the only change needed if a video
-       is supplied instead. Either way it balances against the left card. */
+    /* RIGHT — Starlit Recruitment, balancing the video on the left. The
+       quote is the client's supplied wording, used verbatim, including
+       "Joshi" and the company's full registered name as they wrote them.
+       The photograph is the client-supplied portrait, cropped to the same
+       3:4 framing as the other written card. It describes this provider's
+       own relaunch, their Registered Manager's CQC interview and ongoing
+       tender and subcontracting support — their experience, not an offer, so
+       none of it may be tightened into a promise of clients, contracts or a
+       successful registration. */
     id: "starlit-recruitment",
-    published: false,
+    published: true,
     media: {
       kind: "photo",
       src: "/testimonials/starlit-recruitment.jpg",
-      alt: "Starlit Recruitment client testimonial",
+      alt: "Starlit Recruitment Limited client testimonial",
     },
+    quote:
+      "Starlit Recruitment Limited had been dormant for some time, and Josh and his team provided the practical support we needed to relaunch the business. They helped us secure clients, strengthen our operations and build an effective management structure.\n\nThrough JV Academy, they also helped us find and prepare our Registered Manager, supporting her throughout the CQC interview process. Joshi is very knowledgeable, is always helpful, approachable and provides excellent advice whenever we need it. His team continues to guide us with tenders, subcontracting opportunities and building relationships with other providers.\n\nTheir support has made a real difference to our business, and I would confidently recommend Josh Vantage to other health and social care providers.",
+    company: "Starlit Recruitment Limited",
   },
 ];
 
