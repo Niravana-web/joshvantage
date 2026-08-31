@@ -13,6 +13,8 @@ import FunnelDisclaimer from "@/components/funnel/FunnelDisclaimer";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import JsonLd from "@/components/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "JV Growth | Josh Vantage Consulting Group",
@@ -23,6 +25,19 @@ export default function GrowthPage() {
   return (
     <SmoothScroll>
       <main>
+        <JsonLd
+          schema={[
+            serviceSchema({
+              path: "/growth",
+              name: "JV Growth",
+              serviceType: "Health and social care tender writing",
+              description:
+                "Tender support for established UK care providers, covering bid/no-bid review, specification and scoring analysis, evidence gathering and the written submission.",
+              audience: "Established UK care providers pursuing contracts and frameworks",
+            }),
+            breadcrumbSchema([{ name: "JV Growth", path: "/growth" }]),
+          ]}
+        />
         <FunnelHero
           eyebrow="JV GROWTH"
           title="Win Your Next Care Tender With a Stronger, Evidence-Led Bid"

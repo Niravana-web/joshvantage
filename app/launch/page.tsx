@@ -12,6 +12,8 @@ import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import JsonLd from "@/components/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "JV Launch | Josh Vantage Consulting Group",
@@ -101,6 +103,19 @@ export default function LaunchPage() {
   return (
     <SmoothScroll>
       <main>
+        <JsonLd
+          schema={[
+            serviceSchema({
+              path: "/launch",
+              name: "JV Launch",
+              serviceType: "CQC registration consultancy",
+              description:
+                "Preparation and consultancy support for people registering a new UK care business with the Care Quality Commission, covering the service model, documentation, Nominated Individual and Registered Manager readiness and the application itself.",
+              audience: "People launching a regulated care service in the UK",
+            }),
+            breadcrumbSchema([{ name: "JV Launch", path: "/launch" }]),
+          ]}
+        />
         <FunnelHero
           eyebrow="JV LAUNCH"
           title="Launch Your UK Care Business With the Right CQC Foundations From Day One"

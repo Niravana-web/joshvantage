@@ -9,15 +9,21 @@ import Founder from "@/components/sections/Founder";
 import ClientExperiences from "@/components/sections/ClientExperiences";
 import ChooseYourPath from "@/components/sections/ChooseYourPath";
 import Reviews from "@/components/sections/Reviews";
-import Faq from "@/components/sections/Faq";
+import Faq, { FAQS } from "@/components/sections/Faq";
 import FinalCta from "@/components/sections/FinalCta";
 import Footer from "@/components/sections/Footer";
 import StickyAssessmentCta from "@/components/funnel/StickyAssessmentCta";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema, websiteSchema, faqSchema } from "@/lib/schema";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <main>
+        {/* Site-wide identity graph. It lives on the homepage rather than
+            the layout so the organisation is declared once, on the page
+            search engines treat as the entity's home. */}
+        <JsonLd schema={[organizationSchema, websiteSchema, faqSchema(FAQS)]} />
         <Splash />
         {/* One tall silk canvas that scrolls WITH the page: the hero sits on
             the silk-rich top, then the same surface continues down through

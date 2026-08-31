@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Contact | Josh Vantage Consulting Group",
@@ -13,6 +15,7 @@ export default function ContactPage() {
   return (
     <SmoothScroll>
       <main>
+        <JsonLd schema={breadcrumbSchema([{ name: "Contact", path: "/contact" }])} />
         <section className="relative overflow-hidden">
           <div className="silk">
             {/* eslint-disable-next-line @next/next/no-img-element */}

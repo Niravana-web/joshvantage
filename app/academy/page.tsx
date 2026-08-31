@@ -9,6 +9,8 @@ import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/sections/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import JsonLd from "@/components/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "JV Academy | Josh Vantage Consulting Group",
@@ -152,6 +154,19 @@ export default function AcademyPage() {
   return (
     <SmoothScroll>
       <main>
+        <JsonLd
+          schema={[
+            serviceSchema({
+              path: "/academy",
+              name: "JV Academy",
+              serviceType: "Registered Manager leadership development programme",
+              description:
+                "A professional development programme building the regulatory, leadership, operational and interview capability required to compete for Registered Manager opportunities in UK health and social care.",
+              audience: "Care professionals developing towards Registered Manager leadership",
+            }),
+            breadcrumbSchema([{ name: "JV Academy", path: "/academy" }]),
+          ]}
+        />
         <FunnelHero
           eyebrow="JV ACADEMY"
           title="Ready to Step Up as a Registered Manager?"

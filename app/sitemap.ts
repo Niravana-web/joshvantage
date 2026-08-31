@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-
-const BASE = "https://joshvantage.com";
+import { SITE_URL } from "@/lib/schema";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const page = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({
-    url: `${BASE}${path}`,
+    url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority,

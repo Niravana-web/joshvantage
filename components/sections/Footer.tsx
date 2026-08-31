@@ -1,6 +1,6 @@
 /* Official account URLs to be supplied by the client — icons render as
    soon as an href is filled in; "#" entries still show but go nowhere. */
-const SOCIALS: { name: string; href: string; path: string }[] = [
+export const SOCIALS: { name: string; href: string; path: string }[] = [
   {
     name: "Instagram",
     href: "https://www.instagram.com/josh_careconsultant",

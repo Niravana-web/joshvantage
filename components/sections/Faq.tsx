@@ -1,7 +1,7 @@
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
 
-const FAQS = [
+export const FAQS = [
   {
     q: "Who does Josh Vantage work with?",
     a: "Josh Vantage supports people at different stages of the UK care journey: students and graduates exploring a career in care, people already working in the sector who want to progress into leadership, individuals preparing to launch a regulated care business, and established care providers pursuing growth and tender opportunities. You do not need to already be a manager or business owner. Your starting point determines the pathway, support and preparation that may be appropriate for you.",

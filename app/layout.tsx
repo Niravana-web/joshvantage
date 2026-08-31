@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   description:
     "Specialist support for people launching care businesses, established care providers pursuing new contracts and aspiring and experienced professionals developing towards Registered Manager leadership.",
   alternates: { canonical: "./" },
+  /* Google Search Console ownership. The token is an env var rather than a
+     literal so the verification can be re-issued without a code change, and
+     it must be present at build time: these pages are prerendered. Unset,
+     the meta tag simply does not render. */
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   /* The site is published by the client and built by the agency — `publisher`
      and `creator` keep that distinction accurate rather than crediting one for
      the other's work. */
