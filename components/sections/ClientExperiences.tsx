@@ -151,13 +151,7 @@ export default function ClientExperiences() {
                         : { fontFamily: "var(--font-lora), Georgia, serif" }
                     }
                   >
-                    <span aria-hidden className="text-[var(--brand-navy)]">
-                      &quot;
-                    </span>
                     {e.quote}
-                    <span aria-hidden className="text-[var(--brand-navy)]">
-                      &quot;
-                    </span>
                   </blockquote>
                 )}
 

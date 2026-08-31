@@ -119,13 +119,7 @@ export default function MediaTestimonials({
                   <div className="flex flex-col p-8 md:p-9">
                     {t.quote && (
                       <blockquote className="whitespace-pre-line text-[15.5px] leading-relaxed text-[#33332f] md:text-[16px]">
-                        <span aria-hidden className="text-[var(--brand-navy)]">
-                          &quot;
-                        </span>
                         {t.quote}
-                        <span aria-hidden className="text-[var(--brand-navy)]">
-                          &quot;
-                        </span>
                       </blockquote>
                     )}
 
