@@ -71,6 +71,10 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
     /* RIGHT — Starlit Recruitment, balancing the video on the left. The
        quote is the client's supplied wording, used verbatim, including
        "Joshi" and the company's full registered name as they wrote them.
+       Attribution follows the same name / role / company hierarchy as the
+       Jude card above. The client's attribution line abbreviated the company
+       to "Ltd"; it is written out as "Starlit Recruitment Limited" here so
+       the credit matches the registered name used inside the quote.
        The photograph is the client-supplied portrait, cropped to the same
        3:4 framing as the other written card. It describes this provider's
        own relaunch, their Registered Manager's CQC interview and ongoing
@@ -82,10 +86,12 @@ const LAUNCH_TESTIMONIALS: MediaTestimonial[] = [
     media: {
       kind: "photo",
       src: "/testimonials/starlit-recruitment.jpg",
-      alt: "Starlit Recruitment Limited client testimonial",
+      alt: "Ramandhip Kaur Dhillon, Director and Nominated Individual at Starlit Recruitment Limited",
     },
     quote:
       "Starlit Recruitment Limited had been dormant for some time, and Josh and his team provided the practical support we needed to relaunch the business. They helped us secure clients, strengthen our operations and build an effective management structure.\n\nThrough JV Academy, they also helped us find and prepare our Registered Manager, supporting her throughout the CQC interview process. Joshi is very knowledgeable, is always helpful, approachable and provides excellent advice whenever we need it. His team continues to guide us with tenders, subcontracting opportunities and building relationships with other providers.\n\nTheir support has made a real difference to our business, and I would confidently recommend Josh Vantage to other health and social care providers.",
+    name: "Ramandhip Kaur Dhillon",
+    role: "Director and Nominated Individual",
     company: "Starlit Recruitment Limited",
   },
 ];
